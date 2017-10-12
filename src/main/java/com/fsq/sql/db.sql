@@ -6,12 +6,11 @@ CREATE TABLE t_student(
   no CHAR(20) PRIMARY KEY,
   name CHAR(20),
   sex BOOL,
-  birthday DATE,
+  grade CHAR(20),
   major CHAR(20),
   credit_passed INT,
   credit_not_passed INT,
-  gpa FLOAT,
-  home_address CHAR(50)
+  gpa FLOAT
 );
 
 -- 教师表
@@ -20,7 +19,7 @@ CREATE TABLE t_teacher(
   no CHAR(20) PRIMARY KEY,
   name char(20),
   sex BOOL,
-  major char(20)
+  dept char(20)
 );
 
 -- 管理员表
@@ -35,8 +34,8 @@ CREATE TABLE t_course(
   id INT NOT NULL AUTO_INCREMENT,
   no CHAR(20),
   name CHAR(20),
-  creadit INT,
-  type INT,
+  credit INT,
+  type CHAR(20),
   tech_no CHAR(20),
   start_time DATE,
   end_time DATE,

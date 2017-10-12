@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.fsq.mappers.StudentMapper">
+    <!-- 此处select标签的id值对应Mapper类中方法名 -->
+    <resultMap type="com.fsq.entity.Student" id="studentMap">
+        <id property="no" column="no" />
+        <id property="password" column="password" />
+        <result property="name" column="name" />
+        <result property="sex" column="sex" />
+        <result property="age" column="age" />
+        <result property="grade" column="grade" />
+        <result property="major" column="major" />
+        <result property="creditPassed" column="credit_passed" />
+        <result property="creditNotPassed" column="credit_not_passed" />
+        <result property="gpa" column="gpa" />
+    </resultMap>
+
+
+    <select id="getStudentByNo" parameterType="String" resultMap="studentMap">
+        SELECT * FROM t_student WHERE no = #{no}
+    </select>
+
+    <select id="getStudentByName" parameterType="String" resultMap="studentMap">
+        SELECT * FROM t_student WHERE name = #{name}
+    </select>
+
+    <select id="count" resultType="Integer">
+        SELECT count(*) FROM t_student;
+    </select>
+
+    <insert id="insertStudent" parameterType="com.fsq.entity.Student">
+        INSERT INTO t_student(no, password, name, sex, age, grade, major,
+        credit_passed, credit_not_passed, gpa)
+        VALUES (#{no}, #{password},#{name},#{sex}, #{age}, #{grade}, #{major},
+        #{creditPassed}, #{creditNotPassed}, #{gpa});
+    </insert>
+
+    <update id="updateStudent" parameterType="com.fsq.entity.Student">
+        UPDATE t_student
+        SET password = #{password},
+            name = #{name},
+            sex = #{sex},
+            age = #{age},
+            grade = #{grade},
+            major = #{major},
+            credit_passed = #{creditPassed},
+            credit_not_passed = #{creditNotPassed},
+            gpa = #{gpa}
+        WHERE no = #{no}
+    </update>
+
+    <delete id="deleteStudentByNo" parameterType="String">
+        DELETE FROM t_student
+        WHERE no = #{no}
+    </delete>
+
+</mapper>

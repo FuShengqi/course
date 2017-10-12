@@ -2,7 +2,8 @@
 
 -- 学生表
 CREATE TABLE t_student(
-  no CHAR(20)PRIMARY KEY,
+  no CHAR(20) PRIMARY KEY,
+  password CHAR(20),
   name CHAR(20),
   sex BOOL,
   age INT,
@@ -16,6 +17,7 @@ CREATE TABLE t_student(
 -- 教师表
 CREATE TABLE t_teacher(
   no CHAR(20) PRIMARY KEY,
+  password CHAR(20),
   name char(20),
   sex BOOL,
   age INT,
@@ -25,6 +27,7 @@ CREATE TABLE t_teacher(
 -- 管理员表
 CREATE TABLE t_admin(
   no CHAR(20) PRIMARY KEY,
+  password CHAR(20),
   name CHAR(20)
 );
 

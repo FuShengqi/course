@@ -7,6 +7,8 @@ public class Admin {
 
     private String no;
 
+    private String password;
+
     private String name;
 
     public String getNo() {
@@ -15,6 +17,14 @@ public class Admin {
 
     public void setNo(String no) {
         this.no = no;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public String getName() {

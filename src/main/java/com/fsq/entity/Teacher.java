@@ -7,6 +7,8 @@ public class Teacher {
 
     private String no;
 
+    private String password;
+
     private String name;
 
     private boolean sex;
@@ -21,6 +23,14 @@ public class Teacher {
 
     public void setNo(String no) {
         this.no = no;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public String getName() {

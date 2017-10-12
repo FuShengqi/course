@@ -1,11 +1,11 @@
-CREATE DATABASE course_db DEFAULT CHARACTER SET = utf8;
+-- CREATE DATABASE course_db DEFAULT CHARACTER SET = utf8;
 
 -- 学生表
 CREATE TABLE t_student(
-  id INT NOT NULL AUTO_INCREMENT,
-  no CHAR(20) PRIMARY KEY,
+  no CHAR(20)PRIMARY KEY,
   name CHAR(20),
   sex BOOL,
+  age INT,
   grade CHAR(20),
   major CHAR(20),
   credit_passed INT,
@@ -15,24 +15,22 @@ CREATE TABLE t_student(
 
 -- 教师表
 CREATE TABLE t_teacher(
-  id INT NOT NULL AUTO_INCREMENT,
   no CHAR(20) PRIMARY KEY,
   name char(20),
   sex BOOL,
+  age INT,
   dept char(20)
 );
 
 -- 管理员表
 CREATE TABLE t_admin(
-  id INT NOT NULL AUTO_INCREMENT,
   no CHAR(20) PRIMARY KEY,
   name CHAR(20)
 );
 
 -- 课程表
 CREATE TABLE t_course(
-  id INT NOT NULL AUTO_INCREMENT,
-  no CHAR(20),
+  no CHAR(20) PRIMARY KEY,
   name CHAR(20),
   credit INT,
   type CHAR(20),
@@ -45,7 +43,7 @@ CREATE TABLE t_course(
 
 -- 选课表
 CREATE TABLE t_sc (
-  id INT NOT NULL AUTO_INCREMENT,
+  id INT AUTO_INCREMENT PRIMARY KEY,
   cos_no CHAR(20),
   stu_no CHAR(20),
   grade INT,

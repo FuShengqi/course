@@ -7,13 +7,13 @@ import java.util.Date;
  */
 public class Student {
 
-    private int id;
-
     private String no;
 
     private String name;
 
     private boolean sex;
+
+    private int age;
 
     private String grade;
 
@@ -24,14 +24,6 @@ public class Student {
     private int creditNotPassed;
 
     private float gpa;
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
 
     public String getNo() {
         return no;
@@ -55,6 +47,14 @@ public class Student {
 
     public void setSex(boolean sex) {
         this.sex = sex;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
     }
 
     public String getGrade() {

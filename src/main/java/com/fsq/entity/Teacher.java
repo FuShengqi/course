@@ -5,23 +5,15 @@ package com.fsq.entity;
  */
 public class Teacher {
 
-    private int id;
-
     private String no;
 
     private String name;
 
     private boolean sex;
 
+    private int age;
+
     private String dept;
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
 
     public String getNo() {
         return no;
@@ -45,6 +37,14 @@ public class Teacher {
 
     public void setSex(boolean sex) {
         this.sex = sex;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
     }
 
     public String getDept() {

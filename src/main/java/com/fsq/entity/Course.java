@@ -7,8 +7,6 @@ import java.util.Date;
  */
 public class Course {
 
-    private int id;
-
     private String no;
 
     private String name;
@@ -24,14 +22,6 @@ public class Course {
     private Date endTime;
 
     private String classPlace;
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
 
     public String getNo() {
         return no;

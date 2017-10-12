@@ -7,9 +7,9 @@ public class StuCos {
 
     private int id;
 
-    private String cosId;
+    private String cosNo;
 
-    private String stuId;
+    private String stuNo;
 
     private int grade;
 
@@ -21,20 +21,20 @@ public class StuCos {
         this.id = id;
     }
 
-    public String getCosId() {
-        return cosId;
+    public String getCosNo() {
+        return cosNo;
     }
 
-    public void setCosId(String cosId) {
-        this.cosId = cosId;
+    public void setCosNo(String cosNo) {
+        this.cosNo = cosNo;
     }
 
-    public String getStuId() {
-        return stuId;
+    public String getStuNo() {
+        return stuNo;
     }
 
-    public void setStuId(String stuId) {
-        this.stuId = stuId;
+    public void setStuNo(String stuNo) {
+        this.stuNo = stuNo;
     }
 
     public int getGrade() {

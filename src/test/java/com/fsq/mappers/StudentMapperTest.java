@@ -30,8 +30,8 @@ public class StudentMapperTest {
     public void insertTest(){
         Student student = new Student();
         student.setAge(20);
-        student.setName("xiaoming");
         student.setNo("E11414051");
+        student.setPassword("123456");
 
         studentMapper.insertStudent(student);
     }
@@ -39,7 +39,7 @@ public class StudentMapperTest {
     @Test
     public void updateTest(){
         Student student = studentMapper.getStudentByNo("E11414051");
-        student.setName("xiaohua");
+        student.setName("小明");
         studentMapper.updateStudent(student);
     }
 

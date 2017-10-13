@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html lang="en">
@@ -44,23 +45,23 @@
                     <h3 class="panel-title">登录</h3>
                 </div>
                 <div class="panel-body">
-                    <form role="form">
+                    <form:form role="form" action="index.html" method="post">
                         <fieldset>
                             <div class="form-group">
-                                <input class="form-control" placeholder="学工号" name="email" type="email" autofocus>
+                                <input class="form-control" placeholder="学工号" name="no" type="text" autofocus>
                             </div>
                             <div class="form-group">
                                 <input class="form-control" placeholder="密码" name="password" type="password" value="">
                             </div>
                             <div class="radio">
                                 <label class="checkbox-inline">
-                                    <input type="radio" name="optionsRadios" id="inlineCheckbox1" value="option1" checked="checked"> 学生
+                                    <input type="radio" name="radio" id="inlineCheckbox1" value="1" checked="checked"> 学生
                                 </label>
                                 <label class="checkbox-inline">
-                                    <input type="radio" name="optionsRadios" id="inlineCheckbox2" value="option2"> 教师
+                                    <input type="radio" name="radio" id="inlineCheckbox2" value="2"> 教师
                                 </label>
                                 <label class="checkbox-inline">
-                                    <input type="radio" name="optionsRadios" id="inlineCheckbox3" value="option3"> 管理员
+                                    <input type="radio" name="radio" id="inlineCheckbox3" value="3"> 管理员
                                 </label>
                             </div>
 
@@ -70,9 +71,9 @@
                                 </div>
                             </c:if>
                             <!-- Change this to a button or input when using this as a form -->
-                            <a href="index.jsp" class="btn btn-lg btn-success btn-block">登录</a>
+                            <button type="submit" class="btn btn-lg btn-success btn-block">登录</button>
                         </fieldset>
-                    </form>
+                    </form:form>
                 </div>
             </div>
         </div>

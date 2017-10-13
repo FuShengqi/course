@@ -25,4 +25,8 @@ public class StudentService {
         }
     }
 
+    public Student getStudentByNo(String no){
+        return studentMapper.getStudentByNo(no);
+    }
+
 }

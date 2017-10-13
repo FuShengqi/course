@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.fsq.mappers.AdminMapper">
+    <!-- 此处select标签的id值对应Mapper类中方法名 -->
+    <resultMap type="com.fsq.entity.Admin" id="adminMap">
+        <id property="no" column="no" />
+        <id property="password" column="password" />
+        <result property="name" column="name" />
+    </resultMap>
+
+
+    <select id="getAdminByNo" parameterType="String" resultMap="adminMap">
+        SELECT * FROM t_admin WHERE no = #{no}
+    </select>
+
+    <insert id="insertAdmin" parameterType="com.fsq.entity.Admin">
+        INSERT INTO t_admin(no, password, name)
+        VALUES (#{no}, #{password},#{name});
+    </insert>
+
+
+</mapper>

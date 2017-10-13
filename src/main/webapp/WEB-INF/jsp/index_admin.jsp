@@ -69,7 +69,7 @@
 
         <ul class="nav navbar-top-links navbar-right">
             <li style="margin-top: 15px">
-                <i class="fa fa-user fa-fw"></i> <span>${student.name}</span> &nbsp;&nbsp;<a href="slogout.html" style="display: inline"><i class="fa fa-sign-out" aria-hidden="true"></i>退出</a>
+                <i class="fa fa-user fa-fw"></i> <span>${admin.name}</span> &nbsp;&nbsp;<a href="alogout.html" style="display: inline"><i class="fa fa-sign-out" aria-hidden="true"></i>退出</a>
             </li>
             <!-- /.dropdown -->
         </ul>
@@ -90,16 +90,19 @@
                         <!-- /input-group -->
                     </li>
                     <li class="active">
-                        <a href="notification.html" class="active"><i class="fa fa-bell-o"></i> 教务通知</a>
+                        <a href="publish.html" class="active"><i class="fa fa-bell-o"></i> 发布通知</a>
                     </li>
                     <li>
-                        <a href="selected_course.html"><i class="fa fa-check"></i> 已选课程</a>
+                        <a href="all_course_a.html"><i class="fa fa-bars"></i> 全部课程</a>
                     </li>
                     <li>
-                        <a href="all_course.html"><i class="fa fa-bars"></i> 全部课程</a>
+                        <a href="import_couse.html"><i class="fa fa-file-text"></i> 导入课程</a>
                     </li>
                     <li>
-                        <a href="not_selected_course"><i class="fa fa-circle-o"></i> 未选课程</a>
+                        <a href="teacher_manage"><i class="fa fa-user"></i> 教师管理</a>
+                    </li>
+                    <li>
+                        <a href="student_manage"><i class="fa fa-graduation-cap"></i> 学生管理</a>
                     </li>
                 </ul>
             </div>

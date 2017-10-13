@@ -18,10 +18,10 @@ public class StudentService {
 
     public boolean login(String no, String password){
         Student student = studentMapper.getStudentByNo(no);
-        if(!student.getPassword().equals(password)){
-            return false;
-        } else {
+        if(student != null && student.getPassword().equals(password)){
             return true;
+        } else {
+            return false;
         }
     }
 

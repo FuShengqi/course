@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.fsq.mappers.TeacherMapper">
+    <!-- 此处select标签的id值对应Mapper类中方法名 -->
+    <resultMap type="com.fsq.entity.Teacher" id="teacherMap">
+        <id property="no" column="no" />
+        <id property="password" column="password" />
+        <result property="name" column="name" />
+        <result property="sex" column="sex" />
+        <result property="age" column="age" />
+        <result property="dept" column="dept" />
+    </resultMap>
+
+
+    <select id="getTeacherByNo" parameterType="String" resultMap="teacherMap">
+        SELECT * FROM t_teacher WHERE no = #{no}
+    </select>
+
+    <select id="getTeacherByName" parameterType="String" resultMap="teacherMap">
+        SELECT * FROM t_teacher WHERE name = #{name}
+    </select>
+
+    <select id="count" resultType="Integer">
+        SELECT count(*) FROM t_teacher;
+    </select>
+
+    <insert id="insertTeacher" parameterType="com.fsq.entity.Teacher">
+        INSERT INTO t_teacher(no, password, name, sex, age, dept)
+        VALUES (#{no}, #{password},#{name},#{sex}, #{age}, #{dept});
+    </insert>
+
+    <update id="updateTeacher" parameterType="com.fsq.entity.Teacher">
+        UPDATE t_teacher
+        SET password = #{password},
+        name = #{name},
+        sex = #{sex},
+        age = #{age},
+        dept = #{dept}
+        WHERE no = #{no}
+    </update>
+
+    <delete id="deleteTeacherById" parameterType="String">
+        DELETE FROM t_teacher
+        WHERE no = #{no}
+    </delete>
+
+</mapper>

@@ -65,7 +65,7 @@
                                 </label>
                             </div>
 
-                            <c:if test="${errors != null}">
+                            <c:if test="${error != null}">
                                 <div class="alert alert-danger" role="alert">
                                     用户名或密码出错
                                 </div>

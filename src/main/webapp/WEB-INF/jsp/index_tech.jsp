@@ -43,11 +43,11 @@
     for(Cookie cookie : cookies){
         if(cookie.getName().equals("sname")){
             sname = URLDecoder.decode(cookie.getValue(), "UTF-8");
-            System.out.println(sname);
+            /*System.out.println(sname);*/
         }
         if(cookie.getName().equals("sno")){
             sno = cookie.getValue();
-            System.out.println(sno);
+            /*System.out.println(sno);*/
         }
     }
 %>
@@ -69,7 +69,7 @@
 
         <ul class="nav navbar-top-links navbar-right">
             <li style="margin-top: 15px">
-                <i class="fa fa-user fa-fw"></i> <span>${student.name}</span> &nbsp;&nbsp;<a href="slogout.html" style="display: inline"><i class="fa fa-sign-out" aria-hidden="true"></i>退出</a>
+                <i class="fa fa-user fa-fw"></i> <span>${teacher.name}</span> &nbsp;&nbsp;<a href="tlogout.html" style="display: inline"><i class="fa fa-sign-out" aria-hidden="true"></i>退出</a>
             </li>
             <!-- /.dropdown -->
         </ul>
@@ -93,14 +93,14 @@
                         <a href="notification.html" class="active"><i class="fa fa-bell-o"></i> 教务通知</a>
                     </li>
                     <li>
-                        <a href="selected_course.html"><i class="fa fa-check"></i> 已选课程</a>
+                        <a href="selected_course.html"><i class="fa fa-check"></i> 我的课程</a>
                     </li>
                     <li>
-                        <a href="all_course.html"><i class="fa fa-bars"></i> 全部课程</a>
+                        <a href="all_course.html"><i class="fa fa-bars"></i> 学生选课情况</a>
                     </li>
-                    <li>
+                    <%--<li>
                         <a href="not_selected_course"><i class="fa fa-circle-o"></i> 未选课程</a>
-                    </li>
+                    </li>--%>
                 </ul>
             </div>
             <!-- /.sidebar-collapse -->

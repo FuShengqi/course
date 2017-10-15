@@ -23,6 +23,14 @@ public class Course {
 
     private String classPlace;
 
+    private int capacity;
+
+    private int residualCapacity;
+
+    private String dept;
+
+    private String time;
+
     public String getNo() {
         return no;
     }
@@ -85,5 +93,37 @@ public class Course {
 
     public void setClassPlace(String classPlace) {
         this.classPlace = classPlace;
+    }
+
+    public int getCapacity() {
+        return capacity;
+    }
+
+    public void setCapacity(int capacity) {
+        this.capacity = capacity;
+    }
+
+    public int getResidualCapacity() {
+        return residualCapacity;
+    }
+
+    public void setResidualCapacity(int residualCapacity) {
+        this.residualCapacity = residualCapacity;
+    }
+
+    public String getDept() {
+        return dept;
+    }
+
+    public void setDept(String dept) {
+        this.dept = dept;
+    }
+
+    public String getTime() {
+        return time;
+    }
+
+    public void setTime(String time) {
+        this.time = time;
     }
 }

@@ -1,3 +1,5 @@
+<%@ page import="java.net.URLDecoder" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -34,6 +36,22 @@
 
 <body>
 
+<%
+    String aname = null;
+    String ano = null;
+    Cookie[] cookies = request.getCookies();
+    for(Cookie cookie : cookies){
+        if(cookie.getName().equals("aname")){
+            aname = URLDecoder.decode(cookie.getValue(), "UTF-8");
+            System.out.println(aname);
+        }
+        if(cookie.getName().equals("ano")){
+            ano = cookie.getValue();
+            System.out.println(ano);
+        }
+    }
+%>
+
 <div id="wrapper">
 
     <!-- Navigation -->
@@ -51,7 +69,7 @@
 
         <ul class="nav navbar-top-links navbar-right">
             <li style="margin-top: 15px">
-                <i class="fa fa-user fa-fw"></i> <span>${admin.name}</span> &nbsp;&nbsp;<a href="alogout.html" style="display: inline"><i class="fa fa-sign-out" aria-hidden="true"></i>退出</a>
+                <i class="fa fa-user fa-fw"></i> <span><%=aname%></span> &nbsp;&nbsp;<a href="alogout.html" style="display: inline"><i class="fa fa-sign-out" aria-hidden="true"></i>退出</a>
             </li>
             <!-- /.dropdown -->
         </ul>
@@ -350,21 +368,21 @@
     $(function () {
         $("#btn-submit").click(function () {
             /*console.log($("#no").val());
-            console.log($("#name").val());
-            console.log($("#type").val());
-            console.log($("#dept").val());
-            console.log($("#teacher").val());
-            console.log($("#capacity").val());
-            console.log($("#start-week").val());
-            console.log($("#end-week").val());
-            console.log($("#credit").val());
+             console.log($("#name").val());
+             console.log($("#type").val());
+             console.log($("#dept").val());
+             console.log($("#teacher").val());
+             console.log($("#capacity").val());
+             console.log($("#start-week").val());
+             console.log($("#end-week").val());
+             console.log($("#credit").val());
 
 
-            $("[name=day-of-week]:checkbox").each(function () {
-                if(this.checked){
-                    console.log($(this).val());
-                }
-            })*/
+             $("[name=day-of-week]:checkbox").each(function () {
+             if(this.checked){
+             console.log($(this).val());
+             }
+             })*/
 
             var no = $("#no").val();
             var name = $("#name").val();
@@ -393,6 +411,7 @@
 
             console.log(time);
 
+            console.log("ajax");
             $.ajax({
                 type : "POST",
                 url : "import_course",
@@ -409,64 +428,65 @@
                 },
                 dataType : "text",
                 success : function (data) {
-//                    window.location.href = "all_course_a.html";
-                    console.log("success");
+                    window.location.href = "all_course_a.html";
+                    //console.log("success");
                 }
             })
 
             /*var dayOfWeek = new Array();
-            var sectionOfDay = new Array();*/
+             var sectionOfDay = new Array();*/
 
             /*$("[name=day-of-week]:checkbox").each(function () {
-                if(this.checked){
-                    dayOfWeek.push($(this).val());
-                }
-            })
+             if(this.checked){
+             dayOfWeek.push($(this).val());
+             }
+             })
 
-            $("[name=section-of-day]:checkbox").each(function () {
-                if(this.checked){
-                    sectionOfDay.push($(this).val());
-                }
-            })*/
+             $("[name=section-of-day]:checkbox").each(function () {
+             if(this.checked){
+             sectionOfDay.push($(this).val());
+             }
+             })*/
 
             /*for(var i=0; i<dayOfWeek.length; i++){
-                console.log(dayOfWeek[i]);
-            }
-            for(var i=0; i<sectionOfDay.length; i++){
-                console.log(sectionOfDay[i]);
-            }
+             console.log(dayOfWeek[i]);
+             }
+             for(var i=0; i<sectionOfDay.length; i++){
+             console.log(sectionOfDay[i]);
+             }
 
-            if(startWeek > endWeek){
-                $("#myModal").modal();
-            } else {
+             if(startWeek > endWeek){
+             $("#myModal").modal();
+             } else {
 
-            }*/
+             }*/
 
         })
-        
+
         /*$("#course-info").submit(function () {
 
-            console.log($("#no").val());
-            console.log($("#name").val());
-            console.log($("#type").val());
-            console.log($("#dept").val());
-            console.log($("#teacher").val());
-            console.log($("#capacity").val());
-            console.log($("#start-week").val());
-            console.log($("#end-week").val());
-            console.log($("#credit").val());
+         console.log($("#no").val());
+         console.log($("#name").val());
+         console.log($("#type").val());
+         console.log($("#dept").val());
+         console.log($("#teacher").val());
+         console.log($("#capacity").val());
+         console.log($("#start-week").val());
+         console.log($("#end-week").val());
+         console.log($("#credit").val());
 
-            $.ajax({
-                type : "post",
-                url : "import_course",
-                data: {}
-            })
-        })*/
-        
+         $.ajax({
+         type : "post",
+         url : "import_course",
+         data: {}
+         })
+         })*/
+
     })
 </script>
 
 </body>
 
 </html>
+
 

@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>导入课程</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- MetisMenu CSS -->
+    <link href="assets/vendor/metisMenu/metisMenu.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="assets/dist/css/sb-admin-2.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="assets/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+
+<div id="wrapper">
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="index.html">学生选课系统</a>
+        </div>
+        <!-- /.navbar-header -->
+
+        <ul class="nav navbar-top-links navbar-right">
+            <li style="margin-top: 15px">
+                <i class="fa fa-user fa-fw"></i> <span>${admin.name}</span> &nbsp;&nbsp;<a href="alogout.html" style="display: inline"><i class="fa fa-sign-out" aria-hidden="true"></i>退出</a>
+            </li>
+            <!-- /.dropdown -->
+        </ul>
+        <!-- /.navbar-top-links -->
+
+        <div class="navbar-default sidebar" role="navigation">
+            <div class="sidebar-nav navbar-collapse">
+                <ul class="nav" id="side-menu">
+                    <li class="sidebar-search">
+                        <div class="input-group custom-search-form">
+                            <input type="text" class="form-control" placeholder="搜索...">
+                            <span class="input-group-btn">
+                                    <button class="btn btn-default" type="button">
+                                        <i class="fa fa-search"></i>
+                                    </button>
+                                </span>
+                        </div>
+                        <!-- /input-group -->
+                    </li>
+                    <li>
+                        <a href="publish.html"><i class="fa fa-bell-o"></i> 发布通知</a>
+                    </li>
+                    <li>
+                        <a href="all_course_a.html"><i class="fa fa-bars"></i> 全部课程</a>
+                    </li>
+                    <li class="active">
+                        <a href="import_course.html" class="active"><i class="fa fa-file-text"></i> 导入课程</a>
+                    </li>
+                    <li>
+                        <a href="teacher_manage"><i class="fa fa-user"></i> 教师管理</a>
+                    </li>
+                    <li>
+                        <a href="student_manage"><i class="fa fa-graduation-cap"></i> 学生管理</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.sidebar-collapse -->
+        </div>
+        <!-- /.navbar-static-side -->
+    </nav>
+
+    <!-- Page Content -->
+    <div id="page-wrapper">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-12">
+                    <br>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">编辑课程并导入</div>
+                        <div class="panel-body">
+                            <form role="form">
+                                <div class="row">
+                                    <div class="col-lg-4">
+                                        <div class="form-group">
+                                            <label style="font-weight: normal">课程代码</label><input type="text" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <div class="form-group">
+                                            <label style="font-weight: normal">课程名称</label><input type="text" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <div class="form-group">
+                                            <label style="font-weight: normal">课程类型</label>
+                                            <select class="form-control">
+                                                <option>专业核心课</option>
+                                                <option>专业选修课</option>
+                                                <option>公共基础课</option>
+                                                <option>实践教育</option>
+                                                <option>体育课</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-lg-4">
+                                        <div class="form-group">
+                                            <label style="font-weight: normal">开课专业</label><input type="text" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <div class="form-group">
+                                            <label style="font-weight: normal">授课教师</label><input type="text" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <div class="form-group">
+                                            <label style="font-weight: normal">课程容量</label><input type="text" class="form-control">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-lg-4">
+                                        <label style="font-weight: normal">开始时间</label>
+                                        <div class="input-group">
+                                            <span class="input-group-addon">第</span>
+                                            <select class="form-control">
+                                                <option>1</option>
+                                                <option>2</option>
+                                                <option>3</option>
+                                                <option>4</option>
+                                                <option>5</option>
+                                                <option>6</option>
+                                                <option>7</option>
+                                                <option>8</option>
+                                                <option>9</option>
+                                                <option>10</option>
+                                                <option>11</option>
+                                                <option>12</option>
+                                                <option>13</option>
+                                                <option>14</option>
+                                                <option>15</option>
+                                            </select>
+                                            <span class="input-group-addon">周</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <label style="font-weight: normal">结束时间</label>
+                                        <div class="input-group">
+                                            <span class="input-group-addon" id="basic-addon1">第</span>
+                                            <!--<input type="text" class="form-control" aria-describedby="basic-addon1">-->
+                                            <select class="form-control">
+                                                <option>1</option>
+                                                <option>2</option>
+                                                <option>3</option>
+                                                <option>4</option>
+                                                <option>5</option>
+                                                <option>6</option>
+                                                <option>7</option>
+                                                <option>8</option>
+                                                <option>9</option>
+                                                <option>10</option>
+                                                <option>11</option>
+                                                <option>12</option>
+                                                <option>13</option>
+                                                <option>14</option>
+                                                <option>15</option>
+                                            </select>
+                                            <span class="input-group-addon" id="basic-addon2">周</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <div class="form-group">
+                                            <label style="font-weight: normal">课程学分</label><input type="text" class="form-control">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label style="font-weight: normal">选择日期</label><br>
+                                            <label class="checkbox-inline">
+                                                <input type="checkbox">周一
+                                            </label>
+                                            <label class="checkbox-inline">
+                                                <input type="checkbox">周二
+                                            </label>
+                                            <label class="checkbox-inline">
+                                                <input type="checkbox">周三
+                                            </label>
+                                            <label class="checkbox-inline">
+                                                <input type="checkbox">周四
+                                            </label>
+                                            <label class="checkbox-inline">
+                                                <input type="checkbox">周五
+                                            </label>
+                                            <label class="checkbox-inline">
+                                                <input type="checkbox">周六
+                                            </label>
+                                            <label class="checkbox-inline">
+                                                <input type="checkbox">周日
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label style="font-weight: normal">选择节数</label><br>
+                                            <label class="checkbox-inline">
+                                                <input type="checkbox">1
+                                            </label>
+                                            <label class="checkbox-inline">
+                                                <input type="checkbox">2
+                                            </label>
+                                            <label class="checkbox-inline">
+                                                <input type="checkbox">3
+                                            </label>
+                                            <label class="checkbox-inline">
+                                                <input type="checkbox">4
+                                            </label>
+                                            <label class="checkbox-inline">
+                                                <input type="checkbox">5
+                                            </label>
+                                            <label class="checkbox-inline">
+                                                <input type="checkbox">6
+                                            </label>
+                                            <label class="checkbox-inline">
+                                                <input type="checkbox">7
+                                            </label>
+                                            <label class="checkbox-inline">
+                                                <input type="checkbox">8
+                                            </label>
+                                            <label class="checkbox-inline">
+                                                <input type="checkbox">9
+                                            </label>
+                                            <label class="checkbox-inline">
+                                                <input type="checkbox">10
+                                            </label>
+                                            <label class="checkbox-inline">
+                                                <input type="checkbox">11
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-lg-4">
+                                        <label style="font-weight: normal">上课地点</label><input type="text" class="form-control">
+                                    </div>
+                                    <div class="col-lg-4">
+
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <div class="form-group">
+                                            <br>
+                                            <button type="submit" class="btn btn-primary full-width btn-block">提交</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+            <!-- /.row -->
+        </div>
+        <!-- /.container-fluid -->
+    </div>
+    <!-- /#page-wrapper -->
+
+</div>
+<!-- /#wrapper -->
+
+<!-- jQuery -->
+<script src="assets/vendor/jquery/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="assets/vendor/bootstrap/js/bootstrap.min.js"></script>
+
+<!-- Metis Menu Plugin JavaScript -->
+<script src="assets/vendor/metisMenu/metisMenu.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="assets/dist/js/sb-admin-2.js"></script>
+
+</body>
+
+</html>
+

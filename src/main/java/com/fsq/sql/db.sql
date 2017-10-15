@@ -41,6 +41,8 @@ CREATE TABLE t_course(
   start_time DATE,
   end_time DATE,
   class_place char(32),
+  capacity INT,
+  residual_capacity INT,
   FOREIGN KEY (tech_no) REFERENCES t_teacher(no)
 );
 

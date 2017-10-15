@@ -37,17 +37,17 @@
 <body>
 
 <%
-    String sname = null;
-    String sno = null;
+    String tname = null;
+    String tno = null;
     Cookie[] cookies = request.getCookies();
     for(Cookie cookie : cookies){
-        if(cookie.getName().equals("sname")){
-            sname = URLDecoder.decode(cookie.getValue(), "UTF-8");
-            /*System.out.println(sname);*/
+        if(cookie.getName().equals("tname")){
+            tname = URLDecoder.decode(cookie.getValue(), "UTF-8");
+            /*System.out.println(tname);*/
         }
-        if(cookie.getName().equals("sno")){
-            sno = cookie.getValue();
-            /*System.out.println(sno);*/
+        if(cookie.getName().equals("tno")){
+            tno = cookie.getValue();
+            /*System.out.println(tno);*/
         }
     }
 %>

@@ -37,17 +37,17 @@
 <body>
 
 <%
-    String sname = null;
-    String sno = null;
+    String aname = null;
+    String ano = null;
     Cookie[] cookies = request.getCookies();
     for(Cookie cookie : cookies){
-        if(cookie.getName().equals("sname")){
-            sname = URLDecoder.decode(cookie.getValue(), "UTF-8");
-            System.out.println(sname);
+        if(cookie.getName().equals("aname")){
+            aname = URLDecoder.decode(cookie.getValue(), "UTF-8");
+            System.out.println(aname);
         }
-        if(cookie.getName().equals("sno")){
-            sno = cookie.getValue();
-            System.out.println(sno);
+        if(cookie.getName().equals("ano")){
+            ano = cookie.getValue();
+            System.out.println(ano);
         }
     }
 %>
@@ -96,7 +96,7 @@
                         <a href="all_course_a.html"><i class="fa fa-bars"></i> 全部课程</a>
                     </li>
                     <li>
-                        <a href="import_couse.html"><i class="fa fa-file-text"></i> 导入课程</a>
+                        <a href="import_course.html"><i class="fa fa-file-text"></i> 导入课程</a>
                     </li>
                     <li>
                         <a href="teacher_manage"><i class="fa fa-user"></i> 教师管理</a>

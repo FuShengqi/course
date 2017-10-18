@@ -6,12 +6,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.List;
 
 /**
  * Created by FuShengqi on 2017/10/13.
@@ -83,8 +85,12 @@ public class AdminController {
     }
 
     @RequestMapping("all_course_a.html")
-    public void allCourse(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.getRequestDispatcher("/WEB-INF/jsp/all_course_a.jsp").forward(request, response);
+    public ModelAndView allCourse(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        /*request.getRequestDispatcher("/WEB-INF/jsp/all_course_a.jsp").forward(request, response);*/
+        ModelAndView allCourse = new ModelAndView("all_course_a");
+        List<Course> courses = courseService.getAllCourse();
+        allCourse.addObject("courses", courses);
+        return allCourse;
     }
 
     public void p(String string){

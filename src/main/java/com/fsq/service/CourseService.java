@@ -21,7 +21,7 @@ public class CourseService {
         return courseMapper.getCourseByNo(no);
     }
 
-    public List<Course> getCourse(){
+    public List<Course> getAllCourse(){
         return courseMapper.getAllCourse();
     }
 

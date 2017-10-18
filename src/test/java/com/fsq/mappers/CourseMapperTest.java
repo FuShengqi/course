@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import java.util.List;
+
 /**
  * Created by FuShengqi on 2017/10/15.
  */
@@ -23,6 +25,12 @@ public class CourseMapperTest {
     public void selectTest(){
         Course course = courseMapper.getCourseByNo("ZH12345");
         p(course);
+    }
+
+    @Test
+    public void selectAllTest(){
+        List<Course> courses = courseMapper.getAllCourse();
+        p(JSON.toJSONString(courses));
     }
 
     @Test

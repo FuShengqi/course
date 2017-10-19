@@ -17,10 +17,6 @@ public class Course {
 
     private String techNo;
 
-    private Date startTime;
-
-    private Date endTime;
-
     private String classPlace;
 
     private int capacity;
@@ -30,6 +26,16 @@ public class Course {
     private String dept;
 
     private String time;
+
+    private String startWeek;
+
+    private String endWeek;
+
+    private String time1;
+
+    private String time2;
+
+    private String time3;
 
     public String getNo() {
         return no;
@@ -71,22 +77,6 @@ public class Course {
         this.techNo = techNo;
     }
 
-    public Date getStartTime() {
-        return startTime;
-    }
-
-    public void setStartTime(Date startTime) {
-        this.startTime = startTime;
-    }
-
-    public Date getEndTime() {
-        return endTime;
-    }
-
-    public void setEndTime(Date endTime) {
-        this.endTime = endTime;
-    }
-
     public String getClassPlace() {
         return classPlace;
     }
@@ -125,5 +115,45 @@ public class Course {
 
     public void setTime(String time) {
         this.time = time;
+    }
+
+    public String getStartWeek() {
+        return startWeek;
+    }
+
+    public void setStartWeek(String startWeek) {
+        this.startWeek = startWeek;
+    }
+
+    public String getEndWeek() {
+        return endWeek;
+    }
+
+    public void setEndWeek(String endWeek) {
+        this.endWeek = endWeek;
+    }
+
+    public String getTime1() {
+        return time1;
+    }
+
+    public void setTime1(String time1) {
+        this.time1 = time1;
+    }
+
+    public String getTime2() {
+        return time2;
+    }
+
+    public void setTime2(String time2) {
+        this.time2 = time2;
+    }
+
+    public String getTime3() {
+        return time3;
+    }
+
+    public void setTime3(String time3) {
+        this.time3 = time3;
     }
 }

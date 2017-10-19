@@ -48,38 +48,17 @@ public class AdminController {
     @RequestMapping("import_course")
     @ResponseBody
     public String importCourseAction(HttpServletRequest request, HttpServletResponse response){
-        String no = request.getParameter("no");
-        String name = request.getParameter("name");
-        String type = request.getParameter("type");
-        String dept = request.getParameter("dept");
-        String teacher = request.getParameter("teacher");
-        int capacity = Integer.parseInt(request.getParameter("capacity"));
-        int credit = Integer.parseInt(request.getParameter("credit"));
-        String time = request.getParameter("time");
-        String classPlace = request.getParameter("classPlace");
-
-        p("no = " + no);
-        p("name = " + name);
-        p("type = " + type);
-        p("dept = " + dept);
-        p("teacher = " + teacher);
-        p("capacity = " + capacity);
-        p("credit = " + credit);
-        p("time = " + time);
-        p("classPlace = " + classPlace);
-
-        Course course = new Course();
-        course.setNo(no);
-        course.setName(name);
-        course.setType(type);
-        course.setTechNo(teacher);
-        course.setCapacity(capacity);
-        course.setCredit(credit);
-        course.setTime(time);
-        course.setClassPlace(classPlace);
-
+        Course course = getRequestCourse(request);
         courseService.insertCourse(course);
 
+        return "success";
+    }
+
+    @RequestMapping("update_course")
+    @ResponseBody
+    public String updateCourse(HttpServletRequest request, HttpServletResponse response){
+        Course course = getRequestCourse(request);
+        courseService.updateCourse(course);
 
         return "success";
     }
@@ -91,6 +70,58 @@ public class AdminController {
         List<Course> courses = courseService.getAllCourse();
         allCourse.addObject("courses", courses);
         return allCourse;
+    }
+
+    public Course getRequestCourse(HttpServletRequest request){
+        String no = request.getParameter("no");
+        String name = request.getParameter("name");
+        String type = request.getParameter("type");
+        String dept = request.getParameter("dept");
+        String teacher = request.getParameter("teacher");
+
+        int capacity = Integer.parseInt(request.getParameter("capacity"));
+        int credit = Integer.parseInt(request.getParameter("credit"));
+        String time = request.getParameter("time");
+        String classPlace = request.getParameter("classPlace");
+
+        String startWeek = request.getParameter("startWeek");
+        String endWeek = request.getParameter("endWeek");
+        String time1 = request.getParameter("time1");
+        String time2 = request.getParameter("time2");
+        String time3 = request.getParameter("time3");
+
+        /*p("no = " + no);
+        p("name = " + name);
+        p("type = " + type);
+        p("dept = " + dept);
+        p("teacher = " + teacher);
+        p("capacity = " + capacity);
+        p("credit = " + credit);
+        p("time = " + time);
+        p("classPlace = " + classPlace);
+        p("startWeek = " + startWeek);
+        p("endWeek = " + endWeek);
+        p("time1 = " + time1);
+        p("time2 = " + time2);
+        p("time3 = " + time3);*/
+
+        Course course = new Course();
+        course.setNo(no);
+        course.setName(name);
+        course.setType(type);
+        course.setDept(dept);
+        course.setTechNo(teacher);
+        course.setCapacity(capacity);
+        course.setCredit(credit);
+        course.setTime(time);
+        course.setClassPlace(classPlace);
+        course.setStartWeek(startWeek);
+        course.setEndWeek(endWeek);
+        course.setTime1(time1);
+        course.setTime2(time2);
+        course.setTime3(time3);
+
+        return course;
     }
 
     public void p(String string){

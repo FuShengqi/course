@@ -7,7 +7,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
@@ -74,6 +76,23 @@ public class CourseController {
     public String deleteCourse(String no){
         courseService.deleteCourseByNo(no);
         return "success";
+    }
+
+    /*@RequestMapping("edit_course")
+    public void editCourse(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String no = request.getParameter("no");
+        Course course = courseService.getCourseByNo(no);
+        request.setAttribute("course", course);
+        request.getRequestDispatcher("/WEB-INF/jsp/edit_course.jsp").forward(request, response);
+    }*/
+
+    @RequestMapping("edit_course")
+    public ModelAndView editCourse(HttpServletRequest request, HttpServletResponse response){
+        String no = request.getParameter("no");
+        Course course = courseService.getCourseByNo(no);
+        ModelAndView editCourse = new ModelAndView("edit_course");
+        editCourse.addObject("course", course);
+        return editCourse;
     }
 
 }

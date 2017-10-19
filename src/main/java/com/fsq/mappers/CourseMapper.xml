@@ -11,13 +11,16 @@
         <result property="credit" column="credit" />
         <result property="type" column="type" />
         <result property="techNo" column="tech_no" />
-        <result property="startTime" column="start_time" />
-        <result property="endTime" column="end_time" />
         <result property="classPlace" column="class_place" />
         <result property="capacity" column="capacity" />
         <result property="residualCapacity" column="residual_capacity" />
         <result property="dept" column="dept" />
         <result property="time" column="time" />
+        <result property="startWeek" column="start_week" />
+        <result property="endWeek" column="end_week" />
+        <result property="time1" column="time1" />
+        <result property="time2" column="time2" />
+        <result property="time3" column="time3" />
     </resultMap>
 
 
@@ -34,10 +37,10 @@
     </select>
 
     <insert id="insertCourse" parameterType="com.fsq.entity.Course">
-        INSERT INTO t_course(no, name, credit, type, tech_no, start_time,
-        end_time, class_place, capacity, residual_capacity, dept, time)
-        VALUES (#{no}, #{name}, #{credit}, #{type}, #{techNo}, #{startTime},
-        #{endTime}, #{classPlace}, #{capacity}, #{residualCapacity}, #{dept}, #{time});
+        INSERT INTO t_course(no, name, credit, type, tech_no, class_place, capacity,
+                             residual_capacity, dept, time, start_week, end_week, time1, time2, time3)
+        VALUES (#{no}, #{name}, #{credit}, #{type}, #{techNo}, #{classPlace}, #{capacity},
+                #{residualCapacity}, #{dept}, #{time}, #{startWeek}, #{endWeek}, #{time1}, #{time2}, #{time3});
     </insert>
 
     <update id="updateCourse" parameterType="com.fsq.entity.Course">
@@ -46,13 +49,16 @@
         credit = #{credit},
         type = #{type},
         tech_no = #{techNo},
-        start_time = #{startTime},
-        end_time = #{endTime},
         class_place = #{classPlace},
         capacity = #{capacity},
         residual_capacity = #{residualCapacity},
         dept = #{dept},
-        time = #{time}
+        time = #{time},
+        start_week = #{startWeek},
+        end_week = #{endWeek},
+        time1 = #{time1},
+        time2 = #{time2},
+        time3 = #{time3}
         WHERE no = #{no}
     </update>
 

@@ -1,4 +1,6 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page import="java.net.URLDecoder" %>
+<%@ page import="com.fsq.entity.Course" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html lang="en">
@@ -98,8 +100,8 @@
                     <li>
                         <a href="all_course_a.html"><i class="fa fa-bars"></i> 全部课程</a>
                     </li>
-                    <li class="active">
-                        <a href="import_course.html" class="active"><i class="fa fa-file-text"></i> 导入课程</a>
+                    <li>
+                        <a href="import_course.html"><i class="fa fa-file-text"></i> 导入课程</a>
                     </li>
                     <li>
                         <a href="teacher_manage"><i class="fa fa-user"></i> 教师管理</a>
@@ -121,29 +123,29 @@
                 <div class="col-lg-12">
                     <br>
                     <div class="panel panel-default">
-                        <div class="panel-heading">编辑课程并导入</div>
+                        <div class="panel-heading">编辑并更新课程信息</div>
                         <div class="panel-body">
                             <form role="form" id="course-info">
                                 <div class="row">
                                     <div class="col-lg-4">
                                         <div class="form-group">
-                                            <label style="font-weight: normal">课程代码</label><input name="no" id="no" type="text" class="form-control" autofocus>
+                                            <label style="font-weight: normal">课程代码</label><input name="no" id="no" type="text" class="form-control" value="${course.no}" disabled="disabled">
                                         </div>
                                     </div>
                                     <div class="col-lg-4">
                                         <div class="form-group">
-                                            <label style="font-weight: normal">课程名称</label><input type="text" name="name" id="name" class="form-control">
+                                            <label style="font-weight: normal">课程名称</label><input type="text" name="name" id="name" class="form-control" value="${course.name}" autofocus>
                                         </div>
                                     </div>
                                     <div class="col-lg-4">
                                         <div class="form-group">
                                             <label style="font-weight: normal">课程类型</label>
-                                            <select class="form-control" name="type" id="type">
-                                                <option value="专业核心课">专业核心课</option>
-                                                <option value="专业选修课">专业选修课</option>
-                                                <option value="公共基础课">公共基础课</option>
-                                                <option value="实践教育">实践教育</option>
-                                                <option value="体育课">体育课</option>
+                                            <select class="form-control" name="type" id="type" value="${course.type}">
+                                                <option value="专业核心课"  <c:if test="${'专业核心课' eq course.type}">selected</c:if> >专业核心课</option>
+                                                <option value="专业选修课"  <c:if test="${'专业选修课' eq course.type}">selected</c:if> >专业选修课</option>
+                                                <option value="公共基础课"  <c:if test="${'公共基础课' eq course.type}">selected</c:if> >公共基础课</option>
+                                                <option value="实践教育"  <c:if test="${'实践教育' eq course.type}">selected</c:if> >实践教育</option>
+                                                <option value="体育课"  <c:if test="${'体育课' eq course.type}">selected</c:if> >体育课</option>
                                             </select>
                                         </div>
                                     </div>
@@ -152,17 +154,17 @@
                                 <div class="row">
                                     <div class="col-lg-4">
                                         <div class="form-group">
-                                            <label style="font-weight: normal">开课专业</label><input type="text" name="dept" id="dept" class="form-control">
+                                            <label style="font-weight: normal">开课专业</label><input type="text" name="dept" id="dept" class="form-control" value="${course.dept}">
                                         </div>
                                     </div>
                                     <div class="col-lg-4">
                                         <div class="form-group">
-                                            <label style="font-weight: normal">授课教师</label><input type="text" name="teacher" id="teacher" class="form-control">
+                                            <label style="font-weight: normal">授课教师</label><input type="text" name="teacher" id="teacher" class="form-control" value="${course.techNo}">
                                         </div>
                                     </div>
                                     <div class="col-lg-4">
                                         <div class="form-group">
-                                            <label style="font-weight: normal">课程容量</label><input type="text" name="capacity" id="capacity" class="form-control">
+                                            <label style="font-weight: normal">课程容量</label><input type="text" name="capacity" id="capacity" class="form-control" value="${course.capacity}">
                                         </div>
                                     </div>
                                 </div>
@@ -172,25 +174,25 @@
                                         <label style="font-weight: normal">开始时间</label>
                                         <div class="input-group">
                                             <span class="input-group-addon">第</span>
-                                            <select class="form-control" name="start-week" id="start-week">
-                                                <option value="1">1</option>
-                                                <option value="2">2</option>
-                                                <option value="3">3</option>
-                                                <option value="4">4</option>
-                                                <option value="5">5</option>
-                                                <option value="6">6</option>
-                                                <option value="7">7</option>
-                                                <option value="8">8</option>
-                                                <option value="9">9</option>
-                                                <option value="10">10</option>
-                                                <option value="11">11</option>
-                                                <option value="12">12</option>
-                                                <option value="13">13</option>
-                                                <option value="14">14</option>
-                                                <option value="15">15</option>
-                                                <option value="16">16</option>
-                                                <option value="17">17</option>
-                                                <option value="18">18</option>
+                                            <select class="form-control" name="start-week" id="start-week" value="${course.startWeek}">
+                                                <option value="1" <c:if test="${'1' eq course.startWeek}">selected</c:if> >1</option>
+                                                <option value="2" <c:if test="${'2' eq course.startWeek}">selected</c:if> >2</option>
+                                                <option value="3" <c:if test="${'3' eq course.startWeek}">selected</c:if> >3</option>
+                                                <option value="4" <c:if test="${'4' eq course.startWeek}">selected</c:if> >4</option>
+                                                <option value="5" <c:if test="${'5' eq course.startWeek}">selected</c:if> >5</option>
+                                                <option value="6" <c:if test="${'6' eq course.startWeek}">selected</c:if> >6</option>
+                                                <option value="7" <c:if test="${'7' eq course.startWeek}">selected</c:if> >7</option>
+                                                <option value="8" <c:if test="${'8' eq course.startWeek}">selected</c:if> >8</option>
+                                                <option value="9" <c:if test="${'9' eq course.startWeek}">selected</c:if> >9</option>
+                                                <option value="10" <c:if test="${'10' eq course.startWeek}">selected</c:if> >10</option>
+                                                <option value="11" <c:if test="${'11' eq course.startWeek}">selected</c:if> >11</option>
+                                                <option value="12" <c:if test="${'12' eq course.startWeek}">selected</c:if> >12</option>
+                                                <option value="13" <c:if test="${'13' eq course.startWeek}">selected</c:if> >13</option>
+                                                <option value="14" <c:if test="${'14' eq course.startWeek}">selected</c:if> >14</option>
+                                                <option value="15" <c:if test="${'15' eq course.startWeek}">selected</c:if> >15</option>
+                                                <option value="16" <c:if test="${'16' eq course.startWeek}">selected</c:if> >16</option>
+                                                <option value="17" <c:if test="${'17' eq course.startWeek}">selected</c:if> >17</option>
+                                                <option value="18" <c:if test="${'18' eq course.startWeek}">selected</c:if> >18</option>
                                             </select>
                                             <span class="input-group-addon">周</span>
                                         </div>
@@ -200,32 +202,32 @@
                                         <div class="input-group">
                                             <span class="input-group-addon" id="basic-addon1">第</span>
                                             <!--<input type="text" class="form-control" aria-describedby="basic-addon1">-->
-                                            <select class="form-control" name="end-week" id="end-week">
-                                                <option value="1">1</option>
-                                                <option value="2">2</option>
-                                                <option value="3">3</option>
-                                                <option value="4">4</option>
-                                                <option value="5">5</option>
-                                                <option value="6">6</option>
-                                                <option value="7">7</option>
-                                                <option value="8">8</option>
-                                                <option value="9">9</option>
-                                                <option value="10">10</option>
-                                                <option value="11">11</option>
-                                                <option value="12">12</option>
-                                                <option value="13">13</option>
-                                                <option value="14">14</option>
-                                                <option value="15">15</option>
-                                                <option value="16">16</option>
-                                                <option value="17">17</option>
-                                                <option value="18">18</option>
+                                            <select class="form-control" name="end-week" id="end-week" value="${course.endWeek}">
+                                                <option value="1" <c:if test="${'1' eq course.endWeek}">selected</c:if> >1</option>
+                                                <option value="2" <c:if test="${'2' eq course.endWeek}">selected</c:if> >2</option>
+                                                <option value="3" <c:if test="${'3' eq course.endWeek}">selected</c:if> >3</option>
+                                                <option value="4" <c:if test="${'4' eq course.endWeek}">selected</c:if> >4</option>
+                                                <option value="5" <c:if test="${'5' eq course.endWeek}">selected</c:if> >5</option>
+                                                <option value="6" <c:if test="${'6' eq course.endWeek}">selected</c:if> >6</option>
+                                                <option value="7" <c:if test="${'7' eq course.endWeek}">selected</c:if> >7</option>
+                                                <option value="8" <c:if test="${'8' eq course.endWeek}">selected</c:if> >8</option>
+                                                <option value="9" <c:if test="${'9' eq course.endWeek}">selected</c:if> >9</option>
+                                                <option value="10" <c:if test="${'10' eq course.endWeek}">selected</c:if> >10</option>
+                                                <option value="11" <c:if test="${'11' eq course.endWeek}">selected</c:if> >11</option>
+                                                <option value="12" <c:if test="${'12' eq course.endWeek}">selected</c:if> >12</option>
+                                                <option value="13" <c:if test="${'13' eq course.endWeek}">selected</c:if> >13</option>
+                                                <option value="14" <c:if test="${'14' eq course.endWeek}">selected</c:if> >14</option>
+                                                <option value="15" <c:if test="${'15' eq course.endWeek}">selected</c:if> >15</option>
+                                                <option value="16" <c:if test="${'16' eq course.endWeek}">selected</c:if> >16</option>
+                                                <option value="17" <c:if test="${'17' eq course.endWeek}">selected</c:if> >17</option>
+                                                <option value="18" <c:if test="${'18' eq course.endWeek}">selected</c:if> >18</option>
                                             </select>
                                             <span class="input-group-addon" id="basic-addon2">周</span>
                                         </div>
                                     </div>
                                     <div class="col-lg-4">
                                         <div class="form-group">
-                                            <label style="font-weight: normal">课程学分</label><input type="text" name="credit" id="credit" class="form-control">
+                                            <label style="font-weight: normal">课程学分</label><input type="text" name="credit" id="credit" class="form-control" value="${course.credit}">
                                         </div>
                                     </div>
                                 </div>
@@ -234,81 +236,27 @@
                                     <div class="col-lg-4">
                                         <div class="form-group">
                                             <label style="font-weight: normal">填写日期</label><br>
-                                            <!--<label class="checkbox-inline">
-                                                <input type="checkbox" value="1" name="day-of-week">周一
-                                            </label>
-                                            <label class="checkbox-inline">
-                                                <input type="checkbox" value="2" name="day-of-week">周二
-                                            </label>
-                                            <label class="checkbox-inline">
-                                                <input type="checkbox" value="3" name="day-of-week">周三
-                                            </label>
-                                            <label class="checkbox-inline">
-                                                <input type="checkbox" value="4" name="day-of-week">周四
-                                            </label>
-                                            <label class="checkbox-inline">
-                                                <input type="checkbox" value="5" name="day-of-week">周五
-                                            </label>
-                                            <label class="checkbox-inline">
-                                                <input type="checkbox" value="6" name="day-of-week">周六
-                                            </label>
-                                            <label class="checkbox-inline">
-                                                <input type="checkbox" value="7" name="day-of-week">周日
-                                            </label>-->
-                                            <input type="text" placeholder="如：周一1,2节" name="date1" id="date1" class="form-control">
+                                            <input type="text" placeholder="如：周一1,2节" name="date1" id="date1" class="form-control" value="${course.time1}">
                                         </div>
                                     </div>
                                     <div class="col-lg-4">
                                         <div class="form-group">
-                                            <!--<label style="font-weight: normal">选择节数</label><br>
-                                            <label class="checkbox-inline">
-                                                <input type="checkbox" value="1" name="section-of-day">1
-                                            </label>
-                                            <label class="checkbox-inline">
-                                                <input type="checkbox" value="2" name="section-of-day">2
-                                            </label>
-                                            <label class="checkbox-inline">
-                                                <input type="checkbox" value="3" name="section-of-day">3
-                                            </label>
-                                            <label class="checkbox-inline">
-                                                <input type="checkbox" value="4" name="section-of-day">4
-                                            </label>
-                                            <label class="checkbox-inline">
-                                                <input type="checkbox" value="5" name="section-of-day">5
-                                            </label>
-                                            <label class="checkbox-inline">
-                                                <input type="checkbox" value="6" name="section-of-day">6
-                                            </label>
-                                            <label class="checkbox-inline">
-                                                <input type="checkbox" value="7" name="section-of-day">7
-                                            </label>
-                                            <label class="checkbox-inline">
-                                                <input type="checkbox" value="8" name="section-of-day">8
-                                            </label>
-                                            <label class="checkbox-inline">
-                                                <input type="checkbox" value="9" name="section-of-day">9
-                                            </label>
-                                            <label class="checkbox-inline">
-                                                <input type="checkbox" value="10" name="section-of-day">10
-                                            </label>
-                                            <label class="checkbox-inline">
-                                                <input type="checkbox" value="11" name="section-of-day">11
-                                            </label>-->
+
                                             <label style="font-weight: normal">填写日期</label><br>
-                                            <input type="text" placeholder="如：周一1,2节" name="date2" id="date2" class="form-control">
+                                            <input type="text" placeholder="如：周一1,2节" name="date2" id="date2" class="form-control" value="${course.time2}">
                                         </div>
                                     </div>
                                     <div class="col-lg-4">
                                         <div class="form-group">
                                             <label style="font-weight: normal">填写日期</label><br>
-                                            <input type="text" placeholder="如：周一1,2节" name="date3" id="date3" class="form-control">
+                                            <input type="text" placeholder="如：周一1,2节" name="date3" id="date3" class="form-control" value="${course.time3}">
                                         </div>
                                     </div>
                                 </div>
 
                                 <div class="row">
                                     <div class="col-lg-4">
-                                        <label style="font-weight: normal">上课地点</label><input type="text" name="class-place" id="class-place" class="form-control">
+                                        <label style="font-weight: normal">上课地点</label><input type="text" name="class-place" id="class-place" class="form-control" value="${course.classPlace}">
                                     </div>
                                     <div class="col-lg-4">
 
@@ -332,26 +280,6 @@
     </div>
     <!-- /#page-wrapper -->
 
-    <!-- Modal -->
-    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">提示</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    开始周数不能晚于结束周数
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-primary">知道了</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
 </div>
 <!-- /#wrapper -->
 
@@ -373,7 +301,7 @@
 <script>
     $(function () {
         $("#btn-submit").click(function () {
-             /*console.log($("#no").val());
+            /*console.log($("#no").val());
              console.log($("#name").val());
              console.log($("#type").val());
              console.log($("#dept").val());
@@ -384,7 +312,7 @@
              console.log($("#credit").val());*/
 
 
-             /*$("[name=day-of-week]:checkbox").each(function () {
+            /*$("[name=day-of-week]:checkbox").each(function () {
              if(this.checked){
              console.log($(this).val());
              }
@@ -417,6 +345,8 @@
 
             console.log(time);
 
+            console.log("ajax");
+
             if(startWeek > endWeek){
                 $.alert({
                     title : '警告',
@@ -431,10 +361,9 @@
                     }
                 });
             } else {
-                console.log("ajax");
                 $.ajax({
                     type : "POST",
-                    url : "import_course",
+                    url : "update_course",
                     data : {
                         no : no,
                         name : name,
@@ -461,54 +390,7 @@
                 })
             }
 
-            /*var dayOfWeek = new Array();
-             var sectionOfDay = new Array();*/
-
-            /*$("[name=day-of-week]:checkbox").each(function () {
-             if(this.checked){
-             dayOfWeek.push($(this).val());
-             }
-             })
-
-             $("[name=section-of-day]:checkbox").each(function () {
-             if(this.checked){
-             sectionOfDay.push($(this).val());
-             }
-             })*/
-
-            /*for(var i=0; i<dayOfWeek.length; i++){
-             console.log(dayOfWeek[i]);
-             }
-             for(var i=0; i<sectionOfDay.length; i++){
-             console.log(sectionOfDay[i]);
-             }
-
-             if(startWeek > endWeek){
-             $("#myModal").modal();
-             } else {
-
-             }*/
-
         })
-
-        /*$("#course-info").submit(function () {
-
-         console.log($("#no").val());
-         console.log($("#name").val());
-         console.log($("#type").val());
-         console.log($("#dept").val());
-         console.log($("#teacher").val());
-         console.log($("#capacity").val());
-         console.log($("#start-week").val());
-         console.log($("#end-week").val());
-         console.log($("#credit").val());
-
-         $.ajax({
-         type : "post",
-         url : "import_course",
-         data: {}
-         })
-         })*/
 
     })
 </script>

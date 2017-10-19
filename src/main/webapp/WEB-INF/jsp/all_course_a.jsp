@@ -46,6 +46,22 @@
 
 <body>
 
+<%
+    String aname = null;
+    String ano = null;
+    Cookie[] cookies = request.getCookies();
+    for(Cookie cookie : cookies){
+        if(cookie.getName().equals("aname")){
+            aname = URLDecoder.decode(cookie.getValue(), "UTF-8");
+            System.out.println(aname);
+        }
+        if(cookie.getName().equals("ano")){
+            ano = cookie.getValue();
+            System.out.println(ano);
+        }
+    }
+%>
+
 <div id="wrapper">
 
     <!-- Navigation -->
@@ -300,6 +316,7 @@
 
     function edit(no) {
         console.log(no)
+        window.location.href="edit_course?no=" + no;
     }
 
     /*删除课程*/

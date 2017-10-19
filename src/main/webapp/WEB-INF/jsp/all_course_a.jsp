@@ -32,6 +32,9 @@
     <!-- Custom Fonts -->
     <link href="assets/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
+    <%-- Jquery Confirm CSS --%>
+    <link href="assets/vendor/jquery-confirm/jquery-confirm.min.css" rel="stylesheet" type="text/css">
+
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -146,7 +149,6 @@
             <!-- /.container-fluid -->
         </div>
         <!-- /#page-wrapper -->
-
     </div>
     <!-- /#wrapper -->
 </div>
@@ -165,15 +167,21 @@
 <script src="assets/vendor/datatables-plugins/dataTables.bootstrap.min.js"></script>
 <script src="assets/vendor/datatables-responsive/dataTables.responsive.js"></script>
 
+<%-- Jquery Confirm JavaScript--%>
+<script src="assets/vendor/jquery-confirm/jquery-confirm.min.js"></script>
+
 <!-- Custom Theme JavaScript -->
-<script src="../dist/js/sb-admin-2.js"></script>
+<script src="assets/dist/js/sb-admin-2.js"></script>
 
 <!-- Page-Level Demo Scripts - Tables - Use for reference -->
 <script>
+
+    var table;
+
     $(document).ready(function() {
 
         /*初始化表格并填入数据*/
-        var table = $('#dataTables-example').DataTable({
+        table = $('#dataTables-example').DataTable({
             responsive: true,
             autoWWidth : false,
             /*"columns": [
@@ -194,12 +202,12 @@
             ],
             columnDefs : [{
                 targets : 5,
-                width : "15%",
+                width : "16%",
                 orderable : false,
                 render : function (data, type, row, meta) {
-                    return "<a type=button class='btn btn-link' style='padding: 0px 0px' onclick='detail(row.no)'>详细信息</a>" +
-                        "&nbsp;<a type=button class='btn btn-link' style='padding: 0px 0px' onclick='edit(row.no)'>编辑</a> " +
-                        "&nbsp;<a type=button class='btn btn-link' style='padding: 0px 0px' onclick='del(row.no)'>删除</a>"
+                    return "<a type='button' class='btn btn-link' style='padding: 0px 0px' onclick=detail('" + row.no + "')>详细信息</a>" +
+                        "&nbsp; <a type='button' class='btn btn-link' style='padding: 0px 0px' onclick=edit('" + row.no + "')>编辑</a>" +
+                        "&nbsp; <a type='button' class='btn btn-link' style='padding: 0px 0px' onclick=del('" + row.no + "','" + row.name + "')>删除</a>";
                 }
             },
                 {
@@ -243,8 +251,103 @@
         });
         /*初始化表格并填入数据*/
 
-
     });
+
+    /*显示课程详细信息*/
+    function detail(no) {
+        console.log(no)
+        $.confirm({
+            title: '详细信息',
+            boxWidth: '700px',
+            useBootstrap: false,
+            content: function () {
+                var self = this;
+                return $.ajax({
+                    url: 'course_detail?no=' + no,
+                    dataType: 'html',
+                    method: 'get'
+                }).done(function (response) {
+                    self.setContent(response);
+                    /*self.setContentAppend('<br>课程名称: ' + response.name);*/
+                    /*self.setTitle(response.name);*/
+                }).fail(function(){
+                    self.setContent('出错了，刷新试试');
+                });
+            },
+            onContentReady: function () {
+                /*var self = this;
+                this.setContentPrepend('<div>Prepended text</div>');
+                setTimeout(function () {
+                    self.setContentAppend('<div>Appended text after 2 seconds</div>');
+                }, 2000);*/
+            },
+            contentLoaded: function(data, status, xhr){
+                // data is already set in content
+                /*this.setContentAppend('<br>Status: ' + status);*/
+            },
+            columnClass: 'medium',
+            buttons : {
+                ok : {
+                    text : "确定",
+                    action : function () {
+
+                    }
+                }
+            },
+            backgroundDismiss: true
+        });
+    }
+
+    function edit(no) {
+        console.log(no)
+    }
+
+    /*删除课程*/
+    function del(no, name) {
+        console.log(no)
+        $.confirm({
+            title: '警告',
+            content: '确定要删除课程《' + name + "》吗？",
+            type: 'red',
+            typeAnimated: true,
+            buttons: {
+                ok: {
+                    text: '确定',
+                    btnClass: 'btn-red',
+                    action: function(){
+                        $.ajax({
+                            url : 'delete_course?no=' + no,
+                            dataType : 'text',
+                            success : function () {
+                                $.alert({
+                                    title: '提示',
+                                    content: '删除成功',
+                                    buttons : {
+                                        ok : {
+                                            text : '确定',
+                                            action : function () {
+                                                
+                                            }
+                                        }
+                                    }
+                                });
+                                table.ajax.reload();
+                            },
+                            error : function () {
+                                $.alert('删除失败');
+                            }
+                        })
+                    }
+                },
+                close: {
+                    text : '取消',
+                    action : function () {
+                        
+                    }
+                }
+            }
+        });
+    }
 </script>
 
 </body>

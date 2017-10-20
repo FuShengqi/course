@@ -53,8 +53,8 @@ public class CourseMapperTest {
 
     @Test
     public void updateTest(){
-        Course course = courseMapper.getCourseByNo("ZH12345");
-        course.setType("专业核心课");
+        Course course = courseMapper.getCourseByNo("ZH23456");
+        course.setResidualCapacity(90);
 
         courseMapper.updateCourse(course);
     }

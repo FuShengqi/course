@@ -274,7 +274,7 @@
         console.log(no)
         $.confirm({
             title: '详细信息',
-            boxWidth: '700px',
+            boxWidth: '750px',
             useBootstrap: false,
             content: function () {
                 var self = this;

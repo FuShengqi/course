@@ -1,3 +1,5 @@
+<%@ page import="java.net.URLDecoder" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -23,6 +25,9 @@
     <!-- DataTables Responsive CSS -->
     <link href="assets/vendor/datatables-responsive/dataTables.responsive.css" rel="stylesheet">
 
+    <%-- Jquery Confirm CSS --%>
+    <link href="assets/vendor/jquery-confirm/jquery-confirm.min.css" rel="stylesheet" type="text/css">
+
     <!-- Custom CSS -->
     <link href="assets/dist/css/sb-admin-2.css" rel="stylesheet">
 
@@ -39,6 +44,22 @@
 </head>
 
 <body>
+
+<%
+    String sname = null;
+    String sno = null;
+    Cookie[] cookies = request.getCookies();
+    for(Cookie cookie : cookies){
+        if(cookie.getName().equals("sname")){
+            sname = URLDecoder.decode(cookie.getValue(), "UTF-8");
+            System.out.println(sname);
+        }
+        if(cookie.getName().equals("sno")){
+            sno = cookie.getValue();
+            System.out.println(sno);
+        }
+    }
+%>
 
 <div id="wrapper">
 
@@ -57,7 +78,7 @@
 
         <ul class="nav navbar-top-links navbar-right">
             <li style="margin-top: 15px">
-                <i class="fa fa-user fa-fw"></i> <span>姓名</span> &nbsp;&nbsp;<a href="logout.html" style="display: inline"><i class="fa fa-sign-out" aria-hidden="true"></i>退出</a>
+                <i class="fa fa-user fa-fw"></i> <span><%=sname%></span> &nbsp;&nbsp;<a href="slogout.html" style="display: inline"><i class="fa fa-sign-out" aria-hidden="true"></i>退出</a>
             </li>
             <!-- /.dropdown -->
         </ul>
@@ -77,17 +98,17 @@
                         </div>
                         <!-- /input-group -->
                     </li>
+                    <li>
+                        <a href="notification.html"><i class="fa fa-bell-o"></i> 教务通知</a>
+                    </li>
+                    <li>
+                        <a href="course_selected.html"><i class="fa fa-check"></i> 已选课程</a>
+                    </li>
                     <li class="active">
-                        <a href="index.html" class="active"><i class="fa fa-bell-o"></i> 教务通知</a>
+                        <a href="all_course_s.html" class="active"><i class="fa fa-bars"></i> 全部课程</a>
                     </li>
                     <li>
-                        <a href="tables.html"><i class="fa fa-check"></i> 已选课程</a>
-                    </li>
-                    <li>
-                        <a href="forms.html"><i class="fa fa-bars"></i> 全部课程</a>
-                    </li>
-                    <li>
-                        <a href="forms.html"><i class="fa fa-circle-o"></i> 未选课程</a>
+                        <a href="course_not_selected.html"><i class="fa fa-circle-o"></i> 未选课程</a>
                     </li>
                 </ul>
             </div>
@@ -117,6 +138,7 @@
                                     <th>课程性质</th>
                                     <th>学分</th>
                                     <th>容量</th>
+                                    <th>状态</th>
                                     <th>操作</th>
                                 </tr>
                                 </thead>
@@ -141,7 +163,7 @@
         </div>
         <!-- /#page-wrapper -->
     </div>
-<!-- /#wrapper -->
+    <!-- /#wrapper -->
 </div>
 
 <!-- jQuery -->
@@ -188,16 +210,15 @@
                 {data : 'type'},
                 {data : 'credit'},
                 {data : 'capacity'},
+                {data : 'status'},
                 {data : null}
             ],
             columnDefs : [{
-                targets : 5,
+                targets : 6,
                 width : "16%",
                 orderable : false,
                 render : function (data, type, row, meta) {
-                    return "<a type='button' class='btn btn-link' style='padding: 0px 0px' onclick=detail('" + row.no + "')>详细信息</a>" +
-                        "&nbsp; <a type='button' class='btn btn-link' style='padding: 0px 0px' onclick=edit('" + row.no + "')>编辑</a>" +
-                        "&nbsp; <a type='button' class='btn btn-link' style='padding: 0px 0px' onclick=del('" + row.no + "','" + row.name + "')>删除</a>";
+                    return "<a type='button' class='btn btn-link' style='padding: 0px 0px' onclick=detail('" + row.no + "')>选择此课程</a>";
                 }
             },
                 {
@@ -209,10 +230,14 @@
                     targets : 2,
                     width : "20%",
                     orderable: false
+                },
+                {
+                    targets : 5,
+                    orderable: false
                 }
             ],
             ajax : {
-                url : "all_course",
+                url : "all_course_s?no=" + get_cookie("sno"),
                 dataSrc : ""
             },
             language : {
@@ -242,8 +267,107 @@
         /*初始化表格并填入数据*/
 
     });
+
+    /*显示课程详细信息*/
+    function detail(no) {
+        console.log(no)
+        $.confirm({
+            title: '详细信息',
+            boxWidth: '750px',
+            useBootstrap: false,
+            content: function () {
+                var self = this;
+                return $.ajax({
+                    url: 'course_detail?no=' + no,
+                    dataType: 'html',
+                    method: 'get'
+                }).done(function (response) {
+                    self.setContent(response);
+                    /*self.setContentAppend('<br>课程名称: ' + response.name);*/
+                    /*self.setTitle(response.name);*/
+                }).fail(function(){
+                    self.setContent('出错了，刷新试试');
+                });
+            },
+            onContentReady: function () {
+                /*var self = this;
+                 this.setContentPrepend('<div>Prepended text</div>');
+                 setTimeout(function () {
+                 self.setContentAppend('<div>Appended text after 2 seconds</div>');
+                 }, 2000);*/
+            },
+            contentLoaded: function(data, status, xhr){
+                // data is already set in content
+                /*this.setContentAppend('<br>Status: ' + status);*/
+            },
+            columnClass: 'medium',
+            buttons : {
+                ok : {
+                    text : "选定",
+                    btnClass : "btn-info",
+                    action : function () {
+                        $.ajax({
+                            url : 'choose_course?sno=' + get_cookie("sno") + '&cno=' + no,
+                            dataType : "html",
+                            success : function (data) {
+                                if(data == "error1"){
+                                    data = "你已选过该课程，请不要重复选择";
+                                } else if(data == "error2"){
+                                    data = "课程容量超过限制";
+                                } else if(data == "success"){
+                                    data = "选课成功";
+                                }
+                                $.alert({
+                                    title: '提示',
+                                    content: data,
+                                    buttons : {
+                                        ok : {
+                                            text : '确定',
+                                            action : function () {
+
+                                            }
+                                        }
+                                    }
+                                });
+                                table.ajax.reload();
+                            },
+                            error : function () {
+                                $.alert("未知错误");
+                            }
+                        })
+                    }
+                },
+                cancle : {
+                    text : "取消",
+                    action : function () {
+
+                    }
+                }
+            },
+            backgroundDismiss: true
+        });
+    }
+
+    function get_cookie(Name) {
+        var search = Name + "="//查询检索的值
+        var returnvalue = "";//返回值
+        if (document.cookie.length > 0) {
+            sd = document.cookie.indexOf(search);
+            if (sd!= -1) {
+                sd += search.length;
+                end = document.cookie.indexOf(";", sd);
+                if (end == -1)
+                    end = document.cookie.length;
+                //unescape() 函数可对通过 escape() 编码的字符串进行解码。
+                returnvalue=unescape(document.cookie.substring(sd, end))
+            }
+        }
+        return returnvalue;
+    }
+
 </script>
 
 </body>
 
 </html>
+

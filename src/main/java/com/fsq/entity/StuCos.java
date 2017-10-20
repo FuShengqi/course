@@ -11,6 +11,8 @@ public class StuCos {
 
     private String stuNo;
 
+    private String techNo;
+
     private int grade;
 
     public int getId() {
@@ -35,6 +37,14 @@ public class StuCos {
 
     public void setStuNo(String stuNo) {
         this.stuNo = stuNo;
+    }
+
+    public String getTechNo() {
+        return techNo;
+    }
+
+    public void setTechNo(String techNo) {
+        this.techNo = techNo;
     }
 
     public int getGrade() {

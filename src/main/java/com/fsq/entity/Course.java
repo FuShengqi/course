@@ -37,6 +37,8 @@ public class Course {
 
     private String time3;
 
+    private String status;
+
     public String getNo() {
         return no;
     }
@@ -155,5 +157,13 @@ public class Course {
 
     public void setTime3(String time3) {
         this.time3 = time3;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 }

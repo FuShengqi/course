@@ -52,6 +52,7 @@ public class CourseController {
                 "        <th>上课时间</th>\n" +
                 "        <th>上课地点</th>\n" +
                 "        <th>容量</th>\n" +
+                "        <th>剩余容量</th>\n" +
                 "    </tr>");
         html.append("<tr>\n" +
                 "        <td>" + course.getNo() + "</td>\n" +
@@ -62,6 +63,7 @@ public class CourseController {
                 "        <td>" + course.getTime() + "</td>\n" +
                 "        <td>" + course.getClassPlace() + "</td>\n" +
                 "        <td>" + course.getCapacity() + "</td>\n" +
+                "        <td>" + course.getResidualCapacity() + "</td>\n" +
                 "    </tr>");
         html.append("</table>");
         writer.write(html.toString());

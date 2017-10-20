@@ -112,6 +112,7 @@ public class AdminController {
         course.setDept(dept);
         course.setTechNo(teacher);
         course.setCapacity(capacity);
+        course.setResidualCapacity(capacity);
         course.setCredit(credit);
         course.setTime(time);
         course.setClassPlace(classPlace);

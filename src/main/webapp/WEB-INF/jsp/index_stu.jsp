@@ -93,13 +93,13 @@
                         <a href="notification.html" class="active"><i class="fa fa-bell-o"></i> 教务通知</a>
                     </li>
                     <li>
-                        <a href="selected_course.html"><i class="fa fa-check"></i> 已选课程</a>
+                        <a href="course_selected.html"><i class="fa fa-check"></i> 已选课程</a>
                     </li>
                     <li>
-                        <a href="all_course.html"><i class="fa fa-bars"></i> 全部课程</a>
+                        <a href="all_course_s.html"><i class="fa fa-bars"></i> 全部课程</a>
                     </li>
                     <li>
-                        <a href="not_selected_course"><i class="fa fa-circle-o"></i> 未选课程</a>
+                        <a href="course_not_selected.html"><i class="fa fa-circle-o"></i> 未选课程</a>
                     </li>
                 </ul>
             </div>

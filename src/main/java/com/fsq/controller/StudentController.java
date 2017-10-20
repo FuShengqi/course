@@ -132,6 +132,7 @@ public class StudentController {
         return courses;
     }
 
+    /*学生退选课程，通过ajax请求*/
     @RequestMapping("drop_course")
     @ResponseBody
     public String dropCourse(HttpServletRequest request, HttpServletResponse response){
@@ -139,9 +140,34 @@ public class StudentController {
         String cno = request.getParameter("cno");
 
         Course course = courseService.getCourseByNo(cno);
-        course.setResidualCapacity(course.getResidualCapacity() - 1);
+        course.setResidualCapacity(course.getResidualCapacity() + 1);
+        courseService.updateCourse(course);
 
         scService.deleteSc(sno, cno);
         return "success";
     }
+
+    @RequestMapping("course_not_selected.html")
+    public ModelAndView courseNotSelected(){
+        ModelAndView mav = new ModelAndView("course_not_selected");
+        return mav;
+    }
+
+    @RequestMapping("course_not_selected")
+    @ResponseBody
+    public List<Course> courseNotSelectedJson(HttpServletRequest request, HttpServletResponse response){
+        String sno = request.getParameter("no");
+        List<String> selectedCno = scService.getCourseNoBySno(sno);
+
+        List<Course> allCourses = courseService.getAllCourse();
+        List<Course> result = new ArrayList<Course>();
+        for(Course course : allCourses){
+            if(!selectedCno.contains(course.getNo())){
+                course.setStatus("未选");
+                result.add(course);
+            }
+        }
+        return result;
+    }
+
 }

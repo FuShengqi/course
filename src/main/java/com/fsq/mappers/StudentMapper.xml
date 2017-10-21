@@ -16,6 +16,7 @@
         <result property="creditPassed" column="credit_passed" />
         <result property="creditNotPassed" column="credit_not_passed" />
         <result property="gpa" column="gpa" />
+        <result property="clazz" column="class" />
     </resultMap>
 
 
@@ -33,9 +34,9 @@
 
     <insert id="insertStudent" parameterType="com.fsq.entity.Student">
         INSERT INTO t_student(no, password, name, sex, age, grade, major,
-        credit_passed, credit_not_passed, gpa)
+        credit_passed, credit_not_passed, gpa, class)
         VALUES (#{no}, #{password},#{name},#{sex}, #{age}, #{grade}, #{major},
-        #{creditPassed}, #{creditNotPassed}, #{gpa});
+        #{creditPassed}, #{creditNotPassed}, #{gpa}, #{clazz});
     </insert>
 
     <update id="updateStudent" parameterType="com.fsq.entity.Student">
@@ -48,7 +49,8 @@
             major = #{major},
             credit_passed = #{creditPassed},
             credit_not_passed = #{creditNotPassed},
-            gpa = #{gpa}
+            gpa = #{gpa},
+            class = #{clazz}
         WHERE no = #{no}
     </update>
 

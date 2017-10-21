@@ -32,6 +32,10 @@
         SELECT * FROM t_course
     </select>
 
+    <select id="getCourseByTno" resultMap="courseMap">
+        SELECT * FROM t_course WHERE tech_no = #{tno}
+    </select>
+
     <select id="count" resultType="Integer">
         SELECT count(*) FROM t_course;
     </select>

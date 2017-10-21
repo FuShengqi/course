@@ -26,6 +26,10 @@ public class SCService {
         return stuCosMapper.getCourseNoBySno(sno);
     }
 
+    public List<String> getSnoByCno(String cno){
+        return stuCosMapper.getSnoByCno(cno);
+    }
+
     public void insert(StuCos stuCos){
         stuCosMapper.insert(stuCos);
     }

@@ -25,6 +25,10 @@ public class CourseService {
         return courseMapper.getAllCourse();
     }
 
+    public List<Course> getCourseByTno(String tno){
+        return courseMapper.getCourseByTno(tno);
+    }
+
     public void insertCourse(Course course){
         courseMapper.insertCourse(course);
     }

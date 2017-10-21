@@ -34,6 +34,12 @@ public class CourseMapperTest {
     }
 
     @Test
+    public void selectCourseByTnoTest(){
+        List<Course> courses = courseMapper.getCourseByTno("10001");
+        p(JSON.toJSONString(courses));
+    }
+
+    @Test
     public void countTest(){
         System.out.println(courseMapper.count());
     }

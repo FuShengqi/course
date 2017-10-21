@@ -17,6 +17,8 @@ public interface StuCosMapper {
 
     List<String> getCourseNoBySno(String sno);
 
+    List<String> getSnoByCno(String cno);
+
     void insert(StuCos stuCos);
 
     void deleteSC(String sno, String cno);

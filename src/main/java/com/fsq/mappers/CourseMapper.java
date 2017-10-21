@@ -16,6 +16,8 @@ public interface CourseMapper {
 
     List<Course> getAllCourse();
 
+    List<Course> getCourseByTno(String tno);
+
     void insertCourse(Course course);
 
     void updateCourse(Course course);

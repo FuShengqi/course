@@ -11,7 +11,8 @@ CREATE TABLE t_student(
   major CHAR(20),
   credit_passed INT,
   credit_not_passed INT,
-  gpa FLOAT
+  gpa FLOAT,
+  class CHAR(20)
 );
 
 -- 教师表
@@ -38,13 +39,16 @@ CREATE TABLE t_course(
   credit INT,
   type CHAR(20),
   tech_no CHAR(20),
-  start_time DATE,
-  end_time DATE,
+  start_week CHAR(20),
+  end_week CHAR(20),
   class_place char(32),
   capacity INT,
   residual_capacity INT,
   dept CHAR(20),
   time CHAR(32),
+  time1 CHAR(32),
+  time2 CHAR(32),
+  time3 CHAR(32),
   FOREIGN KEY (tech_no) REFERENCES t_teacher(no)
 );
 

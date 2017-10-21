@@ -68,8 +68,8 @@ public class CourseController {
         html.append("</table>");
         writer.write(html.toString());
 
-        System.out.println(course.getTechNo());
-        System.out.println(teacherService.getTeacherByNo(course.getTechNo()).getName());
+        /*System.out.println(course.getTechNo());
+        System.out.println(teacherService.getTeacherByNo(course.getTechNo()).getName());*/
 
     }
 

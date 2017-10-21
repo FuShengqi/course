@@ -27,6 +27,8 @@ public class Student {
 
     private float gpa;
 
+    private String clazz;
+
     public String getNo() {
         return no;
     }
@@ -105,5 +107,13 @@ public class Student {
 
     public void setGpa(float gpa) {
         this.gpa = gpa;
+    }
+
+    public String getClazz() {
+        return clazz;
+    }
+
+    public void setClazz(String clazz) {
+        this.clazz = clazz;
     }
 }

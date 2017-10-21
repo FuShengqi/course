@@ -53,6 +53,8 @@ public class StudentMapperTest {
     public void updateTest(){
         Student student = studentMapper.getStudentByNo("E11414051");
         student.setName("小明");
+        student.setMajor("计算机科学与技术");
+        student.setClazz("14计科一班");
         studentMapper.updateStudent(student);
     }
 

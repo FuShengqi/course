@@ -17,12 +17,20 @@
     </resultMap>
 
 
+    <resultMap id="snoMap" type="java.lang.String">
+        <result property="snoNo" column="stu_no" />
+    </resultMap>
+
     <select id="getSCBySnoAndCno" resultMap="scMap">
         SELECT * FROM t_sc WHERE stu_no = #{0} AND cos_no = #{1}
     </select>
 
     <select id="getCourseNoBySno" parameterType="java.lang.String" resultMap="cnoMap">
         SELECT cos_no FROM t_sc WHERE stu_no = #{sno}
+    </select>
+
+    <select id="getSnoByCno" parameterType="java.lang.String" resultMap="snoMap">
+        SELECT stu_no FROM t_sc WHERE cos_no = #{cno}
     </select>
 
     <insert id="insert" parameterType="com.fsq.entity.StuCos">

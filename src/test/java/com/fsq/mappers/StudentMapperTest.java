@@ -43,8 +43,12 @@ public class StudentMapperTest {
     public void insertTest(){
         Student student = new Student();
         student.setAge(20);
-        student.setNo("E11414051");
+        student.setNo("E11414050");
         student.setPassword("123456");
+        student.setMajor("计算机科学与技术");
+        student.setClazz("14计科二班");
+        student.setSex(false);
+        student.setName("李华");
 
         studentMapper.insertStudent(student);
     }

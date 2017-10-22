@@ -38,6 +38,12 @@
         VALUES (#{cosNo}, #{stuNo},#{grade});
     </insert>
 
+    <update id="updateGrade">
+        UPDATE t_sc
+        SET grade = #{2}
+        WHERE stu_no = #{0} AND cos_no = #{1}
+    </update>
+
     <delete id="deleteSC">
         DELETE FROM t_sc
         WHERE stu_no = #{0} AND cos_no = #{1}

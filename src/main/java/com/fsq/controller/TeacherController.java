@@ -1,7 +1,10 @@
 package com.fsq.controller;
 
 import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONArray;
+import com.alibaba.fastjson.JSONObject;
 import com.fsq.entity.Course;
+import com.fsq.entity.StuCos;
 import com.fsq.entity.Student;
 import com.fsq.service.CourseService;
 import com.fsq.service.SCService;
@@ -137,6 +140,25 @@ public class TeacherController {
         System.out.println(JSON.toJSONString(students));
 
         return students;
+    }
+
+
+    @RequestMapping("input_score")
+    @ResponseBody
+    public String inputScore(String scores){
+        System.out.println(scores);
+
+        JSONArray scs = JSON.parseArray(scores);
+        for(int i=0; i<scs.size(); i++){
+            JSONObject sc = scs.getJSONObject(i);
+            System.out.print(sc.get("grade")+" "+sc.get("stuNo")+""+sc.get("cosNo"));
+            String sno = (String) sc.get("stuNo");
+            String cno = (String) sc.get("cosNo");
+            float grade = Float.parseFloat((String) sc.get("grade"));
+            scService.importScore(sno, cno, grade);
+        }
+
+        return "success";
     }
 
 }

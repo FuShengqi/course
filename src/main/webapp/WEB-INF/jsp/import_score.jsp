@@ -159,6 +159,13 @@
                     <!-- /.panel -->
                 </div>
             </div>
+            <div class="row">
+                <div class="col-lg-4"></div>
+                <div class="col-lg-4"></div>
+                <div class="col-lg-4">
+                    <button type="button" class="btn btn-primary full-width btn-block" id="submit">提交</button>
+                </div>
+            </div>
             <!-- /.container-fluid -->
         </div>
         <!-- /#page-wrapper -->
@@ -208,7 +215,7 @@
             columns : [
                 {data : 'no'},
                 {data : 'name'},
-                {data : 'sex'},
+                null,
                 {data : 'major'},
                 {data : 'clazz'},
                 {data : null},
@@ -219,7 +226,7 @@
                 width : "10%",
                 orderable : false,
                 render : function (data, type, row, meta) {
-                    return "<input type='text' class='form-control input-sm'>";
+                    return "<input type='text' class='form-control input-sm final-score'>";
                 }
             },
                 {
@@ -234,7 +241,16 @@
                 {
                     targets : 2,
                     width : "10%",
-                    orderable: false
+                    orderable: false,
+                    render : function (data, type, row, meta) {
+                        var sex;
+                        if(row.sex){
+                            sex = '女';
+                        } else {
+                            sex = '男';
+                        }
+                        return "<span>" + sex + "</span>";
+                    }
                 },
                 {
                     targets : 3,
@@ -286,8 +302,54 @@
         });
         /*初始化表格并填入数据*/
 
-        table.$(':contains("false")').text('男');
-        table.$(':contains("true")').text('女');
+        $("#submit").click(function () {
+
+            var complete = true;
+            var scores = new Array();
+
+            $(".final-score").each(function () {
+                console.log($(this).val())
+                console.log($(this).parent().prev().find("input").val())
+                console.log($(this).parent().parent().children("td:first-child").text())
+
+                var finalScore = $(this).val();
+                var normalScore = $(this).parent().prev().find("input").val();
+                var sno = $(this).parent().parent().children("td:first-child").text();
+                var cno = getValueInUrl("cno");
+                var score = 0.3*normalScore + 0.7*finalScore;
+                score = score.toFixed(1);
+
+                if(finalScore == null || normalScore == null){
+                    complete = false;
+                }
+
+                var entity = {
+                    grade : score,
+                    stuNo : sno,
+                    cosNo : cno
+                };
+                /*entity.grade = score;
+                entity.stuNo = sno;
+                entity.cosNo = cno;*/
+
+                scores.push(entity)
+            })
+
+            if(complete){
+                $.ajax({
+                    url : "input_score",
+                    data : {"scores" : JSON.stringify(scores)},
+                    dataType : "text",
+                    success : function () {
+                        $.alert("录入成功");
+                    },
+                    error : function () {
+                        $.alert("录入分数出错，请重新录入");
+                    }
+                })
+            }
+
+        })
 
     });
 
@@ -296,8 +358,8 @@
         console.log(no)
         $.confirm({
             title: '详细信息',
-            boxWidth: '750px',
-            useBootstrap: false,
+            /*boxWidth: '750px',
+            useBootstrap: false,*/
             content: function () {
                 var self = this;
                 return $.ajax({

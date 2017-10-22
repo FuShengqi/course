@@ -21,6 +21,8 @@ public interface StuCosMapper {
 
     void insert(StuCos stuCos);
 
+    void updateGrade(String sno, String cno, float grade);
+
     void deleteSC(String sno, String cno);
 
 }

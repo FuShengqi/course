@@ -34,6 +34,10 @@ public class SCService {
         stuCosMapper.insert(stuCos);
     }
 
+    public void importScore(String stuNo, String cosNo, float grade){
+        stuCosMapper.updateGrade(stuNo, cosNo, grade);
+    }
+
     public void deleteSc(String sno, String cno){
         stuCosMapper.deleteSC(sno, cno);
     }

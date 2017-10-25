@@ -107,14 +107,14 @@
                     <li>
                         <a href="all_course_s.html"><i class="fa fa-bars"></i> 全部课程</a>
                     </li>
-                    <li class="active">
-                        <a href="course_not_selected.html" class="active"><i class="fa fa-circle-o"></i> 未选课程</a>
-                    </li>
                     <li>
-                        <a href="#"><i class="fa fa-user"></i> 个人信息<span class="fa arrow"></span></a>
+                        <a href="course_not_selected.html"><i class="fa fa-circle-o"></i> 未选课程</a>
+                    </li>
+                    <li class="active">
+                        <a href="#" class="active"><i class="fa fa-user"></i> 个人信息<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="query_score.html" class="active">成绩查询</a>
+                                <a href="query_score.html">成绩查询</a>
                             </li>
                             <li>
                                 <a href="change_passwds.html">修改密码</a>
@@ -138,7 +138,7 @@
                 <div class="col-lg-12">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            未选课程
+                            全部可选课程
                         </div>
                         <!-- /.panel-heading -->
                         <div class="panel-body">
@@ -149,9 +149,9 @@
                                     <th>课程名称</th>
                                     <th>课程性质</th>
                                     <th>学分</th>
-                                    <th>容量</th>
-                                    <th>状态</th>
-                                    <th>操作</th>
+                                    <th>授课老师</th>
+                                    <th>成绩</th>
+                                    <th>绩点</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -221,18 +221,11 @@
                 {data : 'name'},
                 {data : 'type'},
                 {data : 'credit'},
-                {data : 'capacity'},
-                {data : 'status'},
-                {data : null}
+                {data : 'teacher'},
+                {data : 'score'},
+                {data : 'gpa'}
             ],
-            columnDefs : [{
-                targets : 6,
-                width : "16%",
-                orderable : false,
-                render : function (data, type, row, meta) {
-                    return "<a type='button' class='btn btn-link' style='padding: 0px 0px' onclick=detail('" + row.no + "')>选择此课程</a>";
-                }
-            },
+            columnDefs : [
                 {
                     targets : 1,
                     width : "20%",
@@ -246,10 +239,13 @@
                 {
                     targets : 5,
                     orderable: false
+                },
+                {
+                    targets : 6
                 }
             ],
             ajax : {
-                url : "course_not_selected?no=" + get_cookie("sno"),
+                url : "query_score?sno=" + get_cookie("sno"),
                 dataSrc : ""
             },
             language : {
@@ -279,86 +275,6 @@
         /*初始化表格并填入数据*/
 
     });
-
-    /*显示课程详细信息*/
-    function detail(no) {
-        console.log(no)
-        $.confirm({
-            title: '详细信息',
-            boxWidth: '750px',
-            useBootstrap: false,
-            content: function () {
-                var self = this;
-                return $.ajax({
-                    url: 'course_detail?no=' + no,
-                    dataType: 'html',
-                    method: 'get'
-                }).done(function (response) {
-                    self.setContent(response);
-                    /*self.setContentAppend('<br>课程名称: ' + response.name);*/
-                    /*self.setTitle(response.name);*/
-                }).fail(function(){
-                    self.setContent('出错了，刷新试试');
-                });
-            },
-            onContentReady: function () {
-                /*var self = this;
-                 this.setContentPrepend('<div>Prepended text</div>');
-                 setTimeout(function () {
-                 self.setContentAppend('<div>Appended text after 2 seconds</div>');
-                 }, 2000);*/
-            },
-            contentLoaded: function(data, status, xhr){
-                // data is already set in content
-                /*this.setContentAppend('<br>Status: ' + status);*/
-            },
-            columnClass: 'medium',
-            buttons : {
-                ok : {
-                    text : "选定",
-                    btnClass : "btn-info",
-                    action : function () {
-                        $.ajax({
-                            url : 'choose_course?sno=' + get_cookie("sno") + '&cno=' + no,
-                            dataType : "html",
-                            success : function (data) {
-                                if(data == "error1"){
-                                    data = "你已选过该课程，请不要重复选择";
-                                } else if(data == "error2"){
-                                    data = "课程容量超过限制";
-                                } else if(data == "success"){
-                                    data = "选课成功";
-                                }
-                                $.alert({
-                                    title: '提示',
-                                    content: data,
-                                    buttons : {
-                                        ok : {
-                                            text : '确定',
-                                            action : function () {
-
-                                            }
-                                        }
-                                    }
-                                });
-                                table.ajax.reload();
-                            },
-                            error : function () {
-                                $.alert("未知错误");
-                            }
-                        })
-                    }
-                },
-                cancle : {
-                    text : "取消",
-                    action : function () {
-
-                    }
-                }
-            },
-            backgroundDismiss: true
-        });
-    }
 
     function get_cookie(Name) {
         var search = Name + "="//查询检索的值

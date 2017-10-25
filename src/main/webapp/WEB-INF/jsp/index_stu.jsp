@@ -101,6 +101,18 @@
                     <li>
                         <a href="course_not_selected.html"><i class="fa fa-circle-o"></i> 未选课程</a>
                     </li>
+                    <li>
+                        <a href="#"><i class="fa fa-user"></i> 个人信息<span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a href="query_score.html">成绩查询</a>
+                            </li>
+                            <li>
+                                <a href="change_passwds.html">修改密码</a>
+                            </li>
+                        </ul>
+                        <!-- /.nav-second-level -->
+                    </li>
                 </ul>
             </div>
             <!-- /.sidebar-collapse -->

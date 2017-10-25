@@ -104,9 +104,9 @@
                     <li class="active">
                         <a href="my_course.html" class="active"><i class="fa fa-check"></i> 我的课程</a>
                     </li>
-                    <%--<li>
-                        <a href="all_course.html"><i class="fa fa-bars"></i> 学生选课情况</a>
-                    </li>--%>
+                    <li>
+                        <a href="change_passwdt.html"><i class="fa fa-bars"></i> 修改密码</a>
+                    </li>
                     <%--<li>
                         <a href="not_selected_course"><i class="fa fa-circle-o"></i> 未选课程</a>
                     </li>--%>

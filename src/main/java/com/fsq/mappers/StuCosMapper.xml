@@ -25,6 +25,10 @@
         SELECT * FROM t_sc WHERE stu_no = #{0} AND cos_no = #{1}
     </select>
 
+    <select id="getSCBySno" parameterType="String" resultMap="scMap">
+        SELECT * FROM t_sc WHERE stu_no = #{sno}
+    </select>
+
     <select id="getCourseNoBySno" parameterType="java.lang.String" resultMap="cnoMap">
         SELECT cos_no FROM t_sc WHERE stu_no = #{sno}
     </select>

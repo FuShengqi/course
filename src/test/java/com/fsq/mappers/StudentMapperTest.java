@@ -94,6 +94,12 @@ public class StudentMapperTest {
         print(result);
     }
 
+    @Test
+    public void justatest(){
+        int s = 91;
+        System.out.println((float) s /10);
+    }
+
     public void print(Object object){
         System.out.println(JSON.toJSONString(object));
     }

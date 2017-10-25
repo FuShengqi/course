@@ -29,5 +29,14 @@ public class StudentService {
         return studentMapper.getStudentByNo(no);
     }
 
-
+    public boolean changePassword(String no, String oldPasswd, String newPasswd){
+        Student student = studentMapper.getStudentByNo(no);
+        if(!student.getPassword().equals(oldPasswd)){
+            return false;
+        } else {
+            student.setPassword(newPasswd);
+            studentMapper.updateStudent(student);
+            return true;
+        }
+    }
 }

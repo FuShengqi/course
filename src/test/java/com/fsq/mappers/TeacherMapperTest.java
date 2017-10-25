@@ -29,9 +29,10 @@ public class TeacherMapperTest {
     @Test
     public void insertTest(){
         Teacher teacher = new Teacher();
-        teacher.setNo("10001");
+        teacher.setNo("10003");
         teacher.setPassword("123456");
-        teacher.setName("张老师");
+        teacher.setName("方贤勇");
+        teacher.setSex(false);
 
         teacherMapper.insertTeacher(teacher);
     }

@@ -15,6 +15,8 @@ public interface StuCosMapper {
 
     StuCos getSCBySnoAndCno(String sno, String cno);
 
+    List<StuCos> getSCBySno(String sno);
+
     List<String> getCourseNoBySno(String sno);
 
     List<String> getSnoByCno(String cno);

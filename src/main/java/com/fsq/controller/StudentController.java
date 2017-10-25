@@ -2,10 +2,14 @@ package com.fsq.controller;
 
 import com.alibaba.fastjson.JSON;
 import com.fsq.entity.Course;
+import com.fsq.entity.Score;
 import com.fsq.entity.StuCos;
+import com.fsq.entity.Teacher;
 import com.fsq.service.CourseService;
 import com.fsq.service.SCService;
 import com.fsq.service.StudentService;
+import com.fsq.service.TeacherService;
+import com.sun.org.apache.xpath.internal.operations.Mod;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -27,12 +31,17 @@ import java.util.List;
 @Controller
 public class StudentController {
 
+    @Autowired
+    private StudentService studentService;
 
     @Autowired
     private CourseService courseService;
 
     @Autowired
     private SCService scService;
+
+    @Autowired
+    private TeacherService teacherService;
 
     /*学生退出登录*/
     @RequestMapping("slogout.html")
@@ -93,6 +102,7 @@ public class StudentController {
             StuCos sc = new StuCos();
             sc.setCosNo(cno);
             sc.setStuNo(sno);
+            sc.setGrade(-1);
 
             scService.insert(sc);
 
@@ -168,6 +178,64 @@ public class StudentController {
             }
         }
         return result;
+    }
+
+    @RequestMapping("query_score.html")
+    public ModelAndView queryScore(){
+        ModelAndView mav = new ModelAndView("query_score");
+        return mav;
+    }
+
+    @RequestMapping("query_score")
+    @ResponseBody
+    public List<Score> queryScoreJson(HttpServletRequest request, HttpServletResponse response){
+        String sno = request.getParameter("sno");
+        List<StuCos> scs = scService.getSCBySno(sno);
+        List<Score> scores = new ArrayList<Score>();
+        for(StuCos sc : scs){
+            if(sc.getGrade() >= 0){
+                Score score = new Score();
+                Course course = courseService.getCourseByNo(sc.getCosNo());
+                score.setNo(course.getNo());
+                score.setName(course.getName());
+                score.setType(course.getType());
+                score.setCredit(course.getCredit());
+                Teacher teacher = teacherService.getTeacherByNo(course.getTechNo());
+                score.setTeacher(teacher.getName());
+                score.setScore(sc.getGrade());
+                if(sc.getGrade() < 60){
+                    score.setGpa(0);
+                } else {
+                    score.setGpa((float) sc.getGrade() / 10 - 5);
+                }
+                scores.add(score);
+            }
+        }
+
+        return scores;
+    }
+
+    @RequestMapping("change_passwds.html")
+    public ModelAndView changePassword(){
+        return new ModelAndView("change_passwds");
+    }
+
+    @RequestMapping("change_passwds")
+    @ResponseBody
+    public String changePassword(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        String newPasswd = request.getParameter("newPasswd");
+        String oldPasswd = request.getParameter("oldPasswd");
+        String sno = request.getParameter("sno");
+
+        System.out.println(newPasswd);
+        System.out.println(oldPasswd);
+        System.out.println(sno);
+
+        if(studentService.changePassword(sno, oldPasswd, newPasswd)){
+            return "1";
+        } else {
+            return "0";
+        }
     }
 
 }

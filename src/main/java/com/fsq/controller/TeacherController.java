@@ -20,6 +20,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.Writer;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -155,10 +156,18 @@ public class TeacherController {
             String sno = (String) sc.get("stuNo");
             String cno = (String) sc.get("cosNo");
             float grade = Float.parseFloat((String) sc.get("grade"));
+            DecimalFormat df = new DecimalFormat(".000");
+            String sgrade = df.format(grade);
+            grade = Float.valueOf(sgrade);
             scService.importScore(sno, cno, grade);
         }
 
         return "success";
+    }
+
+    @RequestMapping("change_passwdt.html")
+    public ModelAndView chagePasswd(){
+        return new ModelAndView("change_passwdt");
     }
 
 }

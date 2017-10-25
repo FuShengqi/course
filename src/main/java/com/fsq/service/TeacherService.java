@@ -29,4 +29,16 @@ public class TeacherService {
         return teacherMapper.getTeacherByNo(no);
     }
 
+    public boolean changePasswd(String tno, String oldPasswd, String newPasswd){
+        Teacher teacher = teacherMapper.getTeacherByNo(tno);
+
+        if(teacher.getPassword().equals(oldPasswd)){
+            teacher.setPassword(newPasswd);
+            teacherMapper.updateTeacher(teacher);
+            return true;
+        } else {
+            return false;
+        }
+    }
+
 }

@@ -9,6 +9,7 @@ import com.fsq.entity.Student;
 import com.fsq.service.CourseService;
 import com.fsq.service.SCService;
 import com.fsq.service.StudentService;
+import com.fsq.service.TeacherService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -31,6 +32,9 @@ import java.util.List;
 @Controller
 public class TeacherController {
 
+
+    @Autowired
+    private TeacherService teacherService;
 
     @Autowired
     private CourseService courseService;
@@ -168,6 +172,22 @@ public class TeacherController {
     @RequestMapping("change_passwdt.html")
     public ModelAndView chagePasswd(){
         return new ModelAndView("change_passwdt");
+    }
+
+    @RequestMapping("change_passwdt")
+    @ResponseBody
+    public String changaPasswd(HttpServletRequest request, HttpServletResponse response){
+        String oldPasswd = request.getParameter("oldPasswd");
+        String newPasswd = request.getParameter("newPasswd");
+        String tno = request.getParameter("tno");
+
+        System.out.print(oldPasswd+"\n"+newPasswd+"\n"+tno);
+
+        if(teacherService.changePasswd(tno, oldPasswd, newPasswd)){
+            return "1";
+        } else {
+            return "0";
+        }
     }
 
 }

@@ -14,4 +14,6 @@ public interface AdminMapper {
 
     void insertAdmin(Admin admin);
 
+    void updateAdminByNo(Admin admin);
+
 }

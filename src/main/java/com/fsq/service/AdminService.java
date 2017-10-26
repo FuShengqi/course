@@ -29,4 +29,15 @@ public class AdminService {
         return adminMapper.getAdminByNo(no);
     }
 
+    public boolean resetPasswd(String oldPassword, String newPasswd, String ano){
+        Admin admin = adminMapper.getAdminByNo(ano);
+        if(admin.getPassword().equals(oldPassword)){
+            admin.setPassword(newPasswd);
+            adminMapper.updateAdminByNo(admin);
+            return true;
+        } else {
+            return false;
+        }
+    }
+
 }

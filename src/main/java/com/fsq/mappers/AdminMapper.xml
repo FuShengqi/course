@@ -21,5 +21,11 @@
         VALUES (#{no}, #{password},#{name});
     </insert>
 
+    <update id="updateAdminByNo" parameterType="com.fsq.entity.Admin">
+        UPDATE t_admin
+        SET password = #{password},
+            name = #{name}
+        WHERE no = #{no}
+    </update>
 
 </mapper>

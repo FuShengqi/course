@@ -10,6 +10,7 @@
         <id property="password" column="password" />
         <result property="name" column="name" />
         <result property="sex" column="sex" />
+        <result property="gender" column="gender" />
         <result property="age" column="age" />
         <result property="dept" column="dept" />
     </resultMap>
@@ -27,9 +28,13 @@
         SELECT count(*) FROM t_teacher;
     </select>
 
+    <select id="getAllTeachers" resultMap="teacherMap">
+        SELECT * FROM t_teacher;
+    </select>
+
     <insert id="insertTeacher" parameterType="com.fsq.entity.Teacher">
-        INSERT INTO t_teacher(no, password, name, sex, age, dept)
-        VALUES (#{no}, #{password},#{name},#{sex}, #{age}, #{dept});
+        INSERT INTO t_teacher(no, password, name, sex, gender, age, dept)
+        VALUES (#{no}, #{password},#{name},#{sex}, #{gender}, #{age}, #{dept});
     </insert>
 
     <update id="updateTeacher" parameterType="com.fsq.entity.Teacher">
@@ -37,6 +42,7 @@
         SET password = #{password},
         name = #{name},
         sex = #{sex},
+        gender = #{gender},
         age = #{age},
         dept = #{dept}
         WHERE no = #{no}

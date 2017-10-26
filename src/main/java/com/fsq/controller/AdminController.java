@@ -1,7 +1,10 @@
 package com.fsq.controller;
 
 import com.fsq.entity.Course;
+import com.fsq.entity.Teacher;
+import com.fsq.service.AdminService;
 import com.fsq.service.CourseService;
+import com.fsq.service.TeacherService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,7 +26,13 @@ import java.util.List;
 public class AdminController {
 
     @Autowired
+    private AdminService adminService;
+
+    @Autowired
     private CourseService courseService;
+
+    @Autowired
+    private TeacherService teacherService;
 
     /*管理员退出登录*/
     @RequestMapping("alogout.html")
@@ -123,6 +132,80 @@ public class AdminController {
         course.setTime3(time3);
 
         return course;
+    }
+
+    @RequestMapping("reset_passwd.html")
+    public ModelAndView resetPasswd(){
+        return new ModelAndView("reset_passwd");
+    }
+
+    @RequestMapping("reset_passwd")
+    @ResponseBody
+    public String resetPasswd(HttpServletRequest request, HttpServletResponse response){
+        String oldPasswd = request.getParameter("oldPasswd");
+        String newPasswd = request.getParameter("newPasswd");
+        String ano = request.getParameter("ano");
+
+        if(adminService.resetPasswd(oldPasswd, newPasswd, ano)){
+            return "1";
+        } else {
+            return "0";
+        }
+    }
+
+    @RequestMapping("teacher_manage.html")
+    public ModelAndView teacherManage(){
+        return new ModelAndView("teacher_manage");
+    }
+
+    @RequestMapping("teacher_info")
+    @ResponseBody
+    public List<Teacher> teacherInfoJson(){
+        List<Teacher> teachers = teacherService.getAllTeachers();
+        return teachers;
+    }
+
+
+    @RequestMapping("edit_teacher")
+    public ModelAndView editTeacher(HttpServletRequest request, HttpServletResponse response){
+        String tno = request.getParameter("no");
+        Teacher teacher = teacherService.getTeacherByNo(tno);
+
+        ModelAndView mav = new ModelAndView("edit_teacher");
+        mav.addObject("teacher", teacher);
+        return mav;
+    }
+
+
+    @RequestMapping("update_teacher")
+    @ResponseBody
+    public String updateTeacher(HttpServletRequest request){
+        String no = request.getParameter("no");
+        String name = request.getParameter("name");
+        String gender = request.getParameter("gender");
+        String age = request.getParameter("age");
+        String dept = request.getParameter("dept");
+        String password = request.getParameter("password");
+
+        Teacher teacher = teacherService.getTeacherByNo(no);
+        teacher.setName(name);
+        teacher.setGender(gender);
+        teacher.setAge(Integer.parseInt(age));
+        teacher.setDept(dept);
+        teacher.setPassword(password);
+
+        teacherService.updateTeacher(teacher);
+
+        return "1";
+
+    }
+
+    @RequestMapping("delete_teacher")
+    @ResponseBody
+    public String deleteTeacher(HttpServletRequest request){
+        String tno = request.getParameter("tno");
+        teacherService.deleteTeacherByNo(tno);
+        return "1";
     }
 
     public void p(String string){

@@ -12,6 +12,8 @@ import java.util.List;
 @Component
 public interface TeacherMapper {
 
+    List<Teacher> getAllTeachers();
+
     Teacher getTeacherByNo(String no);
 
     List<Teacher> getTeacherByName(String name);

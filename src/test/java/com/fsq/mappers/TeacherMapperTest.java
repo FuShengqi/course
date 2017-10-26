@@ -29,7 +29,7 @@ public class TeacherMapperTest {
     @Test
     public void insertTest(){
         Teacher teacher = new Teacher();
-        teacher.setNo("10003");
+        teacher.setNo("10005");
         teacher.setPassword("123456");
         teacher.setName("方贤勇");
         teacher.setSex(false);
@@ -40,7 +40,7 @@ public class TeacherMapperTest {
     @Test
     public void updateTest(){
         Teacher teacher = teacherMapper.getTeacherByNo("10001");
-        teacher.setAge(30);
+        teacher.setDept("计算机科学与技术");
         teacherMapper.updateTeacher(teacher);
     }
 

@@ -99,10 +99,13 @@
                         <a href="import_course.html"><i class="fa fa-file-text"></i> 导入课程</a>
                     </li>
                     <li>
-                        <a href="teacher_manage"><i class="fa fa-user"></i> 教师管理</a>
+                        <a href="teacher_manage.html"><i class="fa fa-user"></i> 教师管理</a>
                     </li>
                     <li>
-                        <a href="student_manage"><i class="fa fa-graduation-cap"></i> 学生管理</a>
+                        <a href="student_manage.html"><i class="fa fa-graduation-cap"></i> 学生管理</a>
+                    </li>
+                    <li>
+                        <a href="reset_passwd.html"><i class="fa fa-key"></i> 修改密码</a>
                     </li>
                 </ul>
             </div>

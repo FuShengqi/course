@@ -21,6 +21,7 @@ CREATE TABLE t_teacher(
   password CHAR(20),
   name char(20),
   sex BOOL,
+  gender CHAR(3),
   age INT,
   dept char(20)
 );

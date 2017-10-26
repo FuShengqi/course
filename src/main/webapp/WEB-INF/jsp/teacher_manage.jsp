@@ -102,14 +102,14 @@
                     <li>
                         <a href="publish.html"><i class="fa fa-bell-o"></i> 发布通知</a>
                     </li>
-                    <li class="active">
-                        <a href="all_course_a.html" class="active"><i class="fa fa-bars"></i> 全部课程</a>
+                    <li>
+                        <a href="all_course_a.html"><i class="fa fa-bars"></i> 全部课程</a>
                     </li>
                     <li>
                         <a href="import_course.html"><i class="fa fa-file-text"></i> 导入课程</a>
                     </li>
-                    <li>
-                        <a href="teacher_manage.html"><i class="fa fa-user"></i> 教师管理</a>
+                    <li class="active">
+                        <a href="teacher_manage.html" class="active"><i class="fa fa-user"></i> 教师管理</a>
                     </li>
                     <li>
                         <a href="student_manage.html"><i class="fa fa-graduation-cap"></i> 学生管理</a>
@@ -127,24 +127,19 @@
     <!-- Page Content -->
     <div id="page-wrapper">
         <div class="container-fluid">
-            <br>
-            <!-- /.row -->
             <div class="row">
                 <div class="col-lg-12">
+                    <br>
                     <div class="panel panel-default">
-                        <div class="panel-heading">
-                            全部课程
-                        </div>
-                        <!-- /.panel-heading -->
+                        <div class="panel-heading">教师管理</div>
                         <div class="panel-body">
                             <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
                                 <thead>
                                 <tr>
-                                    <th>课程代码</th>
-                                    <th>课程名称</th>
-                                    <th>课程性质</th>
-                                    <th>学分</th>
-                                    <th>容量</th>
+                                    <th>工号</th>
+                                    <th>姓名</th>
+                                    <th>性别</th>
+                                    <th>所在院系</th>
                                     <th>操作</th>
                                 </tr>
                                 </thead>
@@ -160,14 +155,13 @@
                                 </tbody>
                             </table>
                         </div>
-                        <!-- /.panel-body -->
                     </div>
-                    <!-- /.panel -->
                 </div>
+                <!-- /.col-lg-12 -->
             </div>
-            <!-- /.container-fluid -->
+            <!-- /.row -->
         </div>
-        <!-- /#page-wrapper -->
+        <!-- /.container-fluid -->
     </div>
     <!-- /#wrapper -->
 </div>
@@ -194,7 +188,6 @@
 
 <!-- Page-Level Demo Scripts - Tables - Use for reference -->
 <script>
-
     var table;
 
     $(document).ready(function() {
@@ -203,45 +196,42 @@
         table = $('#dataTables-example').DataTable({
             responsive: true,
             autoWWidth : false,
-            /*"columns": [
-                { "width": "20%" },
-                { "width": "20%" },
-                { "width": "20%" },
-                { "width": "10%" },
-                { "width": "10%" },
-                { "width": "20%" }
-            ],*/
             columns : [
                 {data : 'no'},
                 {data : 'name'},
-                {data : 'type'},
-                {data : 'credit'},
-                {data : 'capacity'},
+                {data : 'gender'},
+                {data : 'dept'},
                 {data : null}
             ],
-            columnDefs : [{
-                targets : 5,
-                width : "16%",
-                orderable : false,
-                render : function (data, type, row, meta) {
-                    return "<a type='button' class='btn btn-link' style='padding: 0px 0px' onclick=detail('" + row.no + "')>详细信息</a>" +
-                        "&nbsp; <a type='button' class='btn btn-link' style='padding: 0px 0px' onclick=edit('" + row.no + "')>编辑</a>" +
-                        "&nbsp; <a type='button' class='btn btn-link' style='padding: 0px 0px' onclick=del('" + row.no + "','" + row.name + "')>删除</a>";
-                }
-            },
+            columnDefs : [
+                {
+                    targets : 0
+                },
                 {
                     targets : 1,
                     width : "20%",
-                    orderable: false
+                    orderable : false
                 },
                 {
                     targets : 2,
                     width : "20%",
-                    orderable: false
+                    orderable : false
+                },
+                {
+                    targets : 3,
+                    orderable : false
+                },
+                {
+                    targets : 4,
+                    orderable : false,
+                    render : function (data, type, row, meta) {
+                        return "<a type='button' class='btn btn-link' style='padding: 0px 0px' onclick=edit('" + row.no + "')>编辑</a>" +
+                            "&nbsp; <a type='button' class='btn btn-link' style='padding: 0px 0px' onclick=del('" + row.no + "','" + row.name + "')>删除</a>";
+                    }
                 }
             ],
             ajax : {
-                url : "all_course",
+                url : "teacher_info",
                 dataSrc : ""
             },
             language : {
@@ -272,62 +262,32 @@
 
     });
 
-    /*显示课程详细信息*/
-    function detail(no) {
-        console.log(no)
-        $.confirm({
-            title: '详细信息',
-            boxWidth: '750px',
-            useBootstrap: false,
-            content: function () {
-                var self = this;
-                return $.ajax({
-                    url: 'course_detail?no=' + no,
-                    dataType: 'html',
-                    method: 'get'
-                }).done(function (response) {
-                    self.setContent(response);
-                    /*self.setContentAppend('<br>课程名称: ' + response.name);*/
-                    /*self.setTitle(response.name);*/
-                }).fail(function(){
-                    self.setContent('出错了，刷新试试');
-                });
-            },
-            onContentReady: function () {
-                /*var self = this;
-                this.setContentPrepend('<div>Prepended text</div>');
-                setTimeout(function () {
-                    self.setContentAppend('<div>Appended text after 2 seconds</div>');
-                }, 2000);*/
-            },
-            contentLoaded: function(data, status, xhr){
-                // data is already set in content
-                /*this.setContentAppend('<br>Status: ' + status);*/
-            },
-            columnClass: 'medium',
-            buttons : {
-                ok : {
-                    text : "确定",
-                    action : function () {
-
-                    }
-                }
-            },
-            backgroundDismiss: true
-        });
+    function get_cookie(Name) {
+        var search = Name + "="//查询检索的值
+        var returnvalue = "";//返回值
+        if (document.cookie.length > 0) {
+            sd = document.cookie.indexOf(search);
+            if (sd!= -1) {
+                sd += search.length;
+                end = document.cookie.indexOf(";", sd);
+                if (end == -1)
+                    end = document.cookie.length;
+                //unescape() 函数可对通过 escape() 编码的字符串进行解码。
+                returnvalue=unescape(document.cookie.substring(sd, end))
+            }
+        }
+        return returnvalue;
     }
 
-    function edit(no) {
-        console.log(no)
-        window.location.href="edit_course?no=" + no;
+    function edit(no){
+        window.location.href = "edit_teacher?no=" + no;
     }
 
-    /*删除课程*/
     function del(no, name) {
         console.log(no)
         $.confirm({
             title: '警告',
-            content: '确定要删除课程《' + name + "》吗？",
+            content: '确定要删除' + name + "老师的信息吗？",
             type: 'red',
             typeAnimated: true,
             buttons: {
@@ -336,22 +296,35 @@
                     btnClass: 'btn-red',
                     action: function(){
                         $.ajax({
-                            url : 'delete_course?no=' + no,
+                            url : 'delete_teacher?tno=' + no,
                             dataType : 'text',
-                            success : function () {
-                                $.alert({
-                                    title: '提示',
-                                    content: '删除成功',
-                                    buttons : {
-                                        ok : {
-                                            text : '确定',
-                                            action : function () {
-                                                
+                            success : function (data) {
+                                if(data == "1"){
+                                    $.alert({
+                                        title: '提示',
+                                        content: '删除成功',
+                                        buttons : {
+                                            ok : {
+                                                text : '确定',
+                                                action : function () {
+
+                                                }
                                             }
                                         }
-                                    }
-                                });
-                                table.ajax.reload();
+                                    });
+                                    table.ajax.reload();
+                                } else {
+                                    $.alert({
+                                        title : '提示',
+                                        content : '删除失败',
+                                        buttons : {
+                                            ok : {
+                                                text : '确定',
+                                                action : function(){}
+                                            }
+                                        }
+                                    })
+                                }
                             },
                             error : function () {
                                 $.alert('删除失败');
@@ -362,7 +335,7 @@
                 close: {
                     text : '取消',
                     action : function () {
-                        
+
                     }
                 }
             }

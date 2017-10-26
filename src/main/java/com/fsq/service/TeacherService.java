@@ -5,6 +5,7 @@ import com.fsq.mappers.TeacherMapper;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 /**
  * Created by FuShengqi on 2017/10/13.
@@ -29,6 +30,10 @@ public class TeacherService {
         return teacherMapper.getTeacherByNo(no);
     }
 
+    public List<Teacher> getAllTeachers(){
+        return teacherMapper.getAllTeachers();
+    }
+
     public boolean changePasswd(String tno, String oldPasswd, String newPasswd){
         Teacher teacher = teacherMapper.getTeacherByNo(tno);
 
@@ -39,6 +44,14 @@ public class TeacherService {
         } else {
             return false;
         }
+    }
+
+    public void updateTeacher(Teacher teacher){
+        teacherMapper.updateTeacher(teacher);
+    }
+
+    public void deleteTeacherByNo(String tno){
+        teacherMapper.deleteTeacherById(tno);
     }
 
 }

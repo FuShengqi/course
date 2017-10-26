@@ -39,4 +39,9 @@ public class StudentService {
             return true;
         }
     }
+
+    public void update(Student student){
+        studentMapper.updateStudent(student);
+    }
+
 }

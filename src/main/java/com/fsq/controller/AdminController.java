@@ -1,9 +1,11 @@
 package com.fsq.controller;
 
 import com.fsq.entity.Course;
+import com.fsq.entity.Student;
 import com.fsq.entity.Teacher;
 import com.fsq.service.AdminService;
 import com.fsq.service.CourseService;
+import com.fsq.service.StudentService;
 import com.fsq.service.TeacherService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -33,6 +35,9 @@ public class AdminController {
 
     @Autowired
     private TeacherService teacherService;
+
+    @Autowired
+    private StudentService studentService;
 
     /*管理员退出登录*/
     @RequestMapping("alogout.html")
@@ -205,6 +210,61 @@ public class AdminController {
     public String deleteTeacher(HttpServletRequest request){
         String tno = request.getParameter("tno");
         teacherService.deleteTeacherByNo(tno);
+        return "1";
+    }
+
+    @RequestMapping("student_manage.html")
+    public ModelAndView studentManage(){
+        return new ModelAndView("student_manage");
+    }
+
+    @RequestMapping("search_student")
+    @ResponseBody
+    public Student search(HttpServletRequest request){
+        String sno = request.getParameter("sno");
+        Student student = studentService.getStudentByNo(sno);
+        if(student != null){
+            return student;
+        } else {
+            Student student1 = new Student();
+            student1.setNo("0");
+            return student1;
+        }
+    }
+
+    @RequestMapping("edit_student")
+    public ModelAndView editStudent(HttpServletRequest request){
+        String sno = request.getParameter("sno");
+        ModelAndView mav = new ModelAndView("edit_student");
+        Student student = studentService.getStudentByNo(sno);
+        mav.addObject("student", student);
+        return mav;
+    }
+
+    @RequestMapping("update_student")
+    @ResponseBody
+    public String updateStudent(HttpServletRequest request){
+        String no = request.getParameter("no");
+        String name = request.getParameter("name");
+        String gender = request.getParameter("gender");
+        String age = request.getParameter("age");
+        String major = request.getParameter("major");
+        String password = request.getParameter("password");
+        String clazz = request.getParameter("clazz");
+
+        System.out.print(major+"/n");
+
+        Student student = new Student();
+        student.setNo(no);
+        student.setName(name);
+        student.setGender(gender);
+        student.setAge(Integer.parseInt(age));
+        student.setMajor(major);
+        student.setPassword(password);
+        student.setClazz(clazz);
+
+        studentService.update(student);
+
         return "1";
     }
 

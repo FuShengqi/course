@@ -15,6 +15,8 @@ public class Student {
 
     private boolean sex;
 
+    private String gender;
+
     private int age;
 
     private String grade;
@@ -59,6 +61,14 @@ public class Student {
 
     public void setSex(boolean sex) {
         this.sex = sex;
+    }
+
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
     }
 
     public int getAge() {

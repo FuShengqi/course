@@ -17,106 +17,97 @@
       <file leaf-file-name="AdminController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/fsq/controller/AdminController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="196">
-              <caret line="207" column="19" lean-forward="false" selection-start-line="207" selection-start-column="19" selection-end-line="207" selection-end-column="19" />
+            <state relative-caret-position="133">
+              <caret line="251" column="59" lean-forward="true" selection-start-line="251" selection-start-column="59" selection-end-line="251" selection-end-column="59" />
               <folding>
-                <element signature="e#4773#4774#0" expanded="true" />
-                <element signature="e#4828#4829#0" expanded="true" />
-                <element signature="e#5378#5379#0" expanded="true" />
-                <element signature="e#5435#5436#0" expanded="true" />
+                <element signature="e#4902#4903#0" expanded="true" />
+                <element signature="e#4957#4958#0" expanded="true" />
+                <element signature="e#5507#5508#0" expanded="true" />
+                <element signature="e#5564#5565#0" expanded="true" />
+                <element signature="e#7219#7220#0" expanded="true" />
+                <element signature="e#7276#7277#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TeacherMapperTest.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/test/java/com/fsq/mappers/TeacherMapperTest.java">
+      <file leaf-file-name="StudentService.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/fsq/service/StudentService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="178">
-              <caret line="34" column="30" lean-forward="true" selection-start-line="34" selection-start-column="30" selection-end-line="34" selection-end-column="30" />
+            <state relative-caret-position="301">
+              <caret line="43" column="43" lean-forward="false" selection-start-line="43" selection-start-column="43" selection-end-line="43" selection-end-column="43" />
+              <folding>
+                <element signature="e#1108#1109#0" expanded="true" />
+                <element signature="e#1160#1161#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="edit_student.jsp" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/edit_student.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="224">
+              <caret line="243" column="32" lean-forward="false" selection-start-line="243" selection-start-column="32" selection-end-line="243" selection-end-column="32" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TeacherMapper.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/fsq/mappers/TeacherMapper.java">
+      <file leaf-file-name="StudentMapperTest.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/com/fsq/mappers/StudentMapperTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="343">
-              <caret line="26" column="20" lean-forward="true" selection-start-line="26" selection-start-column="20" selection-end-line="26" selection-end-column="20" />
+            <state relative-caret-position="25">
+              <caret line="68" column="0" lean-forward="true" selection-start-line="68" selection-start-column="0" selection-end-line="68" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TeacherMapper.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/fsq/mappers/TeacherMapper.xml">
+      <file leaf-file-name="Student.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/fsq/entity/Student.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="208">
-              <caret line="39" column="38" lean-forward="true" selection-start-line="39" selection-start-column="38" selection-end-line="39" selection-end-column="38" />
+            <state relative-caret-position="190">
+              <caret line="65" column="31" lean-forward="false" selection-start-line="65" selection-start-column="31" selection-end-line="65" selection-end-column="31" />
               <folding>
-                <marker date="1509002306069" expanded="true" signature="763:803" ph="SELECT * FRO... t_teacher" />
-                <marker date="1509002306069" expanded="true" signature="908:952" ph="SELECT * FRO... t_teacher" />
-                <marker date="1509002306069" expanded="true" signature="1021:1051" ph="SELECT count... t_teacher" />
-                <marker date="1509002306069" expanded="true" signature="1132:1155" ph="SELECT * FRO... t_teacher" />
-                <marker date="1509002306069" expanded="true" signature="1251:1395" ph="INSERT INTO t_teacher... " />
-                <marker date="1509002306069" expanded="true" signature="1491:1687" ph="UPDATE t_tea... " />
-                <marker date="1509002306069" expanded="true" signature="1770:1816" ph="DELETE FROM " />
+                <element signature="e#1032#1033#0" expanded="true" />
+                <element signature="e#1076#1077#0" expanded="true" />
+                <element signature="e#1112#1113#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="all_course_a.jsp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/all_course_a.jsp">
+      <file leaf-file-name="StuCosMapper.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/fsq/mappers/StuCosMapper.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="358" column="26" lean-forward="true" selection-start-line="358" selection-start-column="26" selection-end-line="358" selection-end-column="26" />
+            <state relative-caret-position="450">
+              <caret line="30" column="0" lean-forward="true" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
               <folding>
-                <marker date="1508981531476" expanded="true" signature="8590:8606" ph="..." />
-                <marker date="1508981531476" expanded="true" signature="8678:8684" ph="&amp;nbsp;" />
-                <marker date="1508981531476" expanded="true" signature="8730:8746" ph="..." />
-                <marker date="1508981531476" expanded="true" signature="8814:8820" ph="&amp;nbsp;" />
-                <marker date="1508981531476" expanded="true" signature="8866:8882" ph="..." />
+                <marker date="1508743552311" expanded="true" signature="827:883" ph="SELECT * FRO... t_sc" />
+                <marker date="1508743552311" expanded="true" signature="977:1017" ph="SELECT * FRO... t_sc" />
+                <marker date="1508743552311" expanded="true" signature="1128:1173" ph="SELECT cos_n... t_sc" />
+                <marker date="1508743552311" expanded="true" signature="1279:1324" ph="SELECT stu_n... t_sc" />
+                <marker date="1508743552311" expanded="true" signature="1411:1495" ph="INSERT INTO t_sc... " />
+                <marker date="1508743552311" expanded="true" signature="1550:1632" ph="UPDATE t_sc " />
+                <marker date="1508743552311" expanded="true" signature="1683:1745" ph="DELETE FROM " />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="db.sql" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/fsq/sql/db.sql">
+      <file leaf-file-name="StudentMapper.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/fsq/mappers/StudentMapper.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="237">
-              <caret line="23" column="17" lean-forward="false" selection-start-line="23" selection-start-column="17" selection-end-line="23" selection-end-column="17" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TeacherService.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/fsq/service/TeacherService.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="346">
-              <caret line="53" column="45" lean-forward="true" selection-start-line="53" selection-start-column="45" selection-end-line="53" selection-end-column="45" />
+            <state relative-caret-position="151">
+              <caret line="54" column="28" lean-forward="true" selection-start-line="54" selection-start-column="28" selection-end-line="54" selection-end-column="28" />
               <folding>
-                <element signature="e#1235#1236#0" expanded="true" />
-                <element signature="e#1287#1288#0" expanded="true" />
-                <element signature="e#1335#1336#0" expanded="true" />
-                <element signature="e#1387#1388#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="teacher_manage.jsp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/teacher_manage.jsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="91">
-              <caret line="296" column="35" lean-forward="false" selection-start-line="296" selection-start-column="35" selection-end-line="296" selection-end-column="35" />
-              <folding>
-                <marker date="1509005774851" expanded="true" signature="8529:8545" ph="..." />
-                <marker date="1509005774851" expanded="true" signature="8617:8623" ph="&amp;nbsp;" />
-                <marker date="1509005774851" expanded="true" signature="8669:8685" ph="..." />
+                <marker date="1509027561158" expanded="true" signature="1053:1093" ph="SELECT * FRO... t_student" />
+                <marker date="1509027561158" expanded="true" signature="1198:1242" ph="SELECT * FRO... t_student" />
+                <marker date="1509027561158" expanded="true" signature="1311:1341" ph="SELECT count... t_student" />
+                <marker date="1509027561158" expanded="true" signature="1437:1717" ph="INSERT INTO t_student... " />
+                <marker date="1509027561158" expanded="true" signature="1813:2214" ph="UPDATE t_stu... " />
+                <marker date="1509027561158" expanded="true" signature="2297:2343" ph="DELETE FROM " />
               </folding>
             </state>
           </provider>
@@ -125,9 +116,45 @@
       <file leaf-file-name="edit_teacher.jsp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/edit_teacher.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="316">
-              <caret line="295" column="30" lean-forward="true" selection-start-line="286" selection-start-column="28" selection-end-line="295" selection-end-column="30" />
+            <state relative-caret-position="-1633">
+              <caret line="144" column="42" lean-forward="true" selection-start-line="144" selection-start-column="42" selection-end-line="144" selection-end-column="42" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="student_manage.jsp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/student_manage.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2">
+              <caret line="286" column="69" lean-forward="true" selection-start-line="286" selection-start-column="69" selection-end-line="286" selection-end-column="69" />
+              <folding>
+                <element signature="n#style#0;n#div#1;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#th#0;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#th#1;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#th#2;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#th#3;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#th#6;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#a#0;n#td#6;n#tr#0;n#tbody#0;n#table#0;n#div#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#a#1;n#td#6;n#tr#0;n#tbody#0;n#table#0;n#div#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#a#2;n#td#6;n#tr#0;n#tbody#0;n#table#0;n#div#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="all_course_a.jsp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/all_course_a.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="255">
+              <caret line="360" column="18" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="375" selection-end-column="0" />
+              <folding>
+                <marker date="1508981531476" expanded="true" signature="8590:8606" ph="..." />
+                <marker date="1508981531476" expanded="true" signature="8678:8684" ph="&amp;nbsp;" />
+                <marker date="1508981531476" expanded="true" signature="8730:8746" ph="..." />
+                <marker date="1508981531476" expanded="true" signature="8814:8820" ph="&amp;nbsp;" />
+                <marker date="1508981531476" expanded="true" signature="8866:8882" ph="..." />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -167,17 +194,12 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/all_course.jsp" />
-        <option value="$PROJECT_DIR$/src/main/java/com/fsq/entity/Course.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/fsq/entity/StuCos.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/fsq/mappers/StuCosMapperTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/fsq/mappers/CourseMapper.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/fsq/service/CourseService.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/fsq/mappers/CourseMapperTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/fsq/controller/CourseController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/fsq/mappers/CourseMapper.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/fsq/entity/Student.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/fsq/mappers/StudentMapper.xml" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/index_stu.html" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/index_stu.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/com/fsq/entity/Score.java" />
@@ -189,7 +211,6 @@
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/change_passed.html" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/change_passwd.html" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/query_score.jsp" />
-        <option value="$PROJECT_DIR$/src/main/java/com/fsq/service/StudentService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/fsq/controller/StudentController.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/all_course_s.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/course_selected.jsp" />
@@ -216,8 +237,14 @@
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/edit_teacher.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/teacher_manage.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/com/fsq/service/TeacherService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/fsq/controller/AdminController.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/fsq/mappers/TeacherMapperTest.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/student_manage.html" />
+        <option value="$PROJECT_DIR$/src/main/java/com/fsq/entity/Student.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/fsq/mappers/StudentMapper.xml" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/student_manage.jsp" />
+        <option value="$PROJECT_DIR$/src/main/java/com/fsq/service/StudentService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/fsq/controller/AdminController.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/edit_student.jsp" />
       </list>
     </option>
   </component>
@@ -548,32 +575,6 @@
     </option>
   </component>
   <component name="RunManager" selected="Tomcat Server.Unnamed">
-    <configuration default="false" name="StudentMapperTest.justatest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="com.fsq.mappers.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <module name="course" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="com.fsq.mappers" />
-      <option name="MAIN_CLASS_NAME" value="com.fsq.mappers.StudentMapperTest" />
-      <option name="METHOD_NAME" value="justatest" />
-      <option name="TEST_OBJECT" value="method" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <envs />
-      <patterns />
-      <method />
-    </configuration>
     <configuration default="false" name="CourseMapperTest.insertTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
@@ -664,6 +665,32 @@
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="PACKAGE_NAME" value="com.fsq.mappers" />
       <option name="MAIN_CLASS_NAME" value="com.fsq.mappers.TeacherMapperTest" />
+      <option name="METHOD_NAME" value="updateTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+      <method />
+    </configuration>
+    <configuration default="false" name="StudentMapperTest.updateTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="com.fsq.mappers.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <module name="course" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="com.fsq.mappers" />
+      <option name="MAIN_CLASS_NAME" value="com.fsq.mappers.StudentMapperTest" />
       <option name="METHOD_NAME" value="updateTest" />
       <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
@@ -1150,19 +1177,19 @@
     </configuration>
     <list size="6">
       <item index="0" class="java.lang.String" itemvalue="Tomcat Server.Unnamed" />
-      <item index="1" class="java.lang.String" itemvalue="JUnit.StudentMapperTest.justatest" />
-      <item index="2" class="java.lang.String" itemvalue="JUnit.CourseMapperTest.insertTest" />
-      <item index="3" class="java.lang.String" itemvalue="JUnit.CourseMapperTest.deleteTest" />
-      <item index="4" class="java.lang.String" itemvalue="JUnit.TeacherMapperTest.insertTest" />
-      <item index="5" class="java.lang.String" itemvalue="JUnit.TeacherMapperTest.updateTest" />
+      <item index="1" class="java.lang.String" itemvalue="JUnit.CourseMapperTest.insertTest" />
+      <item index="2" class="java.lang.String" itemvalue="JUnit.CourseMapperTest.deleteTest" />
+      <item index="3" class="java.lang.String" itemvalue="JUnit.TeacherMapperTest.insertTest" />
+      <item index="4" class="java.lang.String" itemvalue="JUnit.TeacherMapperTest.updateTest" />
+      <item index="5" class="java.lang.String" itemvalue="JUnit.StudentMapperTest.updateTest" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="JUnit.TeacherMapperTest.insertTest" />
-        <item index="1" class="java.lang.String" itemvalue="JUnit.TeacherMapperTest.updateTest" />
-        <item index="2" class="java.lang.String" itemvalue="JUnit.CourseMapperTest.deleteTest" />
-        <item index="3" class="java.lang.String" itemvalue="JUnit.CourseMapperTest.insertTest" />
-        <item index="4" class="java.lang.String" itemvalue="JUnit.StudentMapperTest.justatest" />
+        <item index="0" class="java.lang.String" itemvalue="JUnit.StudentMapperTest.updateTest" />
+        <item index="1" class="java.lang.String" itemvalue="JUnit.TeacherMapperTest.insertTest" />
+        <item index="2" class="java.lang.String" itemvalue="JUnit.TeacherMapperTest.updateTest" />
+        <item index="3" class="java.lang.String" itemvalue="JUnit.CourseMapperTest.deleteTest" />
+        <item index="4" class="java.lang.String" itemvalue="JUnit.CourseMapperTest.insertTest" />
       </list>
     </recent_temporary>
   </component>
@@ -1191,16 +1218,16 @@
       <workItem from="1508741241835" duration="4327000" />
       <workItem from="1508805081803" duration="1321000" />
       <workItem from="1508894947399" duration="11370000" />
-      <workItem from="1508980318372" duration="10846000" />
+      <workItem from="1508980318372" duration="23066000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
+    <history-entry file="StudentMapperTest_updateTest - 2017.10.26 at 23h 12m 57s.xml">
+      <configuration name="StudentMapperTest.updateTest" configurationId="JUnit" />
+    </history-entry>
     <history-entry file="TeacherMapperTest_insertTest - 2017.10.26 at 16h 16m 33s.xml">
       <configuration name="TeacherMapperTest.insertTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="TeacherMapperTest_selectTest - 2017.10.19 at 10h 58m 42s.xml">
-      <configuration name="TeacherMapperTest.selectTest" configurationId="JUnit" />
     </history-entry>
     <history-entry file="TeacherMapperTest_updateTest - 2017.10.26 at 15h 15m 33s.xml">
       <configuration name="TeacherMapperTest.updateTest" configurationId="JUnit" />
@@ -1228,10 +1255,10 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="166875000" />
+    <option name="totallyTimeSpent" value="179095000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
@@ -1256,7 +1283,7 @@
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3270142" sideWeight="0.49707174" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3270142" sideWeight="0.49707174" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2489019" sideWeight="0.5" order="6" side_tool="false" content_ui="combo" />
@@ -1289,27 +1316,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/fsq/entity/StuCos.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="25" lean-forward="false" selection-start-line="9" selection-start-column="25" selection-end-line="9" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Desktop/startbootstrap-sb-admin-2-gh-pages/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" column="7" lean-forward="true" selection-start-line="12" selection-start-column="7" selection-end-line="12" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/index_stu.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="84" column="29" lean-forward="true" selection-start-line="84" selection-start-column="29" selection-end-line="84" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/fsq/entity/Score.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
@@ -1348,14 +1354,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/fsq/entity/Student.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="870">
-          <caret line="86" column="0" lean-forward="false" selection-start-line="86" selection-start-column="0" selection-end-line="86" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/com/fsq/mappers/StuCosMapperTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
@@ -1364,22 +1362,6 @@
             <element signature="imports" expanded="false" />
             <element signature="e#791#792#0" expanded="false" />
             <element signature="e#852#853#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/fsq/mappers/StudentMapperTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1080">
-          <caret line="90" column="13" lean-forward="false" selection-start-line="90" selection-start-column="13" selection-end-line="90" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#1732#1733#0" expanded="false" />
-            <element signature="e#1792#1793#0" expanded="false" />
-            <element signature="e#1832#1833#0" expanded="false" />
-            <element signature="e#1876#1877#0" expanded="false" />
-            <element signature="e#2710#2711#0" expanded="false" />
-            <element signature="e#2771#2772#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1414,55 +1396,6 @@
         <state relative-caret-position="253">
           <caret line="20" column="17" lean-forward="false" selection-start-line="20" selection-start-column="17" selection-end-line="20" selection-end-column="17" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/fsq/mappers/StudentMapper.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="145">
-          <caret line="43" column="35" lean-forward="true" selection-start-line="43" selection-start-column="35" selection-end-line="43" selection-end-column="35" />
-          <folding>
-            <marker date="1508574332326" expanded="true" signature="1000:1040" ph="SELECT * FRO... t_student" />
-            <marker date="1508574332326" expanded="true" signature="1145:1189" ph="SELECT * FRO... t_student" />
-            <marker date="1508574332326" expanded="true" signature="1258:1288" ph="SELECT count... t_student" />
-            <marker date="1508574332326" expanded="true" signature="1384:1645" ph="INSERT INTO t_student... " />
-            <marker date="1508574332326" expanded="true" signature="1741:2110" ph="UPDATE t_stu... " />
-            <marker date="1508574332326" expanded="true" signature="2193:2239" ph="DELETE FROM " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/fsq/mappers/StuCosMapper.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="181">
-          <caret line="30" column="0" lean-forward="true" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
-          <folding>
-            <marker date="1508743552311" expanded="true" signature="827:883" ph="SELECT * FRO... t_sc" />
-            <marker date="1508743552311" expanded="true" signature="977:1017" ph="SELECT * FRO... t_sc" />
-            <marker date="1508743552311" expanded="true" signature="1128:1173" ph="SELECT cos_n... t_sc" />
-            <marker date="1508743552311" expanded="true" signature="1279:1324" ph="SELECT stu_n... t_sc" />
-            <marker date="1508743552311" expanded="true" signature="1411:1495" ph="INSERT INTO t_sc... " />
-            <marker date="1508743552311" expanded="true" signature="1550:1632" ph="UPDATE t_sc " />
-            <marker date="1508743552311" expanded="true" signature="1683:1745" ph="DELETE FROM " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/fsq/service/StudentService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="181">
-          <caret line="35" column="16" lean-forward="true" selection-start-line="35" selection-start-column="16" selection-end-line="35" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/all_course_s.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="241">
-          <caret line="116" column="72" lean-forward="false" selection-start-line="116" selection-start-column="72" selection-end-line="116" selection-end-column="72" />
-          <folding>
-            <marker date="1508917793033" expanded="true" signature="8893:8909" ph="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1690,31 +1623,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/edit_teacher.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="316">
-          <caret line="295" column="30" lean-forward="true" selection-start-line="286" selection-start-column="28" selection-end-line="295" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/teacher_manage.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="91">
-          <caret line="296" column="35" lean-forward="false" selection-start-line="296" selection-start-column="35" selection-end-line="296" selection-end-column="35" />
-          <folding>
-            <marker date="1509005774851" expanded="true" signature="8529:8545" ph="..." />
-            <marker date="1509005774851" expanded="true" signature="8617:8623" ph="&amp;nbsp;" />
-            <marker date="1509005774851" expanded="true" signature="8669:8685" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/fsq/sql/db.sql">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="237">
           <caret line="23" column="17" lean-forward="false" selection-start-line="23" selection-start-column="17" selection-end-line="23" selection-end-column="17" />
-          <folding />
+          <folding>
+            <marker date="1509002306123" expanded="true" signature="302:449" ph="CREATE TABLE... t_teacher" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1731,10 +1646,56 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/teacher_manage.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="271">
+          <caret line="281" column="22" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="348" selection-end-column="0" />
+          <folding>
+            <marker date="1509005774851" expanded="true" signature="8529:8545" ph="..." />
+            <marker date="1509005774851" expanded="true" signature="8617:8623" ph="&amp;nbsp;" />
+            <marker date="1509005774851" expanded="true" signature="8669:8685" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/fsq/mappers/TeacherMapperTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="20" column="39" lean-forward="false" selection-start-line="20" selection-start-column="39" selection-end-line="20" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/all_course_s.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="271">
+          <caret line="232" column="133" lean-forward="true" selection-start-line="232" selection-start-column="28" selection-end-line="232" selection-end-column="133" />
+          <folding>
+            <marker date="1508917793033" expanded="true" signature="8893:8909" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/student_manage.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="241">
+          <caret line="133" column="76" lean-forward="false" selection-start-line="133" selection-start-column="33" selection-end-line="133" selection-end-column="76" />
+          <folding>
+            <element signature="n#style#0;n#div#1;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#th#0;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#th#1;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#th#2;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#th#3;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#th#6;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#0;n#td#6;n#tr#0;n#tbody#0;n#table#0;n#div#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/all_course_a.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="358" column="26" lean-forward="true" selection-start-line="358" selection-start-column="26" selection-end-line="358" selection-end-column="26" />
+        <state relative-caret-position="255">
+          <caret line="360" column="18" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="375" selection-end-column="0" />
           <folding>
             <marker date="1508981531476" expanded="true" signature="8590:8606" ph="..." />
             <marker date="1508981531476" expanded="true" signature="8678:8684" ph="&amp;nbsp;" />
@@ -1745,23 +1706,113 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/fsq/controller/AdminController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/fsq/mappers/StuCosMapper.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="196">
-          <caret line="207" column="19" lean-forward="false" selection-start-line="207" selection-start-column="19" selection-end-line="207" selection-end-column="19" />
+        <state relative-caret-position="450">
+          <caret line="30" column="0" lean-forward="true" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
           <folding>
-            <element signature="e#4773#4774#0" expanded="true" />
-            <element signature="e#4828#4829#0" expanded="true" />
-            <element signature="e#5378#5379#0" expanded="true" />
-            <element signature="e#5435#5436#0" expanded="true" />
+            <marker date="1508743552311" expanded="true" signature="827:883" ph="SELECT * FRO... t_sc" />
+            <marker date="1508743552311" expanded="true" signature="977:1017" ph="SELECT * FRO... t_sc" />
+            <marker date="1508743552311" expanded="true" signature="1128:1173" ph="SELECT cos_n... t_sc" />
+            <marker date="1508743552311" expanded="true" signature="1279:1324" ph="SELECT stu_n... t_sc" />
+            <marker date="1508743552311" expanded="true" signature="1411:1495" ph="INSERT INTO t_sc... " />
+            <marker date="1508743552311" expanded="true" signature="1550:1632" ph="UPDATE t_sc " />
+            <marker date="1508743552311" expanded="true" signature="1683:1745" ph="DELETE FROM " />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/fsq/mappers/TeacherMapperTest.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/fsq/mappers/StudentMapper.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="178">
-          <caret line="34" column="30" lean-forward="true" selection-start-line="34" selection-start-column="30" selection-end-line="34" selection-end-column="30" />
+        <state relative-caret-position="151">
+          <caret line="54" column="28" lean-forward="true" selection-start-line="54" selection-start-column="28" selection-end-line="54" selection-end-column="28" />
+          <folding>
+            <marker date="1509027561158" expanded="true" signature="1053:1093" ph="SELECT * FRO... t_student" />
+            <marker date="1509027561158" expanded="true" signature="1198:1242" ph="SELECT * FRO... t_student" />
+            <marker date="1509027561158" expanded="true" signature="1311:1341" ph="SELECT count... t_student" />
+            <marker date="1509027561158" expanded="true" signature="1437:1717" ph="INSERT INTO t_student... " />
+            <marker date="1509027561158" expanded="true" signature="1813:2214" ph="UPDATE t_stu... " />
+            <marker date="1509027561158" expanded="true" signature="2297:2343" ph="DELETE FROM " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/student_manage.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2">
+          <caret line="286" column="69" lean-forward="true" selection-start-line="286" selection-start-column="69" selection-end-line="286" selection-end-column="69" />
+          <folding>
+            <element signature="n#style#0;n#div#1;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#th#0;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#th#1;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#th#2;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#th#3;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#th#6;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#0;n#td#6;n#tr#0;n#tbody#0;n#table#0;n#div#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#1;n#td#6;n#tr#0;n#tbody#0;n#table#0;n#div#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#2;n#td#6;n#tr#0;n#tbody#0;n#table#0;n#div#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/fsq/service/StudentService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="301">
+          <caret line="43" column="43" lean-forward="false" selection-start-line="43" selection-start-column="43" selection-end-line="43" selection-end-column="43" />
+          <folding>
+            <element signature="e#1108#1109#0" expanded="true" />
+            <element signature="e#1160#1161#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/fsq/entity/Student.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="190">
+          <caret line="65" column="31" lean-forward="false" selection-start-line="65" selection-start-column="31" selection-end-line="65" selection-end-column="31" />
+          <folding>
+            <element signature="e#1032#1033#0" expanded="true" />
+            <element signature="e#1076#1077#0" expanded="true" />
+            <element signature="e#1112#1113#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/fsq/controller/AdminController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="133">
+          <caret line="251" column="59" lean-forward="true" selection-start-line="251" selection-start-column="59" selection-end-line="251" selection-end-column="59" />
+          <folding>
+            <element signature="e#4902#4903#0" expanded="true" />
+            <element signature="e#4957#4958#0" expanded="true" />
+            <element signature="e#5507#5508#0" expanded="true" />
+            <element signature="e#5564#5565#0" expanded="true" />
+            <element signature="e#7219#7220#0" expanded="true" />
+            <element signature="e#7276#7277#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/fsq/mappers/StudentMapperTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="25">
+          <caret line="68" column="0" lean-forward="true" selection-start-line="68" selection-start-column="0" selection-end-line="68" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/edit_teacher.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1633">
+          <caret line="144" column="42" lean-forward="true" selection-start-line="144" selection-start-column="42" selection-end-line="144" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/edit_student.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="224">
+          <caret line="243" column="32" lean-forward="false" selection-start-line="243" selection-start-column="32" selection-end-line="243" selection-end-column="32" />
           <folding />
         </state>
       </provider>

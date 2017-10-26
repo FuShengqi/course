@@ -10,6 +10,7 @@
         <id property="password" column="password" />
         <result property="name" column="name" />
         <result property="sex" column="sex" />
+        <result property="gender" column="gender" />
         <result property="age" column="age" />
         <result property="grade" column="grade" />
         <result property="major" column="major" />
@@ -33,9 +34,9 @@
     </select>
 
     <insert id="insertStudent" parameterType="com.fsq.entity.Student">
-        INSERT INTO t_student(no, password, name, sex, age, grade, major,
+        INSERT INTO t_student(no, password, name, sex, gender, age, grade, major,
         credit_passed, credit_not_passed, gpa, class)
-        VALUES (#{no}, #{password},#{name},#{sex}, #{age}, #{grade}, #{major},
+        VALUES (#{no}, #{password},#{name},#{sex}, #{gender}, #{age}, #{grade}, #{major},
         #{creditPassed}, #{creditNotPassed}, #{gpa}, #{clazz});
     </insert>
 
@@ -44,6 +45,7 @@
         SET password = #{password},
             name = #{name},
             sex = #{sex},
+            gender = #{gender},
             age = #{age},
             grade = #{grade},
             major = #{major},

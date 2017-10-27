@@ -44,4 +44,8 @@ public class StudentService {
         studentMapper.updateStudent(student);
     }
 
+    public void deleteStudentByNo(String no){
+        studentMapper.deleteStudentByNo(no);
+    }
+
 }

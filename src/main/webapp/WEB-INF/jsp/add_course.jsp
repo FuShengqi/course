@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ page import="java.net.URLDecoder" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -131,47 +132,41 @@
                 <div class="col-lg-12">
                     <br>
                     <div class="panel panel-default">
-                        <div class="panel-heading">学生管理</div>
+                        <div class="panel-heading">导入课程给学生</div>
                         <div class="panel-body">
-                            <div class="row">
-                                <div class="col-lg-4">
-                                    <div class="input-group custom-search-form">
-                                        <input type="text" class="form-control" id="inputSno" placeholder="输入学号来搜索学生">
-                                        <span class="input-group-btn">
-                                            <button class="btn btn-default" type="button" id="search">
-                                                搜索
-                                            </button>
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row hidden" style="margin-top: 15px" id="table">
+                            <div class="row" style="margin-top: 15px" id="table">
                                 <div class="col-lg-12">
                                     <div class="table-responsive">
                                         <table class="table table-striped table-bordered table-hover">
                                             <thead>
                                             <tr>
-                                                <th style="width: 130px">学号</th>
-                                                <th style="width: 130px">姓名</th>
-                                                <th style="width: 70px">性别</th>
-                                                <th style="width: 70px">年龄</th>
-                                                <th>专业</th>
-                                                <th>班级</th>
-                                                <th style="width: 200px">操作</th>
+                                                <th>学号</th>
+                                                <th>姓名</th>
+                                                <th>课程代码</th>
+                                                <th>课程名称</th>
+                                                <th>授课老师工号</th>
+                                                <th style="width: 130px;">操作</th>
                                             </tr>
                                             </thead>
                                             <tbody>
                                             <tr>
-                                                <td id="no"></td>
-                                                <td id="name"></td>
-                                                <td id="gender"></td>
-                                                <td id="age"></td>
-                                                <td id="major"></td>
-                                                <td id="class"></td>
+                                                <td value = ${student.no}>
+                                                    <input type="text" name="sno" id="sno" class="form-control" value="${student.no}" disabled="disabled">
+                                                </td>
                                                 <td>
-                                                    <a type='button' class='btn btn-link' style='padding: 0px 0px' onclick=edit()>编辑</a>&nbsp;
-                                                    <a type='button' class='btn btn-link' style='padding: 0px 0px' onclick=addCourse()>添加课程</a>&nbsp;
-                                                    <a type='button' class='btn btn-link' style='padding: 0px 0px' onclick=del()>删除</a>
+                                                    <input type="text" name="sname" id="sname" class="form-control" value="${student.name}" disabled="disabled">
+                                                </td>
+                                                <td>
+                                                    <input type="text" name="cno" id="cno" class="form-control">
+                                                </td>
+                                                <td>
+                                                    <input type="text" name="cname" id="cname" class="form-control">
+                                                </td>
+                                                <td>
+                                                    <input type="text" name="tno" id="tno" class="form-control">
+                                                </td>
+                                                <td>
+                                                    <a type='button' class='btn btn-primary btn-block' id="submit">提交</a>
                                                 </td>
                                             </tr>
                                             </tbody>
@@ -215,139 +210,65 @@
 <script>
 
     $(function () {
-        $("#search").click(function () {
-            var sno = $("#inputSno").val();
-            sno = sno.trim();
-            $.ajax({
-                url : "search_student?sno=" + sno,
-                dataType : "json",
-                success : function (data) {
-                    var student = data;
-                    if(student.no != "0"){
-                        $("#no").html(student.no);
-                        $("#name").html(student.name);
-                        if(student.sex == false){
-                            $("#gender").html('男');
-                        } else {
-                            $("#gender").html('女');
-                        }
-                        $("#age").html(student.age);
-                        $("#major").html(student.major);
-                        $("#class").html(student.clazz);
 
-                        $("#table").removeClass("hidden");
+        $("#cno").blur(function () {
+            $.ajax({
+                url : 'query_coursename',
+                dataType : 'text',
+                method : 'POST',
+                data : {
+                    cno : $("#cno").val()
+                },
+                success : function (data) {
+                    if(data != "0"){
+                        $("#cname").val(data);
                     } else {
-                        $("#table").addClass("hidden");
-                        $.alert({
-                            title : '提示',
-                            content : '没有找到学号为' + sno + '的学生',
-                            buttons : {
-                                ok : {
-                                    text : '确定',
-                                    action : function () {}
-                                }
-                            }
-                        })
+                        $("#cname").val("");
+                        myAlert('提示', '未找到课程代码为'+$("#cno").val()+"的课程");
                     }
                 },
                 error : function () {
-                    $.alert({
-                        title : '提示',
-                        content : '出错了',
-                        buttons : {
-                            ok : {
-                                text : '确定',
-                                action : function () {}
-                            }
-                        }
-                    })
+                    myAlert('提示', '导入课程出错');
                 }
             })
         })
-    })
-    
-    function get_cookie(Name) {
-        var search = Name + "="//查询检索的值
-        var returnvalue = "";//返回值
-        if (document.cookie.length > 0) {
-            sd = document.cookie.indexOf(search);
-            if (sd!= -1) {
-                sd += search.length;
-                end = document.cookie.indexOf(";", sd);
-                if (end == -1)
-                    end = document.cookie.length;
-                //unescape() 函数可对通过 escape() 编码的字符串进行解码。
-                returnvalue=unescape(document.cookie.substring(sd, end))
+
+        $("#submit").click(function () {
+            var sno = $("#sno").val();
+            var cno = $("#cno").val();
+            var tno = $("#tno").val();
+            if(cno == null){
+                myAlert('提示', '课程代码不能为空');
+            } else if(tno == null){
+                myAlert('提示', '授课教代码不能为空');
+            } else {
+                $.ajax({
+                    url : 'insert_sc?sno='+sno+"&cno="+cno+"&tno="+tno,
+                    dataType : 'text',
+                    success : function (data) {
+                        myAlert('提示', '导入课程成功');
+                    },
+                    error : function () {
+                        myAlert('提示', '导入课程失败');
+                    }
+                })
             }
-        }
-        return returnvalue;
-    }
+        })
+    })
 
-    function edit(){
-        window.location.href = "edit_student?sno=" + $("#no").text();
-    }
-
-    function addCourse() {
-        window.location.href = "add_course?sno=" + $("#no").text();
-    }
-
-    function del() {
-        console.log(no)
-        $.confirm({
-            title: '警告',
-            content: '确定要删除' + $("#name").text() + "的信息吗？",
-            type: 'red',
-            typeAnimated: true,
-            buttons: {
-                ok: {
-                    text: '确定',
-                    btnClass: 'btn-red',
-                    action: function(){
-                        $.ajax({
-                            url : 'delete_student?sno=' + $("#no").text(),
-                            dataType : 'text',
-                            success : function (data) {
-                                if(data == "1"){
-                                    $.alert({
-                                        title: '提示',
-                                        content: '删除成功',
-                                        buttons : {
-                                            ok : {
-                                                text : '确定',
-                                                action : function () {
-                                                    $("#table").addClass("hidden");
-                                                }
-                                            }
-                                        }
-                                    });
-                                } else {
-                                    $.alert({
-                                        title : '提示',
-                                        content : '删除失败',
-                                        buttons : {
-                                            ok : {
-                                                text : '确定',
-                                                action : function(){}
-                                            }
-                                        }
-                                    })
-                                }
-                            },
-                            error : function () {
-                                $.alert('删除失败');
-                            }
-                        })
-                    }
-                },
-                close: {
-                    text : '取消',
-                    action : function () {
-
-                    }
+    function myAlert(title, content){
+        $.alert({
+            title : title,
+            content : content,
+            buttons : {
+                ok : {
+                    text : '确定',
+                    action : function () {}
                 }
             }
-        });
+        })
     }
+
 </script>
 
 </body>

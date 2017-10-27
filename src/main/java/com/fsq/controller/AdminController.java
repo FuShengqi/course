@@ -1,12 +1,10 @@
 package com.fsq.controller;
 
 import com.fsq.entity.Course;
+import com.fsq.entity.StuCos;
 import com.fsq.entity.Student;
 import com.fsq.entity.Teacher;
-import com.fsq.service.AdminService;
-import com.fsq.service.CourseService;
-import com.fsq.service.StudentService;
-import com.fsq.service.TeacherService;
+import com.fsq.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -38,6 +36,9 @@ public class AdminController {
 
     @Autowired
     private StudentService studentService;
+
+    @Autowired
+    private SCService scService;
 
     /*管理员退出登录*/
     @RequestMapping("alogout.html")
@@ -265,6 +266,34 @@ public class AdminController {
 
         studentService.update(student);
 
+        return "1";
+    }
+
+    @RequestMapping("delete_student")
+    @ResponseBody
+    public String deleteStudent(String sno){
+        studentService.deleteStudentByNo(sno);
+        return "1";
+    }
+
+    /*向特定的学生导入课程*/
+    @RequestMapping("add_course")
+    public ModelAndView addCourse(String sno){
+        Student student = studentService.getStudentByNo(sno);
+        ModelAndView mav = new ModelAndView("add_course");
+        mav.addObject("student", student);
+        return mav;
+    }
+
+    @RequestMapping("insert_sc")
+    @ResponseBody
+    public String insertSC(String sno, String cno, String tno){
+        StuCos sc = new StuCos();
+        sc.setStuNo(sno);
+        sc.setCosNo(cno);
+        sc.setTechNo(tno);
+
+        scService.insert(sc);
         return "1";
     }
 

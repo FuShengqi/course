@@ -19,6 +19,9 @@
     <!-- MetisMenu CSS -->
     <link href="assets/vendor/metisMenu/metisMenu.min.css" rel="stylesheet">
 
+    <%-- Jquery Confirm CSS --%>
+    <link href="assets/vendor/jquery-confirm/jquery-confirm.min.css" rel="stylesheet" type="text/css">
+
     <!-- Custom CSS -->
     <link href="assets/dist/css/sb-admin-2.css" rel="stylesheet">
 
@@ -117,18 +120,56 @@
     <!-- Page Content -->
     <div id="page-wrapper">
         <div class="container-fluid">
+            <br>
+            <!-- /.row -->
             <div class="row">
                 <div class="col-lg-12">
-                    <br>
-                    <div class="alert alert-info" role="alert">
-                        暂无教务通知
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            编辑通知并发布
+                        </div>
+                        <!-- /.panel-heading -->
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-lg-8">
+                                    <div class="form-group">
+                                        <input type="text" name="theme" id="theme" class="form-control" placeholder="通知主题">
+                                    </div>
+                                </div>
+                                <div class="col-lg-4">
+                                    <div class="form-group">
+                                        <select class="form-control" name="type" id="type">
+                                            <option value="0">面向学生</option>
+                                            <option value="1">面向老师</option>
+                                            <option value="2">面向学生和老师</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group">
+                                    <div class="col-lg-12">
+                                        <textarea class="form-control" rows="5" name="content" id="content" placeholder="通知内容"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-4 col-lg-offset-8">
+                                    <dic class="form-group">
+                                        <br>
+                                        <button id="btn-submit" type="button" class="btn btn-primary full-width btn-block">提交</button>
+                                    </dic>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /.panel-body -->
                     </div>
+                    <!-- /.panel -->
                 </div>
-                <!-- /.col-lg-12 -->
             </div>
-            <!-- /.row -->
+            <!-- /.container-fluid -->
         </div>
-        <!-- /.container-fluid -->
+        <!-- /#page-wrapper -->
     </div>
     <!-- /#page-wrapper -->
 
@@ -141,11 +182,26 @@
 <!-- Bootstrap Core JavaScript -->
 <script src="assets/vendor/bootstrap/js/bootstrap.min.js"></script>
 
+<%-- Jquery Confirm JavaScript--%>
+<script src="assets/vendor/jquery-confirm/jquery-confirm.min.js"></script>
+
 <!-- Metis Menu Plugin JavaScript -->
 <script src="assets/vendor/metisMenu/metisMenu.min.js"></script>
 
 <!-- Custom Theme JavaScript -->
 <script src="assets/dist/js/sb-admin-2.js"></script>
+
+<script>
+    $(function () {
+        var theme = $("#theme").val();
+        var content = $("#content").val();
+        var recep
+        $.ajax({
+            url : 'add_notification',
+
+        })
+    })
+</script>
 
 </body>
 

@@ -13,6 +13,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 import java.io.Writer;
 import java.util.List;
 
@@ -95,6 +96,22 @@ public class CourseController {
         ModelAndView editCourse = new ModelAndView("edit_course");
         editCourse.addObject("course", course);
         return editCourse;
+    }
+
+    @RequestMapping("query_coursename")
+    public void queryCourseName(HttpServletRequest request, HttpServletResponse response,
+                                  Writer writer) throws IOException {
+        String cno = request.getParameter("cno");
+
+        StringBuffer data = new StringBuffer();
+
+        Course course = courseService.getCourseByNo(cno);
+        if(course != null){
+            data.append(course.getName());
+        } else {
+            data.append("0");
+        }
+        writer.write(data.toString());
     }
 
 }

@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page import="java.net.URLDecoder" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
@@ -18,12 +19,6 @@
 
     <!-- MetisMenu CSS -->
     <link href="assets/vendor/metisMenu/metisMenu.min.css" rel="stylesheet">
-
-    <!-- DataTables CSS -->
-    <link href="assets/vendor/datatables-plugins/dataTables.bootstrap.css" rel="stylesheet">
-
-    <!-- DataTables Responsive CSS -->
-    <link href="assets/vendor/datatables-responsive/dataTables.responsive.css" rel="stylesheet">
 
     <%-- Jquery Confirm CSS --%>
     <link href="assets/vendor/jquery-confirm/jquery-confirm.min.css" rel="stylesheet" type="text/css">
@@ -78,7 +73,7 @@
 
         <ul class="nav navbar-top-links navbar-right">
             <li style="margin-top: 15px">
-                <i class="fa fa-user fa-fw"></i> <span><%=sname%></span> &nbsp;&nbsp;<a href="slogout.html" style="display: inline"><i class="fa fa-sign-out" aria-hidden="true"></i>退出</a>
+                <i class="fa fa-user fa-fw"></i> <span><%=sname%></span> &nbsp;&nbsp;<a href="alogout.html" style="display: inline"><i class="fa fa-sign-out" aria-hidden="true"></i>退出</a>
             </li>
             <!-- /.dropdown -->
         </ul>
@@ -98,8 +93,8 @@
                         </div>
                         <!-- /input-group -->
                     </li>
-                    <li>
-                        <a href="sn.html"><i class="fa fa-bell-o"></i> 教务通知</a>
+                    <li class="active">
+                        <a href="notification.html" class="active"><i class="fa fa-bell-o"></i> 教务通知</a>
                     </li>
                     <li>
                         <a href="course_selected.html"><i class="fa fa-check"></i> 已选课程</a>
@@ -110,8 +105,8 @@
                     <li>
                         <a href="course_not_selected.html"><i class="fa fa-circle-o"></i> 未选课程</a>
                     </li>
-                    <li class="active">
-                        <a href="#" class="active"><i class="fa fa-user"></i> 个人信息<span class="fa arrow"></span></a>
+                    <li>
+                        <a href="#"><i class="fa fa-user"></i> 个人信息<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
                                 <a href="query_score.html">成绩查询</a>
@@ -138,33 +133,29 @@
                 <div class="col-lg-12">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            全部可选课程
+                            通知详情
+                            <span style="float: right">发布于${notify.time}</span>
                         </div>
                         <!-- /.panel-heading -->
                         <div class="panel-body">
-                            <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
-                                <thead>
-                                <tr>
-                                    <th>课程代码</th>
-                                    <th>课程名称</th>
-                                    <th>课程性质</th>
-                                    <th>学分</th>
-                                    <th>授课老师</th>
-                                    <th>成绩</th>
-                                    <th>绩点</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                <!--<tr>
-                                    <td>Trident</td>
-                                    <td>Internet Explorer 4.0</td>
-                                    <td>Win 95+</td>
-                                    <td class="center">4</td>
-                                    <td class="center">X</td>
-                                </tr>-->
-
-                                </tbody>
-                            </table>
+                            <div class="row">
+                                <div class="col-lg-8">
+                                    <div class="form-group">
+                                        <label style="font-weight: normal">通知标题</label>
+                                        <input type="text" name="title" id="title" class="form-control" value="${notify.title}" disabled="disabled">
+                                    </div>
+                                </div>
+                                <div class="col-lg-4">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group">
+                                    <div class="col-lg-12">
+                                        <label style="font-weight: normal">通知内容</label>
+                                        <textarea class="form-control" rows="5" name="content" id="content" disabled>${notify.content}</textarea>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                         <!-- /.panel-body -->
                     </div>
@@ -175,8 +166,10 @@
         </div>
         <!-- /#page-wrapper -->
     </div>
-    <!-- /#wrapper -->
+    <!-- /#page-wrapper -->
+
 </div>
+<!-- /#wrapper -->
 
 <!-- jQuery -->
 <script src="assets/vendor/jquery/jquery.min.js"></script>
@@ -184,97 +177,65 @@
 <!-- Bootstrap Core JavaScript -->
 <script src="assets/vendor/bootstrap/js/bootstrap.min.js"></script>
 
-<!-- Metis Menu Plugin JavaScript -->
-<script src="assets/vendor/metisMenu/metisMenu.min.js"></script>
-
-<!-- DataTables JavaScript -->
-<script src="assets/vendor/datatables/js/jquery.dataTables.min.js"></script>
-<script src="assets/vendor/datatables-plugins/dataTables.bootstrap.min.js"></script>
-<script src="assets/vendor/datatables-responsive/dataTables.responsive.js"></script>
-
 <%-- Jquery Confirm JavaScript--%>
 <script src="assets/vendor/jquery-confirm/jquery-confirm.min.js"></script>
+
+<!-- Metis Menu Plugin JavaScript -->
+<script src="assets/vendor/metisMenu/metisMenu.min.js"></script>
 
 <!-- Custom Theme JavaScript -->
 <script src="assets/dist/js/sb-admin-2.js"></script>
 
-<!-- Page-Level Demo Scripts - Tables - Use for reference -->
 <script>
-    var table;
-
-    $(document).ready(function() {
-
-        /*初始化表格并填入数据*/
-        table = $('#dataTables-example').DataTable({
-            responsive: true,
-            autoWWidth : false,
-            /*"columns": [
-             { "width": "20%" },
-             { "width": "20%" },
-             { "width": "20%" },
-             { "width": "10%" },
-             { "width": "10%" },
-             { "width": "20%" }
-             ],*/
-            columns : [
-                {data : 'no'},
-                {data : 'name'},
-                {data : 'type'},
-                {data : 'credit'},
-                {data : 'teacher'},
-                {data : 'score'},
-                {data : 'gpa'}
-            ],
-            columnDefs : [
-                {
-                    targets : 1,
-                    width : "20%",
-                    orderable: false
+    $(function () {
+        $("#submit").click(function () {
+            var title = $("#title").val();
+            var content = $("#content").val();
+            var receiver = $("#receiver").val();
+            $.ajax({
+                url : 'add_notification',
+                data : {
+                    title : title,
+                    content : content,
+                    receiver: receiver,
+                    publisher : get_cookie("ano"),
+                    time : new Date().Format("yyyy-MM-dd hh:mm:ss")
                 },
-                {
-                    targets : 2,
-                    width : "20%",
-                    orderable: false
+                method : 'POST',
+                success : function (data) {
+                    $.alert({
+                        title : '提示',
+                        content : '通知发布成功',
+                        buttons : {
+                            ok : {
+                                text : '确定',
+                                action : function () {
+                                    /*window.location.href = "all_notifications.html";*/
+                                    window.history.back();
+                                }
+                            }
+                        }
+                    })
                 },
-                {
-                    targets : 5,
-                    orderable: false
-                },
-                {
-                    targets : 6
+                error : function () {
+                    myAlert('提示', '通知发布失败');
                 }
-            ],
-            ajax : {
-                url : "query_score?sno=" + get_cookie("sno"),
-                dataSrc : ""
-            },
-            language : {
-                "emptyTable" : "暂无数据",
-                "info" : "显示从第 _START_ 项到第 _END_ 项(共 _TOTAL_ 项)",
-                "infoEmpty" : "暂无数据",
-                "lengthMenu": "每页显示 _MENU_ 项",
-                "search":         "搜索:",
-                "loadingRecords": "加载中...",
-                "processing":     "处理中...",
-                "zeroRecords":    "无搜索结果",
-                "paginate": {
-                    "first":      "First",
-                    "last":       "Last",
-                    "next":       "后一页",
-                    "previous":   "前一页"
-                },
-                "aria": {
-                    "sortAscending":  ": activate to sort column ascending",
-                    "sortDescending": ": activate to sort column descending"
+            })
+        })
+    })
+
+    function myAlert(title, content){
+        $.alert({
+            title : title,
+            content : content,
+            buttons : {
+                ok : {
+                    text : '确定',
+                    action : function () {}
                 }
-            },
-            colReorder: {
-                fixedColumnsLeft: 1
             }
-        });
-        /*初始化表格并填入数据*/
-
-    });
+        })
+    }
 
     function get_cookie(Name) {
         var search = Name + "="//查询检索的值
@@ -293,6 +254,21 @@
         return returnvalue;
     }
 
+    Date.prototype.Format = function (fmt) { //author: meizz
+        var o = {
+            "M+": this.getMonth() + 1, //月份
+            "d+": this.getDate(), //日
+            "h+": this.getHours(), //小时
+            "m+": this.getMinutes(), //分
+            "s+": this.getSeconds(), //秒
+            "q+": Math.floor((this.getMonth() + 3) / 3), //季度
+            "S": this.getMilliseconds() //毫秒
+        };
+        if (/(y+)/.test(fmt)) fmt = fmt.replace(RegExp.$1, (this.getFullYear() + "").substr(4 - RegExp.$1.length));
+        for (var k in o)
+            if (new RegExp("(" + k + ")").test(fmt)) fmt = fmt.replace(RegExp.$1, (RegExp.$1.length == 1) ? (o[k]) : (("00" + o[k]).substr(("" + o[k]).length)));
+        return fmt;
+    }
 </script>
 
 </body>

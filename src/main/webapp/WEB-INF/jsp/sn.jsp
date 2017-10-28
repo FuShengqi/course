@@ -1,3 +1,5 @@
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page import="java.net.URLDecoder" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
@@ -18,12 +20,6 @@
 
     <!-- MetisMenu CSS -->
     <link href="assets/vendor/metisMenu/metisMenu.min.css" rel="stylesheet">
-
-    <!-- DataTables CSS -->
-    <link href="assets/vendor/datatables-plugins/dataTables.bootstrap.css" rel="stylesheet">
-
-    <!-- DataTables Responsive CSS -->
-    <link href="assets/vendor/datatables-responsive/dataTables.responsive.css" rel="stylesheet">
 
     <%-- Jquery Confirm CSS --%>
     <link href="assets/vendor/jquery-confirm/jquery-confirm.min.css" rel="stylesheet" type="text/css">
@@ -98,7 +94,7 @@
                         </div>
                         <!-- /input-group -->
                     </li>
-                    <li>
+                    <li class="active">
                         <a href="sn.html"><i class="fa fa-bell-o"></i> 教务通知</a>
                     </li>
                     <li>
@@ -110,8 +106,8 @@
                     <li>
                         <a href="course_not_selected.html"><i class="fa fa-circle-o"></i> 未选课程</a>
                     </li>
-                    <li class="active">
-                        <a href="#" class="active"><i class="fa fa-user"></i> 个人信息<span class="fa arrow"></span></a>
+                    <li>
+                        <a href="#"><i class="fa fa-user"></i> 个人信息<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
                                 <a href="query_score.html">成绩查询</a>
@@ -136,47 +132,51 @@
             <!-- /.row -->
             <div class="row">
                 <div class="col-lg-12">
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            全部可选课程
-                        </div>
-                        <!-- /.panel-heading -->
-                        <div class="panel-body">
-                            <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
-                                <thead>
-                                <tr>
-                                    <th>课程代码</th>
-                                    <th>课程名称</th>
-                                    <th>课程性质</th>
-                                    <th>学分</th>
-                                    <th>授课老师</th>
-                                    <th>成绩</th>
-                                    <th>绩点</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                <!--<tr>
-                                    <td>Trident</td>
-                                    <td>Internet Explorer 4.0</td>
-                                    <td>Win 95+</td>
-                                    <td class="center">4</td>
-                                    <td class="center">X</td>
-                                </tr>-->
+                    <c:choose>
+                        <c:when test="${fn:length(notifyList) == 0}">
+                            <br>
+                            <div class="alert alert-info" role="alert">
+                                暂时没有通知
+                            </div>
+                        </c:when>
+                        <c:otherwise>
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <span>所有通知</span>
+                                </div>
+                                <!-- /.panel-heading -->
+                                <div class="panel-body">
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            <c:forEach items="${notifyList}" var="notify">
+                                                <div class="list-group">
+                                                    <button type="button" class="list-group-item notify-list"><c:out value="${notify.title}"></c:out><span class="hidden" class="id"><c:out value="${notify.id}"></c:out></span><span style="float: right">发布日期：<c:out value="${notify.time}"></c:out></span></button>
+                                                </div>
+                                            </c:forEach>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-4 col-lg-offset-8">
 
-                                </tbody>
-                            </table>
-                        </div>
-                        <!-- /.panel-body -->
-                    </div>
-                    <!-- /.panel -->
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- /.panel-body -->
+                            </div>
+                            <!-- /.panel -->
+                        </c:otherwise>
+                    </c:choose>
+
                 </div>
             </div>
             <!-- /.container-fluid -->
         </div>
         <!-- /#page-wrapper -->
     </div>
-    <!-- /#wrapper -->
+    <!-- /#page-wrapper -->
+
 </div>
+<!-- /#wrapper -->
 
 <!-- jQuery -->
 <script src="assets/vendor/jquery/jquery.min.js"></script>
@@ -187,112 +187,19 @@
 <!-- Metis Menu Plugin JavaScript -->
 <script src="assets/vendor/metisMenu/metisMenu.min.js"></script>
 
-<!-- DataTables JavaScript -->
-<script src="assets/vendor/datatables/js/jquery.dataTables.min.js"></script>
-<script src="assets/vendor/datatables-plugins/dataTables.bootstrap.min.js"></script>
-<script src="assets/vendor/datatables-responsive/dataTables.responsive.js"></script>
-
 <%-- Jquery Confirm JavaScript--%>
 <script src="assets/vendor/jquery-confirm/jquery-confirm.min.js"></script>
 
 <!-- Custom Theme JavaScript -->
 <script src="assets/dist/js/sb-admin-2.js"></script>
 
-<!-- Page-Level Demo Scripts - Tables - Use for reference -->
 <script>
-    var table;
-
-    $(document).ready(function() {
-
-        /*初始化表格并填入数据*/
-        table = $('#dataTables-example').DataTable({
-            responsive: true,
-            autoWWidth : false,
-            /*"columns": [
-             { "width": "20%" },
-             { "width": "20%" },
-             { "width": "20%" },
-             { "width": "10%" },
-             { "width": "10%" },
-             { "width": "20%" }
-             ],*/
-            columns : [
-                {data : 'no'},
-                {data : 'name'},
-                {data : 'type'},
-                {data : 'credit'},
-                {data : 'teacher'},
-                {data : 'score'},
-                {data : 'gpa'}
-            ],
-            columnDefs : [
-                {
-                    targets : 1,
-                    width : "20%",
-                    orderable: false
-                },
-                {
-                    targets : 2,
-                    width : "20%",
-                    orderable: false
-                },
-                {
-                    targets : 5,
-                    orderable: false
-                },
-                {
-                    targets : 6
-                }
-            ],
-            ajax : {
-                url : "query_score?sno=" + get_cookie("sno"),
-                dataSrc : ""
-            },
-            language : {
-                "emptyTable" : "暂无数据",
-                "info" : "显示从第 _START_ 项到第 _END_ 项(共 _TOTAL_ 项)",
-                "infoEmpty" : "暂无数据",
-                "lengthMenu": "每页显示 _MENU_ 项",
-                "search":         "搜索:",
-                "loadingRecords": "加载中...",
-                "processing":     "处理中...",
-                "zeroRecords":    "无搜索结果",
-                "paginate": {
-                    "first":      "First",
-                    "last":       "Last",
-                    "next":       "后一页",
-                    "previous":   "前一页"
-                },
-                "aria": {
-                    "sortAscending":  ": activate to sort column ascending",
-                    "sortDescending": ": activate to sort column descending"
-                }
-            },
-            colReorder: {
-                fixedColumnsLeft: 1
-            }
-        });
-        /*初始化表格并填入数据*/
-
-    });
-
-    function get_cookie(Name) {
-        var search = Name + "="//查询检索的值
-        var returnvalue = "";//返回值
-        if (document.cookie.length > 0) {
-            sd = document.cookie.indexOf(search);
-            if (sd!= -1) {
-                sd += search.length;
-                end = document.cookie.indexOf(";", sd);
-                if (end == -1)
-                    end = document.cookie.length;
-                //unescape() 函数可对通过 escape() 编码的字符串进行解码。
-                returnvalue=unescape(document.cookie.substring(sd, end))
-            }
-        }
-        return returnvalue;
-    }
-
+    $(".notify-list").each(function () {
+        $(this).click(function () {
+            var id = $(this).find("span:eq(0)").text();
+            window.location.href = 'sn_detail?id='+id;
+        })
+    })
 </script>
 
 </body>

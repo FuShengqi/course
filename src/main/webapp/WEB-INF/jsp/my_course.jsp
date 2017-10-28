@@ -99,7 +99,7 @@
                         <!-- /input-group -->
                     </li>
                     <li>
-                        <a href="notification.html"><i class="fa fa-bell-o"></i> 教务通知</a>
+                        <a href="tn.html"><i class="fa fa-bell-o"></i> 教务通知</a>
                     </li>
                     <li class="active">
                         <a href="my_course.html" class="active"><i class="fa fa-check"></i> 我的课程</a>

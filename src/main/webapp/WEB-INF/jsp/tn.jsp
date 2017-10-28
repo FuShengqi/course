@@ -42,17 +42,17 @@
 <body>
 
 <%
-    String sname = null;
-    String sno = null;
+    String tname = null;
+    String tno = null;
     Cookie[] cookies = request.getCookies();
     for(Cookie cookie : cookies){
-        if(cookie.getName().equals("sname")){
-            sname = URLDecoder.decode(cookie.getValue(), "UTF-8");
-            System.out.println(sname);
+        if(cookie.getName().equals("tname")){
+            tname = URLDecoder.decode(cookie.getValue(), "UTF-8");
+            /*System.out.println(tname);*/
         }
-        if(cookie.getName().equals("sno")){
-            sno = cookie.getValue();
-            System.out.println(sno);
+        if(cookie.getName().equals("tno")){
+            tno = cookie.getValue();
+            /*System.out.println(tno);*/
         }
     }
 %>
@@ -74,7 +74,7 @@
 
         <ul class="nav navbar-top-links navbar-right">
             <li style="margin-top: 15px">
-                <i class="fa fa-user fa-fw"></i> <span>${student.name}</span> &nbsp;&nbsp;<a href="slogout.html" style="display: inline"><i class="fa fa-sign-out" aria-hidden="true"></i>退出</a>
+                <i class="fa fa-user fa-fw"></i> <span><%=tname%></span> &nbsp;&nbsp;<a href="tlogout.html" style="display: inline"><i class="fa fa-sign-out" aria-hidden="true"></i>退出</a>
             </li>
             <!-- /.dropdown -->
         </ul>
@@ -95,28 +95,13 @@
                         <!-- /input-group -->
                     </li>
                     <li class="active">
-                        <a href="sn.html" class="active"><i class="fa fa-bell-o"></i> 教务通知</a>
+                        <a href="notification.html" class="active"><i class="fa fa-bell-o"></i> 教务通知</a>
                     </li>
                     <li>
-                        <a href="course_selected.html"><i class="fa fa-check"></i> 已选课程</a>
+                        <a href="my_course.html"><i class="fa fa-check"></i> 我的课程</a>
                     </li>
                     <li>
-                        <a href="all_course_s.html"><i class="fa fa-bars"></i> 全部课程</a>
-                    </li>
-                    <li>
-                        <a href="course_not_selected.html"><i class="fa fa-circle-o"></i> 未选课程</a>
-                    </li>
-                    <li>
-                        <a href="#"><i class="fa fa-user"></i> 个人信息<span class="fa arrow"></span></a>
-                        <ul class="nav nav-second-level">
-                            <li>
-                                <a href="query_score.html">成绩查询</a>
-                            </li>
-                            <li>
-                                <a href="change_passwds.html">修改密码</a>
-                            </li>
-                        </ul>
-                        <!-- /.nav-second-level -->
+                        <a href="change_passwdt.html"><i class="fa fa-key"></i> 修改密码</a>
                     </li>
                 </ul>
             </div>
@@ -197,7 +182,7 @@
     $(".notify-list").each(function () {
         $(this).click(function () {
             var id = $(this).find("span:eq(0)").text();
-            window.location.href = 'sn_detail?id='+id;
+            window.location.href = 'tn_detail?id='+id;
         })
     })
 </script>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:c="http://java.sun.com/jsf/composite">
 
 <head>
 
@@ -105,18 +105,50 @@
         <!-- Page Content -->
         <div id="page-wrapper">
             <div class="container-fluid">
+                <br>
+                <!-- /.row -->
                 <div class="row">
                     <div class="col-lg-12">
-                        <br>
-                        <div class="alert alert-info" role="alert">
-                            暂无教务通知
-                        </div>
+                        <c:choose>
+                            <c:when test="${fn:length(notifyList) == 0}">
+                                <br>
+                                <div class="alert alert-info" role="alert">
+                                    暂时没有通知
+                                </div>
+                            </c:when>
+                            <c:otherwise>
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">
+                                        <span>所有通知</span>
+                                    </div>
+                                    <!-- /.panel-heading -->
+                                    <div class="panel-body">
+                                        <div class="row">
+                                            <div class="col-lg-12">
+                                                <c:forEach items="${notifyList}" var="notify">
+                                                    <div class="list-group">
+                                                        <button type="button" class="list-group-item notify-list"><c:out value="${notify.title}"></c:out><span class="hidden" class="id"><c:out value="${notify.id}"></c:out></span><span style="float: right">发布日期：<c:out value="${notify.time}"></c:out></span></button>
+                                                    </div>
+                                                </c:forEach>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-lg-4 col-lg-offset-8">
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- /.panel-body -->
+                                </div>
+                                <!-- /.panel -->
+                            </c:otherwise>
+                        </c:choose>
+
                     </div>
-                    <!-- /.col-lg-12 -->
                 </div>
-                <!-- /.row -->
+                <!-- /.container-fluid -->
             </div>
-            <!-- /.container-fluid -->
+            <!-- /#page-wrapper -->
         </div>
         <!-- /#page-wrapper -->
 

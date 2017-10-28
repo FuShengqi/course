@@ -1,5 +1,5 @@
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ page import="java.net.URLDecoder" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
@@ -42,17 +42,17 @@
 <body>
 
 <%
-    String sname = null;
-    String sno = null;
+    String aname = null;
+    String ano = null;
     Cookie[] cookies = request.getCookies();
     for(Cookie cookie : cookies){
-        if(cookie.getName().equals("sname")){
-            sname = URLDecoder.decode(cookie.getValue(), "UTF-8");
-            System.out.println(sname);
+        if(cookie.getName().equals("aname")){
+            aname = URLDecoder.decode(cookie.getValue(), "UTF-8");
+            System.out.println(aname);
         }
-        if(cookie.getName().equals("sno")){
-            sno = cookie.getValue();
-            System.out.println(sno);
+        if(cookie.getName().equals("ano")){
+            ano = cookie.getValue();
+            System.out.println(ano);
         }
     }
 %>
@@ -74,7 +74,7 @@
 
         <ul class="nav navbar-top-links navbar-right">
             <li style="margin-top: 15px">
-                <i class="fa fa-user fa-fw"></i> <span>${student.name}</span> &nbsp;&nbsp;<a href="slogout.html" style="display: inline"><i class="fa fa-sign-out" aria-hidden="true"></i>退出</a>
+                <i class="fa fa-user fa-fw"></i> <span><%=aname%></span> &nbsp;&nbsp;<a href="alogout.html" style="display: inline"><i class="fa fa-sign-out" aria-hidden="true"></i>退出</a>
             </li>
             <!-- /.dropdown -->
         </ul>
@@ -95,28 +95,22 @@
                         <!-- /input-group -->
                     </li>
                     <li class="active">
-                        <a href="sn.html" class="active"><i class="fa fa-bell-o"></i> 教务通知</a>
+                        <a href="all_notifications.html"><i class="fa fa-bell-o"></i> 通知公告</a>
                     </li>
                     <li>
-                        <a href="course_selected.html"><i class="fa fa-check"></i> 已选课程</a>
+                        <a href="all_course_a.html"><i class="fa fa-bars"></i> 全部课程</a>
                     </li>
                     <li>
-                        <a href="all_course_s.html"><i class="fa fa-bars"></i> 全部课程</a>
+                        <a href="import_course.html"><i class="fa fa-file-text"></i> 导入课程</a>
                     </li>
                     <li>
-                        <a href="course_not_selected.html"><i class="fa fa-circle-o"></i> 未选课程</a>
+                        <a href="teacher_manage.html"><i class="fa fa-user"></i> 教师管理</a>
                     </li>
                     <li>
-                        <a href="#"><i class="fa fa-user"></i> 个人信息<span class="fa arrow"></span></a>
-                        <ul class="nav nav-second-level">
-                            <li>
-                                <a href="query_score.html">成绩查询</a>
-                            </li>
-                            <li>
-                                <a href="change_passwds.html">修改密码</a>
-                            </li>
-                        </ul>
-                        <!-- /.nav-second-level -->
+                        <a href="student_manage.html"><i class="fa fa-graduation-cap"></i> 学生管理</a>
+                    </li>
+                    <li>
+                        <a href="reset_passwd.html"><i class="fa fa-key"></i> 修改密码</a>
                     </li>
                 </ul>
             </div>
@@ -136,13 +130,13 @@
                         <c:when test="${fn:length(notifyList) == 0}">
                             <br>
                             <div class="alert alert-info" role="alert">
-                                暂时没有通知
+                                还没有发布教务通知，<<a href="edit_notification">发布一条通知</a>
                             </div>
                         </c:when>
                         <c:otherwise>
                             <div class="panel panel-default">
                                 <div class="panel-heading">
-                                    <span>所有通知</span>
+                                    <span>所有通知</span><button id="notify" class="btn btn-default" style="float: right; margin-top: -7px">发布新通知</button><%--<span id="notify" style="float: right"><i class="fa fa-plus-circle"></i></span>--%>
                                 </div>
                                 <!-- /.panel-heading -->
                                 <div class="panel-body">
@@ -184,22 +178,75 @@
 <!-- Bootstrap Core JavaScript -->
 <script src="assets/vendor/bootstrap/js/bootstrap.min.js"></script>
 
-<!-- Metis Menu Plugin JavaScript -->
-<script src="assets/vendor/metisMenu/metisMenu.min.js"></script>
-
 <%-- Jquery Confirm JavaScript--%>
 <script src="assets/vendor/jquery-confirm/jquery-confirm.min.js"></script>
+
+<!-- Metis Menu Plugin JavaScript -->
+<script src="assets/vendor/metisMenu/metisMenu.min.js"></script>
 
 <!-- Custom Theme JavaScript -->
 <script src="assets/dist/js/sb-admin-2.js"></script>
 
 <script>
-    $(".notify-list").each(function () {
-        $(this).click(function () {
-            var id = $(this).find("span:eq(0)").text();
-            window.location.href = 'sn_detail?id='+id;
+    $(function () {
+        $("#notify").click(function () {
+            window.location.href = 'edit_notification';
+        });
+
+        $(".notify-list").each(function () {
+            $(this).click(function () {
+                var id = $(this).find("span:eq(0)").text();
+                window.location.href = 'show_detail?id='+id;
+            })
         })
+
     })
+
+    function myAlert(title, content){
+        $.alert({
+            title : title,
+            content : content,
+            buttons : {
+                ok : {
+                    text : '确定',
+                    action : function () {}
+                }
+            }
+        })
+    }
+
+    function get_cookie(Name) {
+        var search = Name + "="//查询检索的值
+        var returnvalue = "";//返回值
+        if (document.cookie.length > 0) {
+            sd = document.cookie.indexOf(search);
+            if (sd!= -1) {
+                sd += search.length;
+                end = document.cookie.indexOf(";", sd);
+                if (end == -1)
+                    end = document.cookie.length;
+                //unescape() 函数可对通过 escape() 编码的字符串进行解码。
+                returnvalue=unescape(document.cookie.substring(sd, end))
+            }
+        }
+        return returnvalue;
+    }
+
+    Date.prototype.Format = function (fmt) { //author: meizz
+        var o = {
+            "M+": this.getMonth() + 1, //月份
+            "d+": this.getDate(), //日
+            "h+": this.getHours(), //小时
+            "m+": this.getMinutes(), //分
+            "s+": this.getSeconds(), //秒
+            "q+": Math.floor((this.getMonth() + 3) / 3), //季度
+            "S": this.getMilliseconds() //毫秒
+        };
+        if (/(y+)/.test(fmt)) fmt = fmt.replace(RegExp.$1, (this.getFullYear() + "").substr(4 - RegExp.$1.length));
+        for (var k in o)
+            if (new RegExp("(" + k + ")").test(fmt)) fmt = fmt.replace(RegExp.$1, (RegExp.$1.length == 1) ? (o[k]) : (("00" + o[k]).substr(("" + o[k]).length)));
+        return fmt;
+    }
 </script>
 
 </body>

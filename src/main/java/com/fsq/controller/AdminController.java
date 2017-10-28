@@ -1,9 +1,7 @@
 package com.fsq.controller;
 
-import com.fsq.entity.Course;
-import com.fsq.entity.StuCos;
-import com.fsq.entity.Student;
-import com.fsq.entity.Teacher;
+import com.fsq.entity.*;
+import com.fsq.mappers.NotifyMapper;
 import com.fsq.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -39,6 +37,9 @@ public class AdminController {
 
     @Autowired
     private SCService scService;
+
+    @Autowired
+    private NotifyMapper notifyMapper;
 
     /*管理员退出登录*/
     @RequestMapping("alogout.html")
@@ -295,6 +296,50 @@ public class AdminController {
 
         scService.insert(sc);
         return "1";
+    }
+
+    @RequestMapping("add_notification")
+    @ResponseBody
+    public String addNotification(HttpServletRequest request, HttpServletResponse response){
+        String title = request.getParameter("title");
+        String content = request.getParameter("content");
+        String receiver = request.getParameter("receiver");
+        String publisher = request.getParameter("publisher");
+        String time = request.getParameter("time");
+
+        Notify notify = new Notify();
+        notify.setTitle(title);
+        notify.setContent(content);
+        notify.setPublisher(publisher);
+        notify.setReceiver(Integer.parseInt(receiver));
+        notify.setTime(time);
+
+        notifyMapper.insert(notify);
+
+        return "1";
+    }
+
+    @RequestMapping("all_notifications.html")
+    public ModelAndView allNotifications(){
+        List<Notify> notifyList = notifyMapper.getAllNotifications();
+        ModelAndView mav = new ModelAndView("an");
+        mav.addObject("notifyList", notifyList);
+        return mav;
+    }
+
+    @RequestMapping("edit_notification")
+    public ModelAndView editNotification(){
+        return new ModelAndView("edit_notification");
+    }
+
+    @RequestMapping("show_detail")
+    public ModelAndView showDetail(String id){
+        int idd = Integer.parseInt(id);
+        Notify notify = notifyMapper.getNotifyById(idd);
+
+        ModelAndView mav = new ModelAndView("notify_detaila");
+        mav.addObject("notify", notify);
+        return mav;
     }
 
     public void p(String string){

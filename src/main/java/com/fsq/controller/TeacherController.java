@@ -4,8 +4,10 @@ import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.fsq.entity.Course;
+import com.fsq.entity.Notify;
 import com.fsq.entity.StuCos;
 import com.fsq.entity.Student;
+import com.fsq.mappers.NotifyMapper;
 import com.fsq.service.CourseService;
 import com.fsq.service.SCService;
 import com.fsq.service.StudentService;
@@ -44,6 +46,9 @@ public class TeacherController {
 
     @Autowired
     private StudentService studentService;
+
+    @Autowired
+    private NotifyMapper notifyMapper;
 
     /*老师退出登录*/
     @RequestMapping("tlogout.html")
@@ -188,6 +193,24 @@ public class TeacherController {
         } else {
             return "0";
         }
+    }
+
+    @RequestMapping("tn_detail")
+    public ModelAndView showDetail(String id){
+        int idd = Integer.parseInt(id);
+        Notify notify = notifyMapper.getNotifyById(idd);
+
+        ModelAndView mav = new ModelAndView("notify_detailt");
+        mav.addObject("notify", notify);
+        return mav;
+    }
+
+    @RequestMapping("tn.html")
+    public ModelAndView tn(){
+        ModelAndView mav = new ModelAndView("tn");
+        List<Notify> notifyList = notifyMapper.getTeacherNotify();
+        mav.addObject("notifyList", notifyList);
+        return mav;
     }
 
 }

@@ -1,10 +1,8 @@
 package com.fsq.controller;
 
 import com.alibaba.fastjson.JSON;
-import com.fsq.entity.Course;
-import com.fsq.entity.Score;
-import com.fsq.entity.StuCos;
-import com.fsq.entity.Teacher;
+import com.fsq.entity.*;
+import com.fsq.mappers.NotifyMapper;
 import com.fsq.service.CourseService;
 import com.fsq.service.SCService;
 import com.fsq.service.StudentService;
@@ -42,6 +40,9 @@ public class StudentController {
 
     @Autowired
     private TeacherService teacherService;
+
+    @Autowired
+    private NotifyMapper notifyMapper;
 
     /*学生退出登录*/
     @RequestMapping("slogout.html")
@@ -236,6 +237,24 @@ public class StudentController {
         } else {
             return "0";
         }
+    }
+
+    @RequestMapping("sn_detail")
+    public ModelAndView showDetail(String id){
+        int idd = Integer.parseInt(id);
+        Notify notify = notifyMapper.getNotifyById(idd);
+
+        ModelAndView mav = new ModelAndView("notify_details");
+        mav.addObject("notify", notify);
+        return mav;
+    }
+
+    @RequestMapping("sn.html")
+    public ModelAndView sn(){
+        ModelAndView mav= new ModelAndView("sn");
+        List<Notify> notifyList = notifyMapper.getStudentNotify();
+        mav.addObject("notifyList", notifyList);
+        return mav;
     }
 
 }

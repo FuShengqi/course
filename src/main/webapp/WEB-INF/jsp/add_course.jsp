@@ -101,7 +101,7 @@
                         <!-- /input-group -->
                     </li>
                     <li>
-                        <a href="publish.html"><i class="fa fa-bell-o"></i> 发布通知</a>
+                        <a href="all_notifications.html"><i class="fa fa-bell-o"></i> 通知公告</a>
                     </li>
                     <li>
                         <a href="all_course_a.html"><i class="fa fa-bars"></i> 全部课程</a>

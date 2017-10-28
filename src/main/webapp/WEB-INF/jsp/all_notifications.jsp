@@ -1,5 +1,3 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ page import="java.net.URLDecoder" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
@@ -95,7 +93,7 @@
                         <!-- /input-group -->
                     </li>
                     <li class="active">
-                        <a href="all_notifications.html" class="active"><i class="fa fa-bell-o"></i> 通知公告</a>
+                        <a href="publish.html" class="active"><i class="fa fa-bell-o"></i> 发布通知</a>
                     </li>
                     <li>
                         <a href="all_course_a.html"><i class="fa fa-bars"></i> 全部课程</a>
@@ -126,41 +124,47 @@
             <!-- /.row -->
             <div class="row">
                 <div class="col-lg-12">
-                    <c:choose>
-                        <c:when test="${fn:length(notifyList) == 0}">
-                            <br>
-                            <div class="alert alert-info" role="alert">
-                                还没有发布教务通知，<<a href="edit_notification">发布一条通知</a>
-                            </div>
-                        </c:when>
-                        <c:otherwise>
-                            <div class="panel panel-default">
-                                <div class="panel-heading">
-                                    <span>所有通知</span><button id="notify" class="btn btn-default" style="float: right; margin-top: -7px">发布新通知</button><%--<span id="notify" style="float: right"><i class="fa fa-plus-circle"></i></span>--%>
-                                </div>
-                                <!-- /.panel-heading -->
-                                <div class="panel-body">
-                                    <div class="row">
-                                        <div class="col-lg-12">
-                                            <c:forEach items="${notifyList}" var="notify">
-                                                <div class="list-group">
-                                                    <button type="button" class="list-group-item notify-list"><c:out value="${notify.title}"></c:out><span class="hidden" class="id"><c:out value="${notify.id}"></c:out></span><span style="float: right">发布日期：<c:out value="${notify.time}"></c:out></span></button>
-                                                </div>
-                                            </c:forEach>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-lg-4 col-lg-offset-8">
-
-                                        </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            编辑通知并发布
+                        </div>
+                        <!-- /.panel-heading -->
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-lg-8">
+                                    <div class="form-group">
+                                        <input type="text" name="title" id="title" class="form-control" placeholder="通知标题">
                                     </div>
                                 </div>
-                                <!-- /.panel-body -->
+                                <div class="col-lg-4">
+                                    <div class="form-group">
+                                        <select class="form-control" name="receiver" id="receiver">
+                                            <option value="0">面向学生</option>
+                                            <option value="1">面向老师</option>
+                                            <option value="2">面向学生和老师</option>
+                                        </select>
+                                    </div>
+                                </div>
                             </div>
-                            <!-- /.panel -->
-                        </c:otherwise>
-                    </c:choose>
-
+                            <div class="row">
+                                <div class="form-group">
+                                    <div class="col-lg-12">
+                                        <textarea class="form-control" rows="5" name="content" id="content" placeholder="通知内容"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-4 col-lg-offset-8">
+                                    <dic class="form-group">
+                                        <br>
+                                        <button id="btn-submit" type="button" class="btn btn-primary full-width btn-block">提交</button>
+                                    </dic>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /.panel-body -->
+                    </div>
+                    <!-- /.panel -->
                 </div>
             </div>
             <!-- /.container-fluid -->
@@ -189,17 +193,26 @@
 
 <script>
     $(function () {
-        $("#notify").click(function () {
-            window.location.href = 'edit_notification';
-        });
-        
-        $(".notify-list").each(function () {
-            $(this).click(function () {
-                var id = $(this).find("span:eq(0)").text();
-                window.location.href = 'show_detail?id='+id;
-            })
+        var title = $("#title").val();
+        var content = $("#content").val();
+        var receiver = $("#receiver").val();
+        $.ajax({
+            url : 'add_notification',
+            data : {
+                title : title,
+                content : content,
+                receiver: receiver,
+                publisher : get_cookie(ano),
+                time : new Date().Format("yyyy-MM-dd HH:mm:ss")
+            },
+            method : 'POST',
+            success : function (data) {
+                myAlert('提示', '通知发布成功');
+            },
+            error : function () {
+                myAlert('提示', '通知发布失败');
+            }
         })
-        
     })
 
     function myAlert(title, content){

@@ -1,3 +1,5 @@
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page import="java.net.URLDecoder" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
@@ -18,6 +20,9 @@
 
     <!-- MetisMenu CSS -->
     <link href="assets/vendor/metisMenu/metisMenu.min.css" rel="stylesheet">
+
+    <%-- Jquery Confirm CSS --%>
+    <link href="assets/vendor/jquery-confirm/jquery-confirm.min.css" rel="stylesheet" type="text/css">
 
     <!-- Custom CSS -->
     <link href="assets/dist/css/sb-admin-2.css" rel="stylesheet">
@@ -108,18 +113,50 @@
     <!-- Page Content -->
     <div id="page-wrapper">
         <div class="container-fluid">
+            <br>
+            <!-- /.row -->
             <div class="row">
                 <div class="col-lg-12">
-                    <br>
-                    <div class="alert alert-info" role="alert">
-                        暂无教务通知
-                    </div>
+                    <c:choose>
+                        <c:when test="${fn:length(notifyList) == 0}">
+                            <br>
+                            <div class="alert alert-info" role="alert">
+                                暂时没有通知
+                            </div>
+                        </c:when>
+                        <c:otherwise>
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <span>所有通知</span>
+                                </div>
+                                <!-- /.panel-heading -->
+                                <div class="panel-body">
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            <c:forEach items="${notifyList}" var="notify">
+                                                <div class="list-group">
+                                                    <button type="button" class="list-group-item notify-list"><c:out value="${notify.title}"></c:out><span class="hidden" class="id"><c:out value="${notify.id}"></c:out></span><span style="float: right">发布日期：<c:out value="${notify.time}"></c:out></span></button>
+                                                </div>
+                                            </c:forEach>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-4 col-lg-offset-8">
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- /.panel-body -->
+                            </div>
+                            <!-- /.panel -->
+                        </c:otherwise>
+                    </c:choose>
+
                 </div>
-                <!-- /.col-lg-12 -->
             </div>
-            <!-- /.row -->
+            <!-- /.container-fluid -->
         </div>
-        <!-- /.container-fluid -->
+        <!-- /#page-wrapper -->
     </div>
     <!-- /#page-wrapper -->
 
@@ -135,8 +172,20 @@
 <!-- Metis Menu Plugin JavaScript -->
 <script src="assets/vendor/metisMenu/metisMenu.min.js"></script>
 
+<%-- Jquery Confirm JavaScript--%>
+<script src="assets/vendor/jquery-confirm/jquery-confirm.min.js"></script>
+
 <!-- Custom Theme JavaScript -->
 <script src="assets/dist/js/sb-admin-2.js"></script>
+
+<script>
+    $(".notify-list").each(function () {
+        $(this).click(function () {
+            var id = $(this).find("span:eq(0)").text();
+            window.location.href = 'tn_detail?id='+id;
+        })
+    })
+</script>
 
 </body>
 
